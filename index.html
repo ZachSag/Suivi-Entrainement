@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panneau d'entraînement — Z. Desbiens</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<style>
+  :root{
+    --bg: #0a0e12;
+    --bg-panel: #10161d;
+    --bg-panel-raised: #141b23;
+    --grid-line: #1b2530;
+    --border: #232e3a;
+    --text-primary: #e8ecef;
+    --text-dim: #6b7785;
+    --text-faint: #414d59;
+    --ch1: #ffb454; /* Strava historique */
+    --ch2: #4fd1e8; /* Garmin historique */
+    --ch3: #6fe38f; /* Suivi continu */
+    --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --sans: -apple-system, "Segoe UI", "Avenir Next", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    min-height:100vh;
+    padding: 28px 20px 60px;
+  }
+  .wrap{max-width: 1040px; margin: 0 auto;}
+
+  /* ---- Header / nameplate ---- */
+  header{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 18px; margin-bottom: 22px;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .eyebrow{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px;
+  }
+  h1{font-size: 26px; font-weight: 700; letter-spacing: -0.01em;}
+  .status{
+    font-family: var(--mono); font-size: 12px; color: var(--text-dim);
+    text-align: right;
+  }
+  .status .dot{
+    display:inline-block; width:7px; height:7px; border-radius:50%;
+    background: var(--ch3); margin-right:6px;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .status .dot{animation:none;} }
+  @keyframes pulse{
+    0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(111,227,143,0.5);}
+    50%{opacity:0.6; box-shadow:0 0 0 5px rgba(111,227,143,0);}
+  }
+
+  /* ---- Channel selector ---- */
+  .channels{display:flex; gap:10px; margin-bottom: 22px; flex-wrap: wrap;}
+  .ch-btn{
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+    color: var(--text-dim); background: var(--bg-panel);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 10px 16px; cursor: pointer; text-transform: uppercase;
+    display:flex; align-items:center; gap:8px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .ch-btn .sw{width:8px; height:8px; border-radius:50%; background: var(--text-faint);}
+  .ch-btn:hover{color: var(--text-primary); border-color: var(--text-dim);}
+  .ch-btn.active{color: var(--text-primary);}
+  .ch-btn[data-ch="1"].active{border-color: var(--ch1);}
+  .ch-btn[data-ch="1"].active .sw{background: var(--ch1); box-shadow: 0 0 6px var(--ch1);}
+  .ch-btn[data-ch="2"].active{border-color: var(--ch2);}
+  .ch-btn[data-ch="2"].active .sw{background: var(--ch2); box-shadow: 0 0 6px var(--ch2);}
+  .ch-btn[data-ch="3"].active{border-color: var(--ch3);}
+  .ch-btn[data-ch="3"].active .sw{background: var(--ch3); box-shadow: 0 0 6px var(--ch3);}
+
+  /* ---- Stat readouts ---- */
+  .stats{display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;}
+  .stat{
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .stat .label{
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .stat .value{font-family: var(--mono); font-size: 22px; font-weight: 600;}
+  .stat .value .unit{font-size: 13px; color: var(--text-dim); font-weight: 400; margin-left:4px;}
+
+  /* ---- Chart panel (graticule) ---- */
+  .scope{
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 40px),
+      var(--bg-panel);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 18px; margin-bottom: 20px; height: 300px;
+  }
+
+  /* ---- Table ---- */
+  .panel-title{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    color: var(--text-dim); text-transform: uppercase; margin-bottom: 10px;
+  }
+  table{width:100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px;}
+  th, td{text-align:left; padding: 9px 10px; border-bottom: 1px solid var(--border);}
+  th{color: var(--text-dim); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;}
+  td{color: var(--text-primary);}
+  tr:hover td{background: var(--bg-panel-raised);}
+
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  footer{
+    margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 11px; color: var(--text-faint);
+  }
+
+  @media (max-width: 640px){
+    .stats{grid-template-columns: repeat(2, 1fr);}
+    h1{font-size: 21px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow">Panneau d'entraînement</div>
+      <h1 id="athleteName">—</h1>
+    </div>
+    <div class="status"><span class="dot"></span>MAJ <span id="lastUpdated">—</span></div>
+  </header>
+
+  <nav class="channels">
+    <button class="ch-btn active" data-ch="1"><span class="sw"></span>CH1 — Strava historique</button>
+    <button class="ch-btn" data-ch="2"><span class="sw"></span>CH2 — Garmin historique</button>
+    <button class="ch-btn" data-ch="3"><span class="sw"></span>CH3 — Suivi continu</button>
+  </nav>
+
+  <div id="panel-1" class="tab-panel active">
+    <div class="stats" id="stats-1"></div>
+    <div class="scope"><canvas id="chart-1"></canvas></div>
+    <div class="panel-title">Sorties enregistrées</div>
+    <table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
+      <tbody id="table-1"></tbody></table>
+  </div>
+
+  <div id="panel-2" class="tab-panel">
+    <div class="stats" id="stats-2"></div>
+    <div class="scope"><canvas id="chart-2"></canvas></div>
+    <div class="panel-title">Sorties enregistrées</div>
+    <table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
+      <tbody id="table-2"></tbody></table>
+  </div>
+
+  <div id="panel-3" class="tab-panel">
+    <div class="stats" id="stats-3"></div>
+    <div class="scope"><canvas id="chart-3"></canvas></div>
+    <div class="panel-title">Sorties récentes</div>
+    <table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
+      <tbody id="table-3"></tbody></table>
+  </div>
+
+  <footer>index.html ne contient aucune donnée personnelle codée en dur — tout vient de data.js.</footer>
+</div>
+
+<script>
+const CH_COLORS = { 1: "#ffb454", 2: "#4fd1e8", 3: "#6fe38f" };
+const DATASETS = {
+  1: trainingData.strava_history,
+  2: trainingData.garmin_history,
+  3: trainingData.garmin_live
+};
+
+document.getElementById("athleteName").textContent = trainingData.meta.athlete;
+document.getElementById("lastUpdated").textContent = trainingData.meta.lastUpdated;
+
+function computeStats(acts){
+  const count = acts.length;
+  const totalDist = acts.reduce((s,a)=>s+a.distance_km,0);
+  const totalDur = acts.reduce((s,a)=>s+a.duration_min,0);
+  const withPace = acts.filter(a=>a.distance_km>0);
+  const avgPaceMinKm = withPace.length
+    ? withPace.reduce((s,a)=>s+(a.duration_min/a.distance_km),0)/withPace.length
+    : 0;
+  return { count, totalDist, totalDur, avgPaceMinKm };
+}
+
+function fmtPace(p){
+  if(!p) return "—";
+  const min = Math.floor(p);
+  const sec = Math.round((p-min)*60);
+  return `${min}:${String(sec).padStart(2,"0")}`;
+}
+
+function renderStats(chId, acts){
+  const s = computeStats(acts);
+  const el = document.getElementById(`stats-${chId}`);
+  el.innerHTML = `
+    <div class="stat"><div class="label">Distance totale</div><div class="value">${s.totalDist.toFixed(1)}<span class="unit">km</span></div></div>
+    <div class="stat"><div class="label">Temps total</div><div class="value">${(s.totalDur/60).toFixed(1)}<span class="unit">h</span></div></div>
+    <div class="stat"><div class="label">Sorties</div><div class="value">${s.count}<span class="unit">sorties</span></div></div>
+    <div class="stat"><div class="label">Allure moy.</div><div class="value">${fmtPace(s.avgPaceMinKm)}<span class="unit">/km</span></div></div>
+  `;
+}
+
+function renderTable(chId, acts){
+  const rows = [...acts].sort((a,b)=> new Date(b.date) - new Date(a.date));
+  document.getElementById(`table-${chId}`).innerHTML = rows.map(a => `
+    <tr>
+      <td>${a.date}</td>
+      <td>${a.type}</td>
+      <td>${a.distance_km.toFixed(1)} km</td>
+      <td>${a.duration_min} min</td>
+      <td>${a.elevation_m} m</td>
+      <td>${a.avg_hr ?? "—"}</td>
+    </tr>`).join("");
+}
+
+function renderChart(chId, acts){
+  const byMonth = {};
+  acts.forEach(a=>{
+    const key = a.date.slice(0,7); // YYYY-MM
+    byMonth[key] = (byMonth[key]||0) + a.distance_km;
+  });
+  const labels = Object.keys(byMonth).sort();
+  const values = labels.map(k=>byMonth[k]);
+  new Chart(document.getElementById(`chart-${chId}`), {
+    type: "bar",
+    data: { labels, datasets: [{
+      label: "Distance mensuelle (km)",
+      data: values,
+      backgroundColor: CH_COLORS[chId],
+      borderRadius: 2,
+      maxBarThickness: 28
+    }]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display:false } },
+      scales: {
+        x: { ticks: { color: "#6b7785", font:{family:"monospace", size:10} }, grid:{ display:false } },
+        y: { ticks: { color: "#6b7785", font:{family:"monospace", size:10} }, grid:{ color:"#1b2530" } }
+      }
+    }
+  });
+}
+
+[1,2,3].forEach(chId=>{
+  renderStats(chId, DATASETS[chId]);
+  renderTable(chId, DATASETS[chId]);
+  renderChart(chId, DATASETS[chId]);
+});
+
+document.querySelectorAll(".ch-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".ch-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(`panel-${btn.dataset.ch}`).classList.add("active");
+  });
+});
+</script>
+</body>
+</html>
