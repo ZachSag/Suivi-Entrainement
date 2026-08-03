@@ -39,20 +39,38 @@ git push
 ```
 GitHub Pages republie automatiquement en 1-2 minutes.
 
-## Schéma d'une activité
+## Les 4 canaux du tableau de bord
+
+- **CH1 — Strava historique** : 355 activités réelles, 2023-2026. Vue long terme du volume d'entraînement.
+- **CH2 — Garmin activités** : activités enrichies (effet d'entraînement aérobie/anaérobie, charge par séance, RPE, zones de FC).
+- **CH3 — Physiologie (long terme)** : FC repos et VO2 max mensuels depuis 2022, Body Battery chargée/drainée — pour suivre l'évolution de ta forme physique dans le temps.
+- **CH4 — VFC / Charge / Corrélations** : variabilité de la fréquence cardiaque (VFC), charge aiguë/chronique (ACWR), score de sommeil et de préparation à l'entraînement, avec calcul en direct du **coefficient de corrélation de Pearson** entre ces métriques.
+
+### Note sur les corrélations (CH4)
+
+Les coefficients affichés (r) sont calculés directement dans le navigateur à partir de tes données réelles — rien n'est pré-calculé ou inventé. Deux nuances importantes à garder en tête :
+
+1. **Peu de données = coefficients instables.** Avec ~5-10 semaines d'historique VFC/ACWR, un r peut bouger significativement d'une semaine à l'autre. Ces chiffres se stabiliseront avec le temps.
+2. **Sommeil vs préparation n'est pas une vraie découverte indépendante.** Le score de sommeil est l'un des facteurs d'entrée du calcul du score de préparation par Garmin lui-même — une corrélation positive ici est en partie mécanique (par construction de la formule), pas seulement physiologique. Le lien ACWR vs VFC, lui, est une vraie question ouverte (les deux métriques sont calculées indépendamment).
+
+## Schéma des données
 
 ```js
+// Activités (Strava et Garmin)
 {
-  date: "YYYY-MM-DD",
-  type: "Course" | "Vélo" | "Marche" | "Autre",
-  distance_km: 0,
-  duration_min: 0,
-  elevation_m: 0,
-  avg_hr: 0,     // ou null si non enregistré
-  max_hr: 0      // ou null si non enregistré
+  date: "YYYY-MM-DD", type: "...", distance_km: 0, duration_min: 0,
+  elevation_m: 0, avg_hr: 0, max_hr: 0
 }
+
+// Bien-être mensuel (CH3)
+{ month: "YYYY-MM", resting_hr_avg: 0, stress_avg: 0,
+  body_battery_charged_avg: 0, body_battery_drained_avg: 0, steps_avg: 0 }
+
+// Préparation quotidienne (CH4)
+{ date: "YYYY-MM-DD", readiness_score: 0, sleep_score: 0, hrv: 0,
+  acute_load: 0, chronic_load: 0, acwr: 0, acwr_status: "OPTIMAL" }
 ```
 
-## Limite honnête sur le "continu"
+## Mettre à jour avec de nouvelles données
 
-Ni Garmin ni Strava n'offrent d'accès API gratuit pour un usage personnel en ce moment (Garmin réserve son API aux entreprises ; Strava exige un abonnement payant pour l'accès API/MCP depuis juin 2026). Le canal "Suivi continu" n'est donc pas synchronisé automatiquement en temps réel — c'est toi qui alimentes `garmin_live` à chaque nouvel export manuel, gratuit, que tu me partages. Si un jour l'un des deux services ouvre un accès personnel gratuit, on pourra automatiser cette étape.
+Refais un export Garmin (voir la méthode qu'on a vue ensemble) de temps en temps, partage-le moi ici, et je fusionne les nouveaux jours dans `data.js`. Plus l'historique s'allonge, plus les corrélations du CH4 deviennent fiables.

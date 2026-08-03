@@ -16,58 +16,32 @@
     --text-primary: #e8ecef;
     --text-dim: #6b7785;
     --text-faint: #414d59;
-    --ch1: #ffb454; /* Strava historique */
-    --ch2: #4fd1e8; /* Garmin historique */
-    --ch3: #6fe38f; /* Suivi continu */
+    --ch1: #ffb454;
+    --ch2: #4fd1e8;
+    --ch3: #6fe38f;
+    --ch4: #c78fff;
     --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     --sans: -apple-system, "Segoe UI", "Avenir Next", Roboto, sans-serif;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{
-    background: var(--bg);
-    color: var(--text-primary);
-    font-family: var(--sans);
-    min-height:100vh;
-    padding: 28px 20px 60px;
-  }
-  .wrap{max-width: 1040px; margin: 0 auto;}
-
-  /* ---- Header / nameplate ---- */
+  body{ background: var(--bg); color: var(--text-primary); font-family: var(--sans); min-height:100vh; padding: 28px 20px 60px; }
+  .wrap{max-width: 1080px; margin: 0 auto;}
   header{
     display:flex; justify-content:space-between; align-items:flex-end;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 18px; margin-bottom: 22px;
-    flex-wrap: wrap; gap: 12px;
+    border-bottom: 1px solid var(--border); padding-bottom: 18px; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;
   }
-  .eyebrow{
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
-    color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px;
-  }
+  .eyebrow{ font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
   h1{font-size: 26px; font-weight: 700; letter-spacing: -0.01em;}
-  .status{
-    font-family: var(--mono); font-size: 12px; color: var(--text-dim);
-    text-align: right;
-  }
-  .status .dot{
-    display:inline-block; width:7px; height:7px; border-radius:50%;
-    background: var(--ch3); margin-right:6px;
-    animation: pulse 2.4s ease-in-out infinite;
-  }
+  .status{font-family: var(--mono); font-size: 12px; color: var(--text-dim); text-align: right;}
+  .status .dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background: var(--ch3); margin-right:6px; animation: pulse 2.4s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce){ .status .dot{animation:none;} }
-  @keyframes pulse{
-    0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(111,227,143,0.5);}
-    50%{opacity:0.6; box-shadow:0 0 0 5px rgba(111,227,143,0);}
-  }
+  @keyframes pulse{ 0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(111,227,143,0.5);} 50%{opacity:0.6; box-shadow:0 0 0 5px rgba(111,227,143,0);} }
 
-  /* ---- Channel selector ---- */
   .channels{display:flex; gap:10px; margin-bottom: 22px; flex-wrap: wrap;}
   .ch-btn{
-    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
-    color: var(--text-dim); background: var(--bg-panel);
-    border: 1px solid var(--border); border-radius: 4px;
-    padding: 10px 16px; cursor: pointer; text-transform: uppercase;
-    display:flex; align-items:center; gap:8px;
-    transition: border-color .15s ease, color .15s ease;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--text-dim); background: var(--bg-panel);
+    border: 1px solid var(--border); border-radius: 4px; padding: 10px 16px; cursor: pointer; text-transform: uppercase;
+    display:flex; align-items:center; gap:8px; transition: border-color .15s ease, color .15s ease;
   }
   .ch-btn .sw{width:8px; height:8px; border-radius:50%; background: var(--text-faint);}
   .ch-btn:hover{color: var(--text-primary); border-color: var(--text-dim);}
@@ -78,53 +52,43 @@
   .ch-btn[data-ch="2"].active .sw{background: var(--ch2); box-shadow: 0 0 6px var(--ch2);}
   .ch-btn[data-ch="3"].active{border-color: var(--ch3);}
   .ch-btn[data-ch="3"].active .sw{background: var(--ch3); box-shadow: 0 0 6px var(--ch3);}
+  .ch-btn[data-ch="4"].active{border-color: var(--ch4);}
+  .ch-btn[data-ch="4"].active .sw{background: var(--ch4); box-shadow: 0 0 6px var(--ch4);}
 
-  /* ---- Stat readouts ---- */
   .stats{display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;}
-  .stat{
-    background: var(--bg-panel); border: 1px solid var(--border); border-radius: 6px;
-    padding: 14px 16px;
-  }
-  .stat .label{
-    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
-    color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px;
-  }
+  .stat{background: var(--bg-panel); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px;}
+  .stat .label{ font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
   .stat .value{font-family: var(--mono); font-size: 22px; font-weight: 600;}
   .stat .value .unit{font-size: 13px; color: var(--text-dim); font-weight: 400; margin-left:4px;}
+  .stat .sub{font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-top:4px;}
 
-  /* ---- Chart panel (graticule) ---- */
   .scope{
     background:
       repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 40px),
       repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 40px),
       var(--bg-panel);
-    border: 1px solid var(--border); border-radius: 6px;
-    padding: 18px; margin-bottom: 20px; height: 300px;
+    border: 1px solid var(--border); border-radius: 6px; padding: 18px; margin-bottom: 20px; height: 280px;
   }
+  .scope-row{display:grid; grid-template-columns: 1fr 1fr; gap: 16px;}
+  @media (max-width: 760px){ .scope-row{grid-template-columns: 1fr;} }
 
-  /* ---- Table ---- */
-  .panel-title{
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
-    color: var(--text-dim); text-transform: uppercase; margin-bottom: 10px;
-  }
-  table{width:100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px;}
-  th, td{text-align:left; padding: 9px 10px; border-bottom: 1px solid var(--border);}
-  th{color: var(--text-dim); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;}
+  .panel-title{ font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 10px; }
+  .corr-note{ font-family: var(--mono); font-size: 12px; color: var(--text-dim); margin-top: -10px; margin-bottom: 20px; line-height:1.6; }
+  .corr-note b{color: var(--text-primary);}
+
+  table{width:100%; border-collapse: collapse; font-family: var(--mono); font-size: 12.5px;}
+  th, td{text-align:left; padding: 8px 9px; border-bottom: 1px solid var(--border); white-space:nowrap;}
+  th{color: var(--text-dim); font-weight: 500; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em;}
   td{color: var(--text-primary);}
   tr:hover td{background: var(--bg-panel-raised);}
+  .table-wrap{overflow-x:auto; margin-bottom: 24px;}
 
   .tab-panel{display:none;}
   .tab-panel.active{display:block;}
 
-  footer{
-    margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
-    font-family: var(--mono); font-size: 11px; color: var(--text-faint);
-  }
+  footer{ margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 11px; color: var(--text-faint); }
 
-  @media (max-width: 640px){
-    .stats{grid-template-columns: repeat(2, 1fr);}
-    h1{font-size: 21px;}
-  }
+  @media (max-width: 640px){ .stats{grid-template-columns: repeat(2, 1fr);} h1{font-size: 21px;} }
 </style>
 </head>
 <body>
@@ -140,123 +104,316 @@
 
   <nav class="channels">
     <button class="ch-btn active" data-ch="1"><span class="sw"></span>CH1 — Strava historique</button>
-    <button class="ch-btn" data-ch="2"><span class="sw"></span>CH2 — Garmin historique</button>
-    <button class="ch-btn" data-ch="3"><span class="sw"></span>CH3 — Suivi continu</button>
+    <button class="ch-btn" data-ch="2"><span class="sw"></span>CH2 — Garmin activités</button>
+    <button class="ch-btn" data-ch="3"><span class="sw"></span>CH3 — Physiologie (long terme)</button>
+    <button class="ch-btn" data-ch="4"><span class="sw"></span>CH4 — VFC / Charge / Corrélations</button>
   </nav>
 
   <div id="panel-1" class="tab-panel active">
     <div class="stats" id="stats-1"></div>
     <div class="scope"><canvas id="chart-1"></canvas></div>
     <div class="panel-title">Sorties enregistrées</div>
-    <table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
-      <tbody id="table-1"></tbody></table>
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
+      <tbody id="table-1"></tbody></table></div>
   </div>
 
   <div id="panel-2" class="tab-panel">
     <div class="stats" id="stats-2"></div>
-    <div class="scope"><canvas id="chart-2"></canvas></div>
-    <div class="panel-title">Sorties enregistrées</div>
-    <table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
-      <tbody id="table-2"></tbody></table>
+    <div class="scope-row">
+      <div class="scope"><canvas id="chart-2a"></canvas></div>
+      <div class="scope"><canvas id="chart-2b"></canvas></div>
+    </div>
+    <div class="panel-title">Activités (effet d'entraînement, charge, RPE)</div>
+    <div class="table-wrap"><table><thead><tr>
+      <th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>FC moy./max</th><th>Effet aér./anaér.</th><th>Charge</th><th>RPE</th>
+    </tr></thead><tbody id="table-2"></tbody></table></div>
   </div>
 
   <div id="panel-3" class="tab-panel">
     <div class="stats" id="stats-3"></div>
-    <div class="scope"><canvas id="chart-3"></canvas></div>
-    <div class="panel-title">Sorties récentes</div>
-    <table><thead><tr><th>Date</th><th>Type</th><th>Distance</th><th>Durée</th><th>D+</th><th>FC moy.</th></tr></thead>
-      <tbody id="table-3"></tbody></table>
+    <div class="scope-row">
+      <div class="scope"><canvas id="chart-3a"></canvas></div>
+      <div class="scope"><canvas id="chart-3b"></canvas></div>
+    </div>
+    <div class="panel-title">Moyennes mensuelles</div>
+    <div class="table-wrap"><table><thead><tr>
+      <th>Mois</th><th>FC repos</th><th>Stress</th><th>Body Battery +</th><th>Body Battery −</th><th>Pas/jour</th>
+    </tr></thead><tbody id="table-3"></tbody></table></div>
+  </div>
+
+  <div id="panel-4" class="tab-panel">
+    <div class="stats" id="stats-4"></div>
+    <div class="scope"><canvas id="chart-4a"></canvas></div>
+    <div class="scope-row">
+      <div class="scope"><canvas id="chart-4b"></canvas></div>
+      <div class="scope"><canvas id="chart-4c"></canvas></div>
+    </div>
+    <div class="corr-note" id="corr-note"></div>
+    <div class="panel-title">Journal quotidien (préparation, VFC, charge)</div>
+    <div class="table-wrap"><table><thead><tr>
+      <th>Date</th><th>VFC</th><th>ACWR</th><th>Statut</th><th>Sommeil</th><th>Préparation</th>
+    </tr></thead><tbody id="table-4"></tbody></table></div>
   </div>
 
   <footer>index.html ne contient aucune donnée personnelle codée en dur — tout vient de data.js.</footer>
 </div>
 
 <script>
-const CH_COLORS = { 1: "#ffb454", 2: "#4fd1e8", 3: "#6fe38f" };
-const DATASETS = {
-  1: trainingData.strava_history,
-  2: trainingData.garmin_history,
-  3: trainingData.garmin_live
-};
+const CH_COLORS = { 1: "#ffb454", 2: "#4fd1e8", 3: "#6fe38f", 4: "#c78fff" };
+const AXIS_COLOR = "#6b7785";
+const GRID_COLOR = "#1b2530";
 
 document.getElementById("athleteName").textContent = trainingData.meta.athlete;
 document.getElementById("lastUpdated").textContent = trainingData.meta.lastUpdated;
 
-function computeStats(acts){
-  const count = acts.length;
+function avg(arr){ return arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null; }
+
+function pearson(xs, ys){
+  const n = xs.length;
+  if(n < 3) return null;
+  const mx = avg(xs), my = avg(ys);
+  let num=0, dx2=0, dy2=0;
+  for(let i=0;i<n;i++){
+    const dx = xs[i]-mx, dy = ys[i]-my;
+    num += dx*dy; dx2 += dx*dx; dy2 += dy*dy;
+  }
+  const denom = Math.sqrt(dx2*dy2);
+  return denom === 0 ? null : num/denom;
+}
+function linreg(xs, ys){
+  const n = xs.length;
+  const mx = avg(xs), my = avg(ys);
+  let num=0, den=0;
+  for(let i=0;i<n;i++){ num += (xs[i]-mx)*(ys[i]-my); den += (xs[i]-mx)**2; }
+  const slope = den===0 ? 0 : num/den;
+  const intercept = my - slope*mx;
+  return {slope, intercept};
+}
+function fmtPace(p){
+  if(!p) return "—";
+  const min = Math.floor(p), sec = Math.round((p-min)*60);
+  return `${min}:${String(sec).padStart(2,"0")}`;
+}
+function fmtR(r){ return r === null ? "n/d" : (r>=0?"+":"") + r.toFixed(2); }
+
+/* CH1 — STRAVA */
+(function(){
+  const acts = trainingData.strava_history;
   const totalDist = acts.reduce((s,a)=>s+a.distance_km,0);
   const totalDur = acts.reduce((s,a)=>s+a.duration_min,0);
   const withPace = acts.filter(a=>a.distance_km>0);
-  const avgPaceMinKm = withPace.length
-    ? withPace.reduce((s,a)=>s+(a.duration_min/a.distance_km),0)/withPace.length
-    : 0;
-  return { count, totalDist, totalDur, avgPaceMinKm };
-}
+  const avgPace = withPace.length ? avg(withPace.map(a=>a.duration_min/a.distance_km)) : 0;
 
-function fmtPace(p){
-  if(!p) return "—";
-  const min = Math.floor(p);
-  const sec = Math.round((p-min)*60);
-  return `${min}:${String(sec).padStart(2,"0")}`;
-}
-
-function renderStats(chId, acts){
-  const s = computeStats(acts);
-  const el = document.getElementById(`stats-${chId}`);
-  el.innerHTML = `
-    <div class="stat"><div class="label">Distance totale</div><div class="value">${s.totalDist.toFixed(1)}<span class="unit">km</span></div></div>
-    <div class="stat"><div class="label">Temps total</div><div class="value">${(s.totalDur/60).toFixed(1)}<span class="unit">h</span></div></div>
-    <div class="stat"><div class="label">Sorties</div><div class="value">${s.count}<span class="unit">sorties</span></div></div>
-    <div class="stat"><div class="label">Allure moy.</div><div class="value">${fmtPace(s.avgPaceMinKm)}<span class="unit">/km</span></div></div>
+  document.getElementById("stats-1").innerHTML = `
+    <div class="stat"><div class="label">Distance totale</div><div class="value">${totalDist.toFixed(0)}<span class="unit">km</span></div></div>
+    <div class="stat"><div class="label">Temps total</div><div class="value">${(totalDur/60).toFixed(0)}<span class="unit">h</span></div></div>
+    <div class="stat"><div class="label">Sorties</div><div class="value">${acts.length}<span class="unit">activités</span></div></div>
+    <div class="stat"><div class="label">Allure moy.</div><div class="value">${fmtPace(avgPace)}<span class="unit">/km</span></div></div>
   `;
-}
 
-function renderTable(chId, acts){
-  const rows = [...acts].sort((a,b)=> new Date(b.date) - new Date(a.date));
-  document.getElementById(`table-${chId}`).innerHTML = rows.map(a => `
-    <tr>
-      <td>${a.date}</td>
-      <td>${a.type}</td>
-      <td>${a.distance_km.toFixed(1)} km</td>
-      <td>${a.duration_min} min</td>
-      <td>${a.elevation_m} m</td>
-      <td>${a.avg_hr ?? "—"}</td>
-    </tr>`).join("");
-}
-
-function renderChart(chId, acts){
   const byMonth = {};
-  acts.forEach(a=>{
-    const key = a.date.slice(0,7); // YYYY-MM
-    byMonth[key] = (byMonth[key]||0) + a.distance_km;
-  });
+  acts.forEach(a=>{ const k=a.date.slice(0,7); byMonth[k]=(byMonth[k]||0)+a.distance_km; });
   const labels = Object.keys(byMonth).sort();
-  const values = labels.map(k=>byMonth[k]);
-  new Chart(document.getElementById(`chart-${chId}`), {
+  new Chart(document.getElementById("chart-1"), {
     type: "bar",
-    data: { labels, datasets: [{
-      label: "Distance mensuelle (km)",
-      data: values,
-      backgroundColor: CH_COLORS[chId],
-      borderRadius: 2,
-      maxBarThickness: 28
-    }]},
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display:false } },
-      scales: {
-        x: { ticks: { color: "#6b7785", font:{family:"monospace", size:10} }, grid:{ display:false } },
-        y: { ticks: { color: "#6b7785", font:{family:"monospace", size:10} }, grid:{ color:"#1b2530" } }
-      }
-    }
+    data: { labels, datasets: [{ label:"Distance mensuelle (km)", data: labels.map(k=>byMonth[k]),
+      backgroundColor: CH_COLORS[1], borderRadius: 2, maxBarThickness: 14 }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales: { x:{ ticks:{color:AXIS_COLOR, font:{family:"monospace",size:9}, maxRotation:90, minRotation:90}, grid:{display:false} },
+                y:{ ticks:{color:AXIS_COLOR, font:{family:"monospace",size:10}}, grid:{color:GRID_COLOR} } } }
   });
-}
 
-[1,2,3].forEach(chId=>{
-  renderStats(chId, DATASETS[chId]);
-  renderTable(chId, DATASETS[chId]);
-  renderChart(chId, DATASETS[chId]);
-});
+  const rows = [...acts].sort((a,b)=> new Date(b.date)-new Date(a.date));
+  document.getElementById("table-1").innerHTML = rows.map(a=>`
+    <tr><td>${a.date}</td><td>${a.type}</td><td>${a.distance_km.toFixed(1)} km</td>
+    <td>${a.duration_min} min</td><td>${a.elevation_m} m</td><td>${a.avg_hr ?? "—"}</td></tr>`).join("");
+})();
+
+/* CH2 — GARMIN ACTIVITÉS */
+(function(){
+  const acts = trainingData.garmin_activities;
+  const totalDist = acts.reduce((s,a)=>s+a.distance_km,0);
+  const totalDur = acts.reduce((s,a)=>s+a.duration_min,0);
+  const withLoad = acts.filter(a=>a.training_load!=null);
+  const avgLoad = withLoad.length ? avg(withLoad.map(a=>a.training_load)) : null;
+  const withHr = acts.filter(a=>a.avg_hr!=null);
+  const avgHr = withHr.length ? avg(withHr.map(a=>a.avg_hr)) : null;
+
+  document.getElementById("stats-2").innerHTML = `
+    <div class="stat"><div class="label">Distance totale</div><div class="value">${totalDist.toFixed(0)}<span class="unit">km</span></div></div>
+    <div class="stat"><div class="label">Temps total</div><div class="value">${(totalDur/60).toFixed(0)}<span class="unit">h</span></div></div>
+    <div class="stat"><div class="label">Charge moy./activité</div><div class="value">${avgLoad?avgLoad.toFixed(0):"—"}</div></div>
+    <div class="stat"><div class="label">FC moy. globale</div><div class="value">${avgHr?avgHr.toFixed(0):"—"}<span class="unit">bpm</span></div></div>
+  `;
+
+  const byMonth = {};
+  acts.forEach(a=>{ const k=a.date.slice(0,7); byMonth[k]=(byMonth[k]||0)+a.distance_km; });
+  const labels = Object.keys(byMonth).sort();
+  new Chart(document.getElementById("chart-2a"), {
+    type: "bar",
+    data: { labels, datasets: [{ label:"Distance mensuelle (km)", data: labels.map(k=>byMonth[k]),
+      backgroundColor: CH_COLORS[2], borderRadius: 2, maxBarThickness: 24 }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},
+      title:{display:true,text:"Distance mensuelle",color:AXIS_COLOR,font:{family:"monospace",size:10}}},
+      scales: { x:{ticks:{color:AXIS_COLOR,font:{family:"monospace",size:9}},grid:{display:false}},
+                y:{ticks:{color:AXIS_COLOR,font:{family:"monospace",size:10}},grid:{color:GRID_COLOR}} } }
+  });
+
+  const chrono = [...acts].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  new Chart(document.getElementById("chart-2b"), {
+    type: "line",
+    data: { labels: chrono.map(a=>a.date), datasets: [
+      { label:"Effet aérobie", data: chrono.map(a=>a.aerobic_te), borderColor: CH_COLORS[2], backgroundColor:"transparent", tension:.3, pointRadius:2 },
+      { label:"Effet anaérobie", data: chrono.map(a=>a.anaerobic_te), borderColor: "#e88ae0", backgroundColor:"transparent", tension:.3, pointRadius:2 }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:AXIS_COLOR, font:{family:"monospace",size:9}}},
+                title:{display:true,text:"Effet d'entraînement (0-5)",color:AXIS_COLOR,font:{family:"monospace",size:10}} },
+      scales: { x:{ticks:{display:false},grid:{display:false}},
+                y:{min:0,max:5,ticks:{color:AXIS_COLOR,font:{family:"monospace",size:10}},grid:{color:GRID_COLOR}} } }
+  });
+
+  const rows = [...acts].sort((a,b)=>new Date(b.date)-new Date(a.date));
+  document.getElementById("table-2").innerHTML = rows.map(a=>`
+    <tr><td>${a.date}</td><td>${a.type}</td><td>${a.distance_km.toFixed(1)} km</td>
+    <td>${a.duration_min} min</td><td>${a.avg_hr??"—"} / ${a.max_hr??"—"}</td>
+    <td>${a.aerobic_te??"—"} / ${a.anaerobic_te??"—"}</td>
+    <td>${a.training_load??"—"}</td><td>${a.rpe??"—"}</td></tr>`).join("");
+})();
+
+/* CH3 — PHYSIOLOGIE LONG TERME */
+(function(){
+  const wm = trainingData.wellness_monthly;
+  const bio = trainingData.biometrics_history;
+
+  const firstRhr = wm.find(m=>m.resting_hr_avg!=null)?.resting_hr_avg;
+  const lastRhr = [...wm].reverse().find(m=>m.resting_hr_avg!=null)?.resting_hr_avg;
+  const lastVo2 = bio[bio.length-1]?.vo2max_running;
+  const firstVo2 = bio[0]?.vo2max_running;
+  const lastBBc = [...wm].reverse().find(m=>m.body_battery_charged_avg!=null)?.body_battery_charged_avg;
+
+  document.getElementById("stats-3").innerHTML = `
+    <div class="stat"><div class="label">FC repos actuelle</div><div class="value">${lastRhr??"—"}<span class="unit">bpm</span></div>
+      <div class="sub">${firstRhr && lastRhr ? ((lastRhr-firstRhr)<=0?"":"+")+(lastRhr-firstRhr).toFixed(1)+" bpm depuis "+wm[0].month : ""}</div></div>
+    <div class="stat"><div class="label">VO2 max (course)</div><div class="value">${lastVo2??"—"}<span class="unit">ml/kg/min</span></div>
+      <div class="sub">${firstVo2 && lastVo2 ? ((lastVo2-firstVo2)<=0?"":"+")+(lastVo2-firstVo2).toFixed(0)+" depuis "+bio[0].date : ""}</div></div>
+    <div class="stat"><div class="label">Body Battery (charge)</div><div class="value">${lastBBc?lastBBc.toFixed(0):"—"}<span class="unit">/100</span></div></div>
+    <div class="stat"><div class="label">Historique</div><div class="value" style="font-size:16px">${wm[0].month} → ${wm[wm.length-1].month}</div></div>
+  `;
+
+  new Chart(document.getElementById("chart-3a"), {
+    type: "line",
+    data: { labels: wm.map(m=>m.month), datasets: [
+      { label:"FC repos (bpm)", data: wm.map(m=>m.resting_hr_avg), borderColor: CH_COLORS[3], backgroundColor:"transparent", yAxisID:"y", tension:.3, pointRadius:1.5 },
+      { label:"VO2 max", data: wm.map(m=>{ const match=[...bio].reverse().find(b=>b.date.slice(0,7)<=m.month && b.vo2max_running!=null); return match?match.vo2max_running:null; }),
+        borderColor: CH_COLORS[1], backgroundColor:"transparent", yAxisID:"y1", tension:.3, pointRadius:1.5, spanGaps:true }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:AXIS_COLOR,font:{family:"monospace",size:9}}},
+                title:{display:true,text:"FC repos mensuelle vs VO2 max",color:AXIS_COLOR,font:{family:"monospace",size:10}} },
+      scales: {
+        x:{ticks:{color:AXIS_COLOR,font:{family:"monospace",size:8},maxRotation:90,minRotation:90},grid:{display:false}},
+        y:{position:"left",ticks:{color:CH_COLORS[3],font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}},
+        y1:{position:"right",ticks:{color:CH_COLORS[1],font:{family:"monospace",size:9}},grid:{display:false}}
+      } }
+  });
+
+  new Chart(document.getElementById("chart-3b"), {
+    type: "bar",
+    data: { labels: wm.map(m=>m.month), datasets: [
+      { label:"Chargée", data: wm.map(m=>m.body_battery_charged_avg), backgroundColor: CH_COLORS[3] },
+      { label:"Drainée", data: wm.map(m=>m.body_battery_drained_avg), backgroundColor: "#e05252" }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:AXIS_COLOR,font:{family:"monospace",size:9}}},
+                title:{display:true,text:"Body Battery mensuelle (chargée / drainée)",color:AXIS_COLOR,font:{family:"monospace",size:10}} },
+      scales: { x:{ticks:{color:AXIS_COLOR,font:{family:"monospace",size:8},maxRotation:90,minRotation:90},grid:{display:false}},
+                y:{ticks:{color:AXIS_COLOR,font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}} } }
+  });
+
+  document.getElementById("table-3").innerHTML = [...wm].reverse().map(m=>`
+    <tr><td>${m.month}</td><td>${m.resting_hr_avg??"—"}</td><td>${m.stress_avg??"—"}</td>
+    <td>${m.body_battery_charged_avg??"—"}</td><td>${m.body_battery_drained_avg??"—"}</td><td>${m.steps_avg?Math.round(m.steps_avg):"—"}</td></tr>`).join("");
+})();
+
+/* CH4 — CORRÉLATIONS RÉCENTES */
+(function(){
+  const rr = trainingData.readiness_recent;
+  const lastHrv = [...rr].reverse().find(r=>r.hrv!=null)?.hrv;
+  const lastAcwr = [...rr].reverse().find(r=>r.acwr!=null);
+  const lastReadiness = [...rr].reverse().find(r=>r.readiness_score!=null)?.readiness_score;
+  const sleepScores = rr.filter(r=>r.sleep_score!=null).map(r=>r.sleep_score);
+
+  document.getElementById("stats-4").innerHTML = `
+    <div class="stat"><div class="label">VFC actuelle</div><div class="value">${lastHrv??"—"}<span class="unit">ms</span></div></div>
+    <div class="stat"><div class="label">ACWR actuel</div><div class="value">${lastAcwr?lastAcwr.acwr.toFixed(1):"—"}</div>
+      <div class="sub">${lastAcwr?lastAcwr.acwr_status:""}</div></div>
+    <div class="stat"><div class="label">Préparation</div><div class="value">${lastReadiness??"—"}<span class="unit">/100</span></div></div>
+    <div class="stat"><div class="label">Sommeil moy.</div><div class="value">${sleepScores.length?avg(sleepScores).toFixed(0):"—"}<span class="unit">/100</span></div></div>
+  `;
+
+  new Chart(document.getElementById("chart-4a"), {
+    type: "line",
+    data: { labels: rr.map(r=>r.date), datasets: [
+      { label:"VFC (ms)", data: rr.map(r=>r.hrv), borderColor: CH_COLORS[4], backgroundColor:"transparent", yAxisID:"y", tension:.3, pointRadius:1.5, spanGaps:true },
+      { label:"ACWR", data: rr.map(r=>r.acwr), borderColor: "#ff8a5c", backgroundColor:"transparent", yAxisID:"y1", tension:.3, pointRadius:1.5, spanGaps:true }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:AXIS_COLOR,font:{family:"monospace",size:9}}},
+                title:{display:true,text:"VFC quotidienne vs charge aiguë/chronique (ACWR)",color:AXIS_COLOR,font:{family:"monospace",size:10}} },
+      scales: {
+        x:{ticks:{color:AXIS_COLOR,font:{family:"monospace",size:8},maxRotation:90,minRotation:90},grid:{display:false}},
+        y:{position:"left",ticks:{color:CH_COLORS[4],font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}},
+        y1:{position:"right",min:0,max:2,ticks:{color:"#ff8a5c",font:{family:"monospace",size:9}},grid:{display:false}}
+      } }
+  });
+
+  const pairsAcwrHrv = rr.filter(r=>r.acwr!=null && r.hrv!=null).map(r=>({x:r.acwr, y:r.hrv}));
+  const rAcwrHrv = pearson(pairsAcwrHrv.map(p=>p.x), pairsAcwrHrv.map(p=>p.y));
+  const regAH = pairsAcwrHrv.length>2 ? linreg(pairsAcwrHrv.map(p=>p.x), pairsAcwrHrv.map(p=>p.y)) : null;
+  const lineAH = regAH ? [0,2].map(x=>({x, y: regAH.slope*x+regAH.intercept})) : [];
+
+  new Chart(document.getElementById("chart-4b"), {
+    type: "scatter",
+    data: { datasets: [
+      { label:"Jours", data: pairsAcwrHrv, backgroundColor: CH_COLORS[4], pointRadius:3.5 },
+      { label:"Tendance", data: lineAH, type:"line", borderColor:"#ff8a5c", borderWidth:1.5, pointRadius:0, borderDash:[4,3] }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+                title:{display:true,text:`ACWR vs VFC  (r = ${fmtR(rAcwrHrv)})`,color:AXIS_COLOR,font:{family:"monospace",size:10}} },
+      scales: { x:{title:{display:true,text:"ACWR",color:AXIS_COLOR,font:{family:"monospace",size:9}},ticks:{color:AXIS_COLOR,font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}},
+                y:{title:{display:true,text:"VFC (ms)",color:AXIS_COLOR,font:{family:"monospace",size:9}},ticks:{color:AXIS_COLOR,font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}} } }
+  });
+
+  const pairsSleepReady = rr.filter(r=>r.sleep_score!=null && r.readiness_score!=null).map(r=>({x:r.sleep_score, y:r.readiness_score}));
+  const rSleepReady = pearson(pairsSleepReady.map(p=>p.x), pairsSleepReady.map(p=>p.y));
+  const regSR = pairsSleepReady.length>2 ? linreg(pairsSleepReady.map(p=>p.x), pairsSleepReady.map(p=>p.y)) : null;
+  const xsSR = pairsSleepReady.map(p=>p.x);
+  const lineSR = regSR && xsSR.length ? [Math.min(...xsSR), Math.max(...xsSR)].map(x=>({x, y: regSR.slope*x+regSR.intercept})) : [];
+
+  new Chart(document.getElementById("chart-4c"), {
+    type: "scatter",
+    data: { datasets: [
+      { label:"Jours", data: pairsSleepReady, backgroundColor: CH_COLORS[2], pointRadius:3.5 },
+      { label:"Tendance", data: lineSR, type:"line", borderColor:"#ffffff88", borderWidth:1.5, pointRadius:0, borderDash:[4,3] }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+                title:{display:true,text:`Sommeil vs préparation  (r = ${fmtR(rSleepReady)})`,color:AXIS_COLOR,font:{family:"monospace",size:10}} },
+      scales: { x:{title:{display:true,text:"Score de sommeil",color:AXIS_COLOR,font:{family:"monospace",size:9}},ticks:{color:AXIS_COLOR,font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}},
+                y:{title:{display:true,text:"Score de préparation",color:AXIS_COLOR,font:{family:"monospace",size:9}},ticks:{color:AXIS_COLOR,font:{family:"monospace",size:9}},grid:{color:GRID_COLOR}} } }
+  });
+
+  document.getElementById("corr-note").innerHTML =
+    `Corrélation (coefficient de Pearson, r ∈ [-1, 1]) calculée sur ${pairsAcwrHrv.length} jours pour ACWR/VFC et ${pairsSleepReady.length} jours pour sommeil/préparation. `+
+    `<b>r proche de 0</b> = pas de lien linéaire détectable sur cette période ; <b>|r| supérieur à 0.5</b> = lien notable. `+
+    `Avec seulement quelques semaines de données, ces coefficients resteront instables — à réinterpréter au fur et à mesure que l'historique s'allonge.`;
+
+  document.getElementById("table-4").innerHTML = [...rr].reverse().map(r=>`
+    <tr><td>${r.date}</td><td>${r.hrv??"—"}</td><td>${r.acwr??"—"}</td><td>${r.acwr_status??"—"}</td>
+    <td>${r.sleep_score??"—"}</td><td>${r.readiness_score??"—"}</td></tr>`).join("");
+})();
 
 document.querySelectorAll(".ch-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
