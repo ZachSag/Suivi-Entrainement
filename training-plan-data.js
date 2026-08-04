@@ -9,7 +9,7 @@ const trainingPlanData = {
     "planStartDate": "2026-08-03",
     "planEndDate": "2027-06-20",
     "createdAt": "2026-08-04T00:00:00Z",
-    "updatedAt": "2026-08-04T17:04:35Z",
+    "updatedAt": "2026-08-04T17:27:39Z",
     "totalWeeks": 46,
     "generatedBy": "Claude Coach"
   },
@@ -285,7 +285,7 @@ const trainingPlanData = {
       "endWeek": 20,
       "focus": "Reconstruction aérobie post-ultra, natation 1x/semaine (progression très graduelle depuis 1000-1200m, protection des épaules), vélo dès 90min et volume croissant, musculation fixe 2x60min/semaine, course courte du mercredi avec intensité. Recouvre le stage coop (~semaines 5-20).",
       "weeklyHoursRange": {
-        "low": 5.0,
+        "low": 4.7,
         "high": 7.6
       },
       "keyWorkouts": [
@@ -529,7 +529,7 @@ const trainingPlanData = {
       "endDate": "2026-08-16",
       "phase": "Base",
       "focus": "Retour progressif post-ultra + tests de terrain",
-      "targetHours": 5.8,
+      "targetHours": 5.47,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -569,8 +569,8 @@ const trainingPlanData = {
               "name": "Vélo - test FTP/FC 20min",
               "description": "Test de terrain: 20min échauffement avec 3x1min cadence élevée, puis 20min à l'effort maximal soutenable. FC moyenne de ce bloc ≈ seuil vélo.",
               "completed": false,
-              "durationMinutes": 31,
-              "distanceMeters": 12900,
+              "durationMinutes": 27,
+              "distanceMeters": 11200,
               "primaryZone": "Test"
             }
           ]
@@ -586,8 +586,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 26,
-              "distanceMeters": 4600,
+              "durationMinutes": 23,
+              "distanceMeters": 4070,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -632,8 +632,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 93,
-              "distanceMeters": 38800,
+              "durationMinutes": 84,
+              "distanceMeters": 35000,
               "primaryZone": "Zone 2"
             }
           ]
@@ -649,15 +649,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue très facile, aucune pression d'allure - priorité à la récupération complète post-ultra.",
               "completed": false,
-              "durationMinutes": 48,
-              "distanceMeters": 7910,
+              "durationMinutes": 44,
+              "distanceMeters": 7250,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.8,
+        "totalHours": 5.47,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -669,13 +669,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 2.07,
-            "km": 51.7
+            "hours": 1.85,
+            "km": 46.2
           },
           "run": {
             "sessions": 2,
-            "hours": 1.23,
-            "km": 12.5
+            "hours": 1.12,
+            "km": 11.3
           }
         }
       }
@@ -686,7 +686,7 @@ const trainingPlanData = {
       "endDate": "2026-08-23",
       "phase": "Base",
       "focus": "Retour progressif post-ultra + tests de terrain",
-      "targetHours": 5.83,
+      "targetHours": 5.5,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -726,8 +726,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 31,
-              "distanceMeters": 12900,
+              "durationMinutes": 28,
+              "distanceMeters": 11700,
               "primaryZone": "Zone 2"
             }
           ]
@@ -743,8 +743,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 26,
-              "distanceMeters": 4610,
+              "durationMinutes": 23,
+              "distanceMeters": 4080,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -789,8 +789,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 96,
-              "distanceMeters": 40000,
+              "durationMinutes": 87,
+              "distanceMeters": 36200,
               "primaryZone": "Zone 2"
             }
           ]
@@ -806,15 +806,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue très facile, aucune pression d'allure - priorité à la récupération complète post-ultra.",
               "completed": false,
-              "durationMinutes": 47,
-              "distanceMeters": 7760,
+              "durationMinutes": 42,
+              "distanceMeters": 6930,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.83,
+        "totalHours": 5.5,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -826,13 +826,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 2.12,
-            "km": 52.9
+            "hours": 1.92,
+            "km": 47.9
           },
           "run": {
             "sessions": 2,
-            "hours": 1.22,
-            "km": 12.4
+            "hours": 1.08,
+            "km": 11.0
           }
         }
       }
@@ -843,7 +843,7 @@ const trainingPlanData = {
       "endDate": "2026-08-30",
       "phase": "Base",
       "focus": "Retour progressif post-ultra + tests de terrain [semaine de décharge]",
-      "targetHours": 5.02,
+      "targetHours": 4.73,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -883,8 +883,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 25,
-              "distanceMeters": 10400,
+              "durationMinutes": 23,
+              "distanceMeters": 9600,
               "primaryZone": "Zone 2"
             }
           ]
@@ -900,8 +900,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 23,
-              "distanceMeters": 4090,
+              "durationMinutes": 20,
+              "distanceMeters": 3550,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -946,8 +946,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 75,
-              "distanceMeters": 31200,
+              "durationMinutes": 67,
+              "distanceMeters": 27900,
               "primaryZone": "Zone 2"
             }
           ]
@@ -963,15 +963,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 34,
-              "distanceMeters": 5630,
+              "durationMinutes": 30,
+              "distanceMeters": 4960,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.02,
+        "totalHours": 4.73,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -983,13 +983,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 1.67,
-            "km": 41.6
+            "hours": 1.5,
+            "km": 37.5
           },
           "run": {
             "sessions": 2,
-            "hours": 0.95,
-            "km": 9.7
+            "hours": 0.83,
+            "km": 8.5
           }
         }
       }
@@ -1000,7 +1000,7 @@ const trainingPlanData = {
       "endDate": "2026-09-06",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 6.13,
+      "targetHours": 5.77,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1040,8 +1040,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 32,
-              "distanceMeters": 13300,
+              "durationMinutes": 29,
+              "distanceMeters": 12100,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1057,8 +1057,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 27,
-              "distanceMeters": 4810,
+              "durationMinutes": 24,
+              "distanceMeters": 4270,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1103,8 +1103,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 103,
-              "distanceMeters": 42900,
+              "durationMinutes": 92,
+              "distanceMeters": 38300,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1120,15 +1120,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 55,
-              "distanceMeters": 9120,
+              "durationMinutes": 50,
+              "distanceMeters": 8290,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.13,
+        "totalHours": 5.77,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1140,13 +1140,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 2.25,
-            "km": 56.2
+            "hours": 2.02,
+            "km": 50.4
           },
           "run": {
             "sessions": 2,
-            "hours": 1.37,
-            "km": 13.9
+            "hours": 1.23,
+            "km": 12.6
           }
         }
       }
@@ -1157,7 +1157,7 @@ const trainingPlanData = {
       "endDate": "2026-09-13",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 6.28,
+      "targetHours": 5.88,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1197,8 +1197,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 33,
-              "distanceMeters": 13800,
+              "durationMinutes": 29,
+              "distanceMeters": 12100,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1214,8 +1214,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 28,
-              "distanceMeters": 5000,
+              "durationMinutes": 25,
+              "distanceMeters": 4460,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1260,8 +1260,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 106,
-              "distanceMeters": 44200,
+              "durationMinutes": 95,
+              "distanceMeters": 39600,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1277,15 +1277,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 57,
-              "distanceMeters": 9470,
+              "durationMinutes": 51,
+              "distanceMeters": 8480,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.28,
+        "totalHours": 5.88,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1297,13 +1297,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 2.32,
-            "km": 58.0
+            "hours": 2.07,
+            "km": 51.7
           },
           "run": {
             "sessions": 2,
-            "hours": 1.42,
-            "km": 14.5
+            "hours": 1.27,
+            "km": 12.9
           }
         }
       }
@@ -1314,7 +1314,7 @@ const trainingPlanData = {
       "endDate": "2026-09-20",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 6.33,
+      "targetHours": 5.95,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1354,8 +1354,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 33,
-              "distanceMeters": 13800,
+              "durationMinutes": 30,
+              "distanceMeters": 12500,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1371,8 +1371,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 28,
-              "distanceMeters": 5010,
+              "durationMinutes": 25,
+              "distanceMeters": 4470,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1417,8 +1417,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 109,
-              "distanceMeters": 45400,
+              "durationMinutes": 98,
+              "distanceMeters": 40800,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1434,15 +1434,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 58,
-              "distanceMeters": 9660,
+              "durationMinutes": 52,
+              "distanceMeters": 8660,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.33,
+        "totalHours": 5.95,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1454,13 +1454,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 2.37,
-            "km": 59.2
+            "hours": 2.13,
+            "km": 53.3
           },
           "run": {
             "sessions": 2,
-            "hours": 1.43,
-            "km": 14.7
+            "hours": 1.28,
+            "km": 13.1
           }
         }
       }
@@ -1471,7 +1471,7 @@ const trainingPlanData = {
       "endDate": "2026-09-27",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine) [semaine de décharge]",
-      "targetHours": 5.45,
+      "targetHours": 5.15,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -1511,8 +1511,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 27,
-              "distanceMeters": 11200,
+              "durationMinutes": 24,
+              "distanceMeters": 10000,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1528,8 +1528,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 24,
-              "distanceMeters": 4310,
+              "durationMinutes": 22,
+              "distanceMeters": 3950,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -1574,8 +1574,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 84,
-              "distanceMeters": 35000,
+              "durationMinutes": 76,
+              "distanceMeters": 31700,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1591,15 +1591,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 45,
-              "distanceMeters": 7510,
+              "durationMinutes": 40,
+              "distanceMeters": 6680,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.45,
+        "totalHours": 5.15,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1611,13 +1611,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 1.85,
-            "km": 46.2
+            "hours": 1.67,
+            "km": 41.7
           },
           "run": {
             "sessions": 2,
-            "hours": 1.15,
-            "km": 11.8
+            "hours": 1.03,
+            "km": 10.6
           }
         }
       }
@@ -1628,7 +1628,7 @@ const trainingPlanData = {
       "endDate": "2026-10-04",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 6.55,
+      "targetHours": 6.17,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1668,8 +1668,8 @@ const trainingPlanData = {
               "name": "Vélo - endurance facile (2e séance)",
               "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 34,
-              "distanceMeters": 14200,
+              "durationMinutes": 31,
+              "distanceMeters": 12900,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1685,8 +1685,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 29,
-              "distanceMeters": 5210,
+              "durationMinutes": 26,
+              "distanceMeters": 4680,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1731,8 +1731,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 115,
-              "distanceMeters": 47900,
+              "durationMinutes": 104,
+              "distanceMeters": 43300,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1748,15 +1748,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 62,
-              "distanceMeters": 10370,
+              "durationMinutes": 56,
+              "distanceMeters": 9370,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.55,
+        "totalHours": 6.17,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1768,13 +1768,13 @@ const trainingPlanData = {
           },
           "bike": {
             "sessions": 2,
-            "hours": 2.48,
-            "km": 62.1
+            "hours": 2.25,
+            "km": 56.2
           },
           "run": {
             "sessions": 2,
-            "hours": 1.52,
-            "km": 15.6
+            "hours": 1.37,
+            "km": 14.0
           }
         }
       }
@@ -7918,6 +7918,20 @@ const trainingPlanData = {
     "zonesEstimation": "Zones course basées sur le LTHR réellement mesuré par Garmin (182 bpm). Zones vélo et natation encore estimées faute de test formel - à valider via les tests de terrain prévus semaines 1-2 (vélo: test FTP/FC 20min; natation: test CSS 400m/200m, à réévaluer une fois la distance de 1900m atteinte confortablement).",
     "eventDateStatus": "Date du 20 juin 2027 estimée (dimanche). L'édition 2026 a eu lieu le 21 juin 2026; la date officielle 2027 n'était pas encore publiée par IRONMAN au 4 août 2026 (source: finishers.com). À confirmer dès publication officielle.",
     "constraintsApplied": "Plan révisé le 4 août 2026 selon les contraintes réelles de l'athlète: musculation fixe 2x60min/semaine (lundi bas du corps+abdos, jeudi haut du corps), natation 1x/semaine à l'automne dès 1000-1200m (progression très graduelle, protection des épaules), vélo long dès 90min, course du mercredi toujours la plus courte et toujours avec intensité (tempo/intervalles).",
-    "updateLog": []
+    "updateLog": [
+      {
+        "date": "2026-08-04T17:27:39Z",
+        "weeksUpdated": [
+          2,
+          9
+        ],
+        "volumeAdjust": {
+          "swim": 1.0,
+          "bike": 0.9,
+          "run": 0.9
+        },
+        "reason": "Semaine du 28 juil-4 août 2026: readiness_score moyen 7j = 47/100 (<50, signal de fatigue), avec un creux à 25 le 31 juillet. ACWR a grimpé jusqu'à 1.3 en fin de semaine (charge aigue en hausse rapide, encore sous le seuil de risque 1.5). HRV moyenne 7j 79 vs 83 les 2 semaines précédentes (-4%, léger). Sommeil resté bon (82/100 moyenne). Un seul signal net (readiness<50) -> réduction modérée et prudente (0.90) vélo/course pour 8 semaines, natation laissée inchangée (aucun signal d'épaule)."
+      }
+    ]
   }
 };
