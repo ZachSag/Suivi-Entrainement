@@ -1,4 +1,4 @@
-// Données du plan d'entraînement IRONMAN 70.3 Mont-Tremblant — généré par Claude Coach (v2, mode mise à jour incrémentale disponible)
+// Données du plan d'entraînement IRONMAN 70.3 Mont-Tremblant — généré par Claude Coach (v2.1: gabarit réorganisé + décharges 30%)
 const trainingPlanData = {
   "version": "1.0",
   "meta": {
@@ -9,7 +9,7 @@ const trainingPlanData = {
     "planStartDate": "2026-08-03",
     "planEndDate": "2027-06-20",
     "createdAt": "2026-08-04T00:00:00Z",
-    "updatedAt": "2026-08-04T17:27:39Z",
+    "updatedAt": "2026-08-04T17:53:52Z",
     "totalWeeks": 46,
     "generatedBy": "Claude Coach"
   },
@@ -69,7 +69,7 @@ const trainingPlanData = {
     ],
     "constraints": [
       "Stage coop à temps plein automne 2026 (~semaines 5 à 20 du plan, sept-déc) - natation limitée à 1x/semaine durant cette période pour respecter le temps disponible et la progression prudente à l'épaule",
-      "2 séances de musculation fixes et non-négociables chaque semaine, 60min chacune (bas du corps+abdos le lundi, haut du corps le jeudi), durée fixe qui n'augmente jamais",
+      "2 séances de musculation fixes et non-négociables chaque semaine, 60min chacune (bas du corps+abdos le lundi, haut du corps le vendredi), durée fixe qui n'augmente jamais",
       "Risque de blessure aux épaules en natation - progression de volume délibérément lente",
       "Natation en piscine seulement jusqu'au dégel (eau libre non praticable au Québec avant fin mai / début juin)"
     ]
@@ -285,15 +285,15 @@ const trainingPlanData = {
       "endWeek": 20,
       "focus": "Reconstruction aérobie post-ultra, natation 1x/semaine (progression très graduelle depuis 1000-1200m, protection des épaules), vélo dès 90min et volume croissant, musculation fixe 2x60min/semaine, course courte du mercredi avec intensité. Recouvre le stage coop (~semaines 5-20).",
       "weeklyHoursRange": {
-        "low": 4.7,
+        "low": 4.8,
         "high": 7.6
       },
       "keyWorkouts": [
         "Tests de terrain (course/vélo/natation, semaines 1-2)",
         "Natation 1x/semaine (mardi)",
-        "Vélo long + court (mardi/samedi)",
+        "Vélo long + court (jeudi/samedi)",
         "Course qualité mercredi + longue dimanche",
-        "Musculation bas du corps (lundi) + haut du corps (jeudi), 60min fixe"
+        "Musculation bas du corps (lundi) + haut du corps (vendredi), 60min fixe"
       ],
       "physiologicalGoals": [
         "Rétablir l'équilibre aérobie après l'ultra du 18 juillet",
@@ -308,12 +308,12 @@ const trainingPlanData = {
       "endWeek": 36,
       "focus": "Natation 2x/semaine (stage coop terminé), intensité accrue en course (intervalles seuil mercredi), vélo sweet spot, brick une semaine sur deux, musculation fixe inchangée.",
       "weeklyHoursRange": {
-        "low": 6.9,
+        "low": 6.5,
         "high": 10.1
       },
       "keyWorkouts": [
-        "Natation mardi + vendredi",
-        "Vélo sweet spot (mardi court) + long (samedi)",
+        "Natation mardi + samedi (avant le vélo long)",
+        "Vélo sweet spot (jeudi court) + long (samedi)",
         "Course intervalles seuil (mercredi) + longue (dimanche)",
         "Brick vélo-course (samedi, semaines alternées)"
       ],
@@ -329,7 +329,7 @@ const trainingPlanData = {
       "endWeek": 43,
       "focus": "Spécificité course: allure et puissance cible du 70.3, brick chaque semaine, natation en eau libre dès que possible (dégel), musculation réduite en charge mais durée inchangée.",
       "weeklyHoursRange": {
-        "low": 8.3,
+        "low": 7.8,
         "high": 11.0
       },
       "keyWorkouts": [
@@ -404,17 +404,6 @@ const trainingPlanData = {
               "durationMinutes": 29,
               "distanceMeters": 1000,
               "primaryZone": "Technique"
-            },
-            {
-              "id": "w1-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 30,
-              "distanceMeters": 12500,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -440,13 +429,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w1-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w1-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 30,
+              "distanceMeters": 12500,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -455,12 +446,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w1-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w1-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -510,15 +502,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.48
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.0,
-            "km": 50.0
-          },
           "run": {
             "sessions": 2,
             "hours": 1.25,
             "km": 12.6
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.0,
+            "km": 50.0
           }
         }
       }
@@ -529,7 +521,7 @@ const trainingPlanData = {
       "endDate": "2026-08-16",
       "phase": "Base",
       "focus": "Retour progressif post-ultra + tests de terrain",
-      "targetHours": 5.47,
+      "targetHours": 5.8,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -561,17 +553,6 @@ const trainingPlanData = {
               "durationMinutes": 30,
               "distanceMeters": 1050,
               "primaryZone": "Technique"
-            },
-            {
-              "id": "w2-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - test FTP/FC 20min",
-              "description": "Test de terrain: 20min échauffement avec 3x1min cadence élevée, puis 20min à l'effort maximal soutenable. FC moyenne de ce bloc ≈ seuil vélo.",
-              "completed": false,
-              "durationMinutes": 27,
-              "distanceMeters": 11200,
-              "primaryZone": "Test"
             }
           ]
         },
@@ -586,8 +567,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 23,
-              "distanceMeters": 4070,
+              "durationMinutes": 26,
+              "distanceMeters": 4600,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -597,13 +578,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w2-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w2-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - test FTP/FC 20min",
+              "description": "Test de terrain: 20min échauffement avec 3x1min cadence élevée, puis 20min à l'effort maximal soutenable. FC moyenne de ce bloc ≈ seuil vélo.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 31,
+              "distanceMeters": 12900,
+              "primaryZone": "Test"
             }
           ]
         },
@@ -612,12 +595,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w2-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w2-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -632,8 +616,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 84,
-              "distanceMeters": 35000,
+              "durationMinutes": 93,
+              "distanceMeters": 38800,
               "primaryZone": "Zone 2"
             }
           ]
@@ -649,15 +633,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue très facile, aucune pression d'allure - priorité à la récupération complète post-ultra.",
               "completed": false,
-              "durationMinutes": 44,
-              "distanceMeters": 7250,
+              "durationMinutes": 48,
+              "distanceMeters": 7910,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.47,
+        "totalHours": 5.8,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -667,15 +651,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.5
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 1.85,
-            "km": 46.2
-          },
           "run": {
             "sessions": 2,
-            "hours": 1.12,
-            "km": 11.3
+            "hours": 1.23,
+            "km": 12.5
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.07,
+            "km": 51.7
           }
         }
       }
@@ -686,7 +670,7 @@ const trainingPlanData = {
       "endDate": "2026-08-23",
       "phase": "Base",
       "focus": "Retour progressif post-ultra + tests de terrain",
-      "targetHours": 5.5,
+      "targetHours": 5.83,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -718,17 +702,6 @@ const trainingPlanData = {
               "durationMinutes": 30,
               "distanceMeters": 1050,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w3-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 28,
-              "distanceMeters": 11700,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -743,8 +716,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 23,
-              "distanceMeters": 4080,
+              "durationMinutes": 26,
+              "distanceMeters": 4610,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -754,13 +727,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w3-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w3-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 31,
+              "distanceMeters": 12900,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -769,12 +744,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w3-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w3-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -789,8 +765,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 87,
-              "distanceMeters": 36200,
+              "durationMinutes": 96,
+              "distanceMeters": 40000,
               "primaryZone": "Zone 2"
             }
           ]
@@ -806,15 +782,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue très facile, aucune pression d'allure - priorité à la récupération complète post-ultra.",
               "completed": false,
-              "durationMinutes": 42,
-              "distanceMeters": 6930,
+              "durationMinutes": 47,
+              "distanceMeters": 7760,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.5,
+        "totalHours": 5.83,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -824,15 +800,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.5
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 1.92,
-            "km": 47.9
-          },
           "run": {
             "sessions": 2,
-            "hours": 1.08,
-            "km": 11.0
+            "hours": 1.22,
+            "km": 12.4
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.12,
+            "km": 52.9
           }
         }
       }
@@ -843,7 +819,7 @@ const trainingPlanData = {
       "endDate": "2026-08-30",
       "phase": "Base",
       "focus": "Retour progressif post-ultra + tests de terrain [semaine de décharge]",
-      "targetHours": 4.73,
+      "targetHours": 4.75,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -870,22 +846,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~850m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~750m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 24,
-              "distanceMeters": 850,
+              "durationMinutes": 21,
+              "distanceMeters": 750,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w4-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 23,
-              "distanceMeters": 9600,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -900,8 +865,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 20,
-              "distanceMeters": 3550,
+              "durationMinutes": 21,
+              "distanceMeters": 3730,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -911,13 +876,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w4-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "id": "w4-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 22,
+              "distanceMeters": 9200,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -926,12 +893,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w4-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w4-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -946,8 +914,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 67,
-              "distanceMeters": 27900,
+              "durationMinutes": 70,
+              "distanceMeters": 29200,
               "primaryZone": "Zone 2"
             }
           ]
@@ -963,15 +931,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 30,
-              "distanceMeters": 4960,
+              "durationMinutes": 31,
+              "distanceMeters": 5130,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 4.73,
+        "totalHours": 4.75,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -979,17 +947,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 1,
-            "hours": 0.4
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 1.5,
-            "km": 37.5
+            "hours": 0.35
           },
           "run": {
             "sessions": 2,
-            "hours": 0.83,
-            "km": 8.5
+            "hours": 0.87,
+            "km": 8.9
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 1.53,
+            "km": 38.4
           }
         }
       }
@@ -1000,7 +968,7 @@ const trainingPlanData = {
       "endDate": "2026-09-06",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 5.77,
+      "targetHours": 6.13,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1032,17 +1000,6 @@ const trainingPlanData = {
               "durationMinutes": 31,
               "distanceMeters": 1100,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w5-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 29,
-              "distanceMeters": 12100,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1057,8 +1014,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 24,
-              "distanceMeters": 4270,
+              "durationMinutes": 27,
+              "distanceMeters": 4810,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1068,13 +1025,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w5-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w5-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 32,
+              "distanceMeters": 13300,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1083,12 +1042,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w5-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w5-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -1103,8 +1063,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 92,
-              "distanceMeters": 38300,
+              "durationMinutes": 103,
+              "distanceMeters": 42900,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1120,15 +1080,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 8290,
+              "durationMinutes": 55,
+              "distanceMeters": 9120,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.77,
+        "totalHours": 6.13,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1138,15 +1098,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.52
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.02,
-            "km": 50.4
-          },
           "run": {
             "sessions": 2,
-            "hours": 1.23,
-            "km": 12.6
+            "hours": 1.37,
+            "km": 13.9
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.25,
+            "km": 56.2
           }
         }
       }
@@ -1157,7 +1117,7 @@ const trainingPlanData = {
       "endDate": "2026-09-13",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 5.88,
+      "targetHours": 6.28,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1189,17 +1149,6 @@ const trainingPlanData = {
               "durationMinutes": 33,
               "distanceMeters": 1150,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w6-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 29,
-              "distanceMeters": 12100,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1214,8 +1163,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 25,
-              "distanceMeters": 4460,
+              "durationMinutes": 28,
+              "distanceMeters": 5000,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1225,13 +1174,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w6-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w6-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 33,
+              "distanceMeters": 13800,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1240,12 +1191,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w6-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w6-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -1260,8 +1212,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 95,
-              "distanceMeters": 39600,
+              "durationMinutes": 106,
+              "distanceMeters": 44200,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1277,15 +1229,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 51,
-              "distanceMeters": 8480,
+              "durationMinutes": 57,
+              "distanceMeters": 9470,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.88,
+        "totalHours": 6.28,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1295,15 +1247,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.55
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.07,
-            "km": 51.7
-          },
           "run": {
             "sessions": 2,
-            "hours": 1.27,
-            "km": 12.9
+            "hours": 1.42,
+            "km": 14.5
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.32,
+            "km": 58.0
           }
         }
       }
@@ -1314,7 +1266,7 @@ const trainingPlanData = {
       "endDate": "2026-09-20",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 5.95,
+      "targetHours": 6.33,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1346,17 +1298,6 @@ const trainingPlanData = {
               "durationMinutes": 32,
               "distanceMeters": 1150,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w7-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 30,
-              "distanceMeters": 12500,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1371,8 +1312,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 25,
-              "distanceMeters": 4470,
+              "durationMinutes": 28,
+              "distanceMeters": 5010,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1382,13 +1323,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w7-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w7-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 33,
+              "distanceMeters": 13800,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1397,12 +1340,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w7-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w7-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -1417,8 +1361,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 98,
-              "distanceMeters": 40800,
+              "durationMinutes": 109,
+              "distanceMeters": 45400,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1434,15 +1378,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 52,
-              "distanceMeters": 8660,
+              "durationMinutes": 58,
+              "distanceMeters": 9660,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.95,
+        "totalHours": 6.33,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1452,15 +1396,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.53
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.13,
-            "km": 53.3
-          },
           "run": {
             "sessions": 2,
-            "hours": 1.28,
-            "km": 13.1
+            "hours": 1.43,
+            "km": 14.7
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.37,
+            "km": 59.2
           }
         }
       }
@@ -1471,7 +1415,7 @@ const trainingPlanData = {
       "endDate": "2026-09-27",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine) [semaine de décharge]",
-      "targetHours": 5.15,
+      "targetHours": 5.18,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -1498,22 +1442,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~950m au total. Arrêter si sensation inhabituelle à l'épaule.",
-              "completed": false,
-              "durationMinutes": 27,
-              "distanceMeters": 950,
-              "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w8-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~850m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
               "durationMinutes": 24,
-              "distanceMeters": 10000,
-              "primaryZone": "Zone 2"
+              "distanceMeters": 850,
+              "primaryZone": "Zone 1-2"
             }
           ]
         },
@@ -1528,8 +1461,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 22,
-              "distanceMeters": 3950,
+              "durationMinutes": 23,
+              "distanceMeters": 4130,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -1539,13 +1472,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w8-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "id": "w8-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 24,
+              "distanceMeters": 10000,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1554,12 +1489,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w8-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w8-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -1574,8 +1510,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 76,
-              "distanceMeters": 31700,
+              "durationMinutes": 78,
+              "distanceMeters": 32500,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1591,15 +1527,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 40,
-              "distanceMeters": 6680,
+              "durationMinutes": 42,
+              "distanceMeters": 7010,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.15,
+        "totalHours": 5.18,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1607,17 +1543,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 1,
-            "hours": 0.45
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 1.67,
-            "km": 41.7
+            "hours": 0.4
           },
           "run": {
             "sessions": 2,
-            "hours": 1.03,
-            "km": 10.6
+            "hours": 1.08,
+            "km": 11.1
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 1.7,
+            "km": 42.5
           }
         }
       }
@@ -1628,7 +1564,7 @@ const trainingPlanData = {
       "endDate": "2026-10-04",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine)",
-      "targetHours": 6.17,
+      "targetHours": 6.55,
       "isRecoveryWeek": false,
       "days": [
         {
@@ -1660,17 +1596,6 @@ const trainingPlanData = {
               "durationMinutes": 33,
               "distanceMeters": 1200,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w9-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 31,
-              "distanceMeters": 12900,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1685,8 +1610,8 @@ const trainingPlanData = {
               "name": "Course - fartlek / tempo court",
               "description": "Échauffement 10min facile. Bloc principal: 15min fartlek non structuré (30s-1min plus soutenu / 1-2min facile en alternance) OU 10min continu à allure tempo (zone 3). Retour au calme 5-10min.",
               "completed": false,
-              "durationMinutes": 26,
-              "distanceMeters": 4680,
+              "durationMinutes": 29,
+              "distanceMeters": 5210,
               "primaryZone": "Zone 3-4"
             }
           ]
@@ -1696,13 +1621,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w9-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w9-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 34,
+              "distanceMeters": 14200,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1711,12 +1638,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w9-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w9-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -1731,8 +1659,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 104,
-              "distanceMeters": 43300,
+              "durationMinutes": 115,
+              "distanceMeters": 47900,
               "primaryZone": "Zone 2"
             }
           ]
@@ -1748,15 +1676,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 56,
-              "distanceMeters": 9370,
+              "durationMinutes": 62,
+              "distanceMeters": 10370,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.17,
+        "totalHours": 6.55,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -1766,15 +1694,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.55
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.25,
-            "km": 56.2
-          },
           "run": {
             "sessions": 2,
-            "hours": 1.37,
-            "km": 14.0
+            "hours": 1.52,
+            "km": 15.6
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.48,
+            "km": 62.1
           }
         }
       }
@@ -1817,17 +1745,6 @@ const trainingPlanData = {
               "durationMinutes": 34,
               "distanceMeters": 1250,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w10-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 35,
-              "distanceMeters": 14600,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1853,13 +1770,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w10-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w10-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 35,
+              "distanceMeters": 14600,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -1868,12 +1787,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w10-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w10-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -1923,15 +1843,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.57
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.55,
-            "km": 63.8
-          },
           "run": {
             "sessions": 2,
             "hours": 1.55,
             "km": 16.0
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.55,
+            "km": 63.8
           }
         }
       }
@@ -1974,17 +1894,6 @@ const trainingPlanData = {
               "durationMinutes": 34,
               "distanceMeters": 1250,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w11-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 35,
-              "distanceMeters": 14600,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2010,13 +1919,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w11-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w11-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 35,
+              "distanceMeters": 14600,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2025,12 +1936,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w11-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w11-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -2080,15 +1992,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.57
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.62,
-            "km": 65.4
-          },
           "run": {
             "sessions": 2,
             "hours": 1.58,
             "km": 16.3
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.62,
+            "km": 65.4
           }
         }
       }
@@ -2099,7 +2011,7 @@ const trainingPlanData = {
       "endDate": "2026-10-25",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine) [semaine de décharge]",
-      "targetHours": 5.8,
+      "targetHours": 5.48,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -2126,22 +2038,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1050m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~900m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 29,
-              "distanceMeters": 1050,
+              "durationMinutes": 25,
+              "distanceMeters": 900,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w12-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 29,
-              "distanceMeters": 12100,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2156,8 +2057,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 26,
-              "distanceMeters": 4710,
+              "durationMinutes": 25,
+              "distanceMeters": 4530,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -2167,13 +2068,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w12-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "id": "w12-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 25,
+              "distanceMeters": 10400,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2182,12 +2085,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w12-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w12-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -2202,8 +2106,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 94,
-              "distanceMeters": 39200,
+              "durationMinutes": 87,
+              "distanceMeters": 36200,
               "primaryZone": "Zone 2"
             }
           ]
@@ -2219,15 +2123,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 8420,
+              "durationMinutes": 47,
+              "distanceMeters": 7910,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 5.8,
+        "totalHours": 5.48,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -2235,17 +2139,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 1,
-            "hours": 0.48
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.05,
-            "km": 51.3
+            "hours": 0.42
           },
           "run": {
             "sessions": 2,
-            "hours": 1.27,
-            "km": 13.1
+            "hours": 1.2,
+            "km": 12.4
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 1.87,
+            "km": 46.6
           }
         }
       }
@@ -2288,17 +2192,6 @@ const trainingPlanData = {
               "durationMinutes": 35,
               "distanceMeters": 1300,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w13-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 36,
-              "distanceMeters": 15000,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2324,13 +2217,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w13-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w13-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 36,
+              "distanceMeters": 15000,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2339,12 +2234,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w13-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w13-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -2394,15 +2290,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.58
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.73,
-            "km": 68.3
-          },
           "run": {
             "sessions": 2,
             "hours": 1.65,
             "km": 17.1
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.73,
+            "km": 68.3
           }
         }
       }
@@ -2445,17 +2341,6 @@ const trainingPlanData = {
               "durationMinutes": 36,
               "distanceMeters": 1350,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w14-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 37,
-              "distanceMeters": 15400,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2481,13 +2366,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w14-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w14-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 37,
+              "distanceMeters": 15400,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2496,12 +2383,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w14-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w14-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -2551,15 +2439,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.6
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.8,
-            "km": 70.0
-          },
           "run": {
             "sessions": 2,
             "hours": 1.7,
             "km": 17.7
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.8,
+            "km": 70.0
           }
         }
       }
@@ -2602,17 +2490,6 @@ const trainingPlanData = {
               "durationMinutes": 36,
               "distanceMeters": 1350,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w15-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 37,
-              "distanceMeters": 15400,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2638,13 +2515,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w15-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w15-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 37,
+              "distanceMeters": 15400,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2653,12 +2532,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w15-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w15-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -2708,15 +2588,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.6
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.85,
-            "km": 71.2
-          },
           "run": {
             "sessions": 2,
             "hours": 1.73,
             "km": 18.1
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.85,
+            "km": 71.2
           }
         }
       }
@@ -2727,7 +2607,7 @@ const trainingPlanData = {
       "endDate": "2026-11-22",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine) [semaine de décharge]",
-      "targetHours": 6.08,
+      "targetHours": 5.78,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -2754,22 +2634,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1100m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1000m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 29,
-              "distanceMeters": 1100,
+              "durationMinutes": 27,
+              "distanceMeters": 1000,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w16-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 30,
-              "distanceMeters": 12500,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2784,8 +2653,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 28,
-              "distanceMeters": 5120,
+              "durationMinutes": 26,
+              "distanceMeters": 4750,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -2795,13 +2664,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w16-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "id": "w16-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 27,
+              "distanceMeters": 11200,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2810,12 +2681,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w16-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w16-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -2830,8 +2702,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 103,
-              "distanceMeters": 42900,
+              "durationMinutes": 96,
+              "distanceMeters": 40000,
               "primaryZone": "Zone 2"
             }
           ]
@@ -2847,15 +2719,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 55,
-              "distanceMeters": 9340,
+              "durationMinutes": 51,
+              "distanceMeters": 8660,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.08,
+        "totalHours": 5.78,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -2863,17 +2735,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 1,
-            "hours": 0.48
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.22,
-            "km": 55.4
+            "hours": 0.45
           },
           "run": {
             "sessions": 2,
-            "hours": 1.38,
-            "km": 14.5
+            "hours": 1.28,
+            "km": 13.4
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.05,
+            "km": 51.2
           }
         }
       }
@@ -2916,17 +2788,6 @@ const trainingPlanData = {
               "durationMinutes": 37,
               "distanceMeters": 1400,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w17-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 38,
-              "distanceMeters": 15800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2952,13 +2813,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w17-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w17-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 38,
+              "distanceMeters": 15800,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -2967,12 +2830,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w17-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w17-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -3022,15 +2886,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.62
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.98,
-            "km": 74.6
-          },
           "run": {
             "sessions": 2,
             "hours": 1.8,
             "km": 18.8
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.98,
+            "km": 74.6
           }
         }
       }
@@ -3073,17 +2937,6 @@ const trainingPlanData = {
               "durationMinutes": 38,
               "distanceMeters": 1450,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w18-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 39,
-              "distanceMeters": 16200,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3109,13 +2962,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w18-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w18-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 39,
+              "distanceMeters": 16200,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3124,12 +2979,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w18-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w18-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -3179,15 +3035,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.63
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.05,
-            "km": 76.2
-          },
           "run": {
             "sessions": 2,
             "hours": 1.85,
             "km": 19.4
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.05,
+            "km": 76.2
           }
         }
       }
@@ -3230,17 +3086,6 @@ const trainingPlanData = {
               "durationMinutes": 38,
               "distanceMeters": 1450,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w19-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 39,
-              "distanceMeters": 16200,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3266,13 +3111,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w19-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "id": "w19-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 39,
+              "distanceMeters": 16200,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3281,12 +3128,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w19-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w19-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -3336,15 +3184,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.63
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.1,
-            "km": 77.5
-          },
           "run": {
             "sessions": 2,
             "hours": 1.87,
             "km": 19.6
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.1,
+            "km": 77.5
           }
         }
       }
@@ -3355,7 +3203,7 @@ const trainingPlanData = {
       "endDate": "2026-12-20",
       "phase": "Base",
       "focus": "Construction aérobie pendant le stage coop (natation 1x/semaine) [semaine de décharge]",
-      "targetHours": 6.42,
+      "targetHours": 6.07,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -3382,22 +3230,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1200m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1050m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 31,
-              "distanceMeters": 1200,
+              "durationMinutes": 27,
+              "distanceMeters": 1050,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w20-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 32,
-              "distanceMeters": 13300,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3412,8 +3249,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 30,
-              "distanceMeters": 5540,
+              "durationMinutes": 28,
+              "distanceMeters": 5170,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -3423,13 +3260,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w20-jeu-force",
-              "sport": "strength",
-              "type": "foundation",
-              "name": "Musculation - haut du corps",
-              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "id": "w20-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 28,
+              "distanceMeters": 11700,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3438,12 +3277,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w20-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w20-ven-force",
+              "sport": "strength",
+              "type": "foundation",
+              "name": "Musculation - haut du corps",
+              "description": "Semaine de décharge: Haut du corps. 3 séries x 12-15 reps: tirage horizontal, développé haltères, tirage vertical, élévations latérales légères, biceps/triceps. Gainage: dead bug 2x12/côté. Réduire la charge de 20-30%.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -3458,8 +3298,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 112,
-              "distanceMeters": 46700,
+              "durationMinutes": 105,
+              "distanceMeters": 43800,
               "primaryZone": "Zone 2"
             }
           ]
@@ -3475,15 +3315,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 60,
-              "distanceMeters": 10290,
+              "durationMinutes": 56,
+              "distanceMeters": 9600,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.42,
+        "totalHours": 6.07,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -3491,17 +3331,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 1,
-            "hours": 0.52
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.4,
-            "km": 60.0
+            "hours": 0.45
           },
           "run": {
             "sessions": 2,
-            "hours": 1.5,
-            "km": 15.8
+            "hours": 1.4,
+            "km": 14.8
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.22,
+            "km": 55.5
           }
         }
       }
@@ -3544,17 +3384,6 @@ const trainingPlanData = {
               "durationMinutes": 39,
               "distanceMeters": 1500,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w21-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 40,
-              "distanceMeters": 16700,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3580,7 +3409,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w21-jeu-force",
+              "id": "w21-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 40,
+              "distanceMeters": 16700,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2026-12-25",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w21-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -3591,26 +3437,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2026-12-25",
-          "dayOfWeek": "Vendredi",
+          "date": "2026-12-26",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w21-ven-swim",
+              "id": "w21-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 19,
               "distanceMeters": 700,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2026-12-26",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w21-sam-bikelong",
               "sport": "bike",
@@ -3664,15 +3504,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 0.97
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.17,
-            "km": 79.2
-          },
           "run": {
             "sessions": 2,
             "hours": 1.92,
             "km": 22.9
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.17,
+            "km": 79.2
           },
           "brick": {
             "sessions": 1,
@@ -3719,17 +3559,6 @@ const trainingPlanData = {
               "durationMinutes": 40,
               "distanceMeters": 1550,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w22-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 41,
-              "distanceMeters": 17100,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3755,7 +3584,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w22-jeu-force",
+              "id": "w22-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 41,
+              "distanceMeters": 17100,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-01-01",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w22-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -3766,26 +3612,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-01-01",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-01-02",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w22-ven-swim",
+              "id": "w22-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 19,
               "distanceMeters": 700,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-01-02",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w22-sam-bikelong",
               "sport": "bike",
@@ -3828,15 +3668,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 0.98
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.23,
-            "km": 80.8
-          },
           "run": {
             "sessions": 2,
             "hours": 1.97,
             "km": 20.8
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.23,
+            "km": 80.8
           }
         }
       }
@@ -3879,17 +3719,6 @@ const trainingPlanData = {
               "durationMinutes": 40,
               "distanceMeters": 1550,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w23-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 41,
-              "distanceMeters": 17100,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -3915,7 +3744,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w23-jeu-force",
+              "id": "w23-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 41,
+              "distanceMeters": 17100,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-01-08",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w23-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -3926,26 +3772,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-01-08",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-01-09",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w23-ven-swim",
+              "id": "w23-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 20,
               "distanceMeters": 750,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-01-09",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w23-sam-bikelong",
               "sport": "bike",
@@ -3999,15 +3839,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.0
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.28,
-            "km": 82.1
-          },
           "run": {
             "sessions": 2,
             "hours": 1.98,
             "km": 24.1
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.28,
+            "km": 82.1
           },
           "brick": {
             "sessions": 1,
@@ -4022,7 +3862,7 @@ const trainingPlanData = {
       "endDate": "2027-01-17",
       "phase": "Build",
       "focus": "Introduction de l'intensité, volume progressif [semaine de décharge]",
-      "targetHours": 6.93,
+      "targetHours": 6.53,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -4049,22 +3889,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1250m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1100m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 32,
-              "distanceMeters": 1250,
+              "durationMinutes": 28,
+              "distanceMeters": 1100,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w24-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 34,
-              "distanceMeters": 14200,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -4079,8 +3908,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 31,
-              "distanceMeters": 5780,
+              "durationMinutes": 30,
+              "distanceMeters": 5590,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -4090,7 +3919,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w24-jeu-force",
+              "id": "w24-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 29,
+              "distanceMeters": 12100,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-01-15",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w24-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -4101,26 +3947,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-01-15",
-          "dayOfWeek": "Vendredi",
-          "workouts": [
-            {
-              "id": "w24-ven-swim",
-              "sport": "swim",
-              "type": "technique",
-              "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-              "completed": false,
-              "durationMinutes": 16,
-              "distanceMeters": 600,
-              "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
           "date": "2027-01-16",
           "dayOfWeek": "Samedi",
           "workouts": [
+            {
+              "id": "w24-sam-swim",
+              "sport": "swim",
+              "type": "technique",
+              "name": "Natation - technique (2e séance)",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
+              "completed": false,
+              "durationMinutes": 15,
+              "distanceMeters": 550,
+              "primaryZone": "Zone 1-2"
+            },
             {
               "id": "w24-sam-bikelong",
               "sport": "bike",
@@ -4128,8 +3968,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 119,
-              "distanceMeters": 49600,
+              "durationMinutes": 111,
+              "distanceMeters": 46200,
               "primaryZone": "Zone 2"
             }
           ]
@@ -4145,15 +3985,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 64,
-              "distanceMeters": 11070,
+              "durationMinutes": 59,
+              "distanceMeters": 10200,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 6.93,
+        "totalHours": 6.53,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -4161,17 +4001,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 2,
-            "hours": 0.8
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.55,
-            "km": 63.8
+            "hours": 0.72
           },
           "run": {
             "sessions": 2,
-            "hours": 1.58,
-            "km": 16.9
+            "hours": 1.48,
+            "km": 15.8
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.33,
+            "km": 58.3
           }
         }
       }
@@ -4214,17 +4054,6 @@ const trainingPlanData = {
               "durationMinutes": 40,
               "distanceMeters": 1600,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w25-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 43,
-              "distanceMeters": 17900,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -4250,7 +4079,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w25-jeu-force",
+              "id": "w25-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 43,
+              "distanceMeters": 17900,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-01-22",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w25-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -4261,26 +4107,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-01-22",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-01-23",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w25-ven-swim",
+              "id": "w25-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 21,
               "distanceMeters": 800,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-01-23",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w25-sam-bikelong",
               "sport": "bike",
@@ -4334,15 +4174,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.02
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.42,
-            "km": 85.4
-          },
           "run": {
             "sessions": 2,
             "hours": 2.08,
             "km": 25.6
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.42,
+            "km": 85.4
           },
           "brick": {
             "sessions": 1,
@@ -4389,17 +4229,6 @@ const trainingPlanData = {
               "durationMinutes": 41,
               "distanceMeters": 1650,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w26-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 43,
-              "distanceMeters": 17900,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -4425,7 +4254,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w26-jeu-force",
+              "id": "w26-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 43,
+              "distanceMeters": 17900,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-01-29",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w26-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -4436,26 +4282,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-01-29",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-01-30",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w26-ven-swim",
+              "id": "w26-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 21,
               "distanceMeters": 800,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-01-30",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w26-sam-bikelong",
               "sport": "bike",
@@ -4498,15 +4338,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.03
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.47,
-            "km": 86.7
-          },
           "run": {
             "sessions": 2,
             "hours": 2.1,
             "km": 22.4
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.47,
+            "km": 86.7
           }
         }
       }
@@ -4549,17 +4389,6 @@ const trainingPlanData = {
               "durationMinutes": 41,
               "distanceMeters": 1650,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w27-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 44,
-              "distanceMeters": 18300,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -4585,7 +4414,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w27-jeu-force",
+              "id": "w27-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 44,
+              "distanceMeters": 18300,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-02-05",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w27-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -4596,26 +4442,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-02-05",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-02-06",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w27-ven-swim",
+              "id": "w27-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 21,
               "distanceMeters": 800,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-02-06",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w27-sam-bikelong",
               "sport": "bike",
@@ -4669,15 +4509,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.03
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.53,
-            "km": 88.3
-          },
           "run": {
             "sessions": 2,
             "hours": 2.15,
             "km": 26.9
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.53,
+            "km": 88.3
           },
           "brick": {
             "sessions": 1,
@@ -4692,7 +4532,7 @@ const trainingPlanData = {
       "endDate": "2027-02-14",
       "phase": "Build",
       "focus": "Introduction de l'intensité, volume progressif [semaine de décharge]",
-      "targetHours": 7.28,
+      "targetHours": 6.88,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -4719,22 +4559,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1350m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1200m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 33,
-              "distanceMeters": 1350,
+              "durationMinutes": 30,
+              "distanceMeters": 1200,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w28-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 36,
-              "distanceMeters": 15000,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -4749,8 +4578,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 34,
-              "distanceMeters": 6420,
+              "durationMinutes": 32,
+              "distanceMeters": 6040,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -4760,7 +4589,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w28-jeu-force",
+              "id": "w28-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 31,
+              "distanceMeters": 12900,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-02-12",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w28-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -4771,26 +4617,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-02-12",
-          "dayOfWeek": "Vendredi",
-          "workouts": [
-            {
-              "id": "w28-ven-swim",
-              "sport": "swim",
-              "type": "technique",
-              "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-              "completed": false,
-              "durationMinutes": 17,
-              "distanceMeters": 650,
-              "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
           "date": "2027-02-13",
           "dayOfWeek": "Samedi",
           "workouts": [
+            {
+              "id": "w28-sam-swim",
+              "sport": "swim",
+              "type": "technique",
+              "name": "Natation - technique (2e séance)",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
+              "completed": false,
+              "durationMinutes": 16,
+              "distanceMeters": 600,
+              "primaryZone": "Zone 1-2"
+            },
             {
               "id": "w28-sam-bikelong",
               "sport": "bike",
@@ -4798,8 +4638,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 128,
-              "distanceMeters": 53300,
+              "durationMinutes": 120,
+              "distanceMeters": 50000,
               "primaryZone": "Zone 2"
             }
           ]
@@ -4815,15 +4655,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 69,
-              "distanceMeters": 12070,
+              "durationMinutes": 64,
+              "distanceMeters": 11200,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 7.28,
+        "totalHours": 6.88,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -4831,17 +4671,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 2,
-            "hours": 0.83
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.73,
-            "km": 68.3
+            "hours": 0.77
           },
           "run": {
             "sessions": 2,
-            "hours": 1.72,
-            "km": 18.5
+            "hours": 1.6,
+            "km": 17.2
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.52,
+            "km": 62.9
           }
         }
       }
@@ -4884,17 +4724,6 @@ const trainingPlanData = {
               "durationMinutes": 42,
               "distanceMeters": 1700,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w29-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 45,
-              "distanceMeters": 18800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -4920,7 +4749,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w29-jeu-force",
+              "id": "w29-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 45,
+              "distanceMeters": 18800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-02-19",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w29-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -4931,26 +4777,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-02-19",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-02-20",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w29-ven-swim",
+              "id": "w29-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 22,
               "distanceMeters": 850,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-02-20",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w29-sam-bikelong",
               "sport": "bike",
@@ -5004,15 +4844,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.07
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.65,
-            "km": 91.3
-          },
           "run": {
             "sessions": 2,
             "hours": 2.22,
             "km": 28.1
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.65,
+            "km": 91.3
           },
           "brick": {
             "sessions": 1,
@@ -5059,17 +4899,6 @@ const trainingPlanData = {
               "durationMinutes": 43,
               "distanceMeters": 1750,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w30-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 46,
-              "distanceMeters": 19200,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -5095,7 +4924,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w30-jeu-force",
+              "id": "w30-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 46,
+              "distanceMeters": 19200,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-02-26",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w30-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -5106,26 +4952,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-02-26",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-02-27",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w30-ven-swim",
+              "id": "w30-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 23,
               "distanceMeters": 900,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-02-27",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w30-sam-bikelong",
               "sport": "bike",
@@ -5168,15 +5008,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.1
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.72,
-            "km": 93.0
-          },
           "run": {
             "sessions": 2,
             "hours": 2.27,
             "km": 24.5
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.72,
+            "km": 93.0
           }
         }
       }
@@ -5219,17 +5059,6 @@ const trainingPlanData = {
               "durationMinutes": 42,
               "distanceMeters": 1750,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w31-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 47,
-              "distanceMeters": 19600,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -5255,7 +5084,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w31-jeu-force",
+              "id": "w31-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 47,
+              "distanceMeters": 19600,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-03-05",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w31-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -5266,26 +5112,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-03-05",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-03-06",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w31-ven-swim",
+              "id": "w31-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 23,
               "distanceMeters": 900,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-03-06",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w31-sam-bikelong",
               "sport": "bike",
@@ -5339,15 +5179,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.08
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.78,
-            "km": 94.6
-          },
           "run": {
             "sessions": 2,
             "hours": 2.32,
             "km": 29.7
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.78,
+            "km": 94.6
           },
           "brick": {
             "sessions": 1,
@@ -5362,7 +5202,7 @@ const trainingPlanData = {
       "endDate": "2027-03-14",
       "phase": "Build",
       "focus": "Spécificité course 70.3 [semaine de décharge]",
-      "targetHours": 7.65,
+      "targetHours": 7.18,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -5389,22 +5229,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1450m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1250m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 35,
-              "distanceMeters": 1450,
+              "durationMinutes": 30,
+              "distanceMeters": 1250,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w32-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 38,
-              "distanceMeters": 15800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -5419,8 +5248,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 36,
-              "distanceMeters": 6880,
+              "durationMinutes": 34,
+              "distanceMeters": 6500,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -5430,7 +5259,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w32-jeu-force",
+              "id": "w32-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 33,
+              "distanceMeters": 13800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-03-12",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w32-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -5441,26 +5287,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-03-12",
-          "dayOfWeek": "Vendredi",
-          "workouts": [
-            {
-              "id": "w32-ven-swim",
-              "sport": "swim",
-              "type": "technique",
-              "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-              "completed": false,
-              "durationMinutes": 19,
-              "distanceMeters": 750,
-              "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
           "date": "2027-03-13",
           "dayOfWeek": "Samedi",
           "workouts": [
+            {
+              "id": "w32-sam-swim",
+              "sport": "swim",
+              "type": "technique",
+              "name": "Natation - technique (2e séance)",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
+              "completed": false,
+              "durationMinutes": 17,
+              "distanceMeters": 650,
+              "primaryZone": "Zone 1-2"
+            },
             {
               "id": "w32-sam-bikelong",
               "sport": "bike",
@@ -5468,8 +5308,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 137,
-              "distanceMeters": 57100,
+              "durationMinutes": 128,
+              "distanceMeters": 53300,
               "primaryZone": "Zone 2"
             }
           ]
@@ -5485,15 +5325,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 74,
-              "distanceMeters": 13100,
+              "durationMinutes": 69,
+              "distanceMeters": 12210,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 7.65,
+        "totalHours": 7.18,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -5501,17 +5341,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 2,
-            "hours": 0.9
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 2.92,
-            "km": 72.9
+            "hours": 0.78
           },
           "run": {
             "sessions": 2,
-            "hours": 1.83,
-            "km": 20.0
+            "hours": 1.72,
+            "km": 18.7
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.68,
+            "km": 67.1
           }
         }
       }
@@ -5554,17 +5394,6 @@ const trainingPlanData = {
               "durationMinutes": 43,
               "distanceMeters": 1800,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w33-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 48,
-              "distanceMeters": 20000,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -5590,7 +5419,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w33-jeu-force",
+              "id": "w33-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 48,
+              "distanceMeters": 20000,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-03-19",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w33-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -5601,26 +5447,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-03-19",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-03-20",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w33-ven-swim",
+              "id": "w33-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 24,
               "distanceMeters": 950,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-03-20",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w33-sam-bikelong",
               "sport": "bike",
@@ -5674,15 +5514,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.12
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.9,
-            "km": 97.5
-          },
           "run": {
             "sessions": 2,
             "hours": 2.38,
             "km": 31.0
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.9,
+            "km": 97.5
           },
           "brick": {
             "sessions": 1,
@@ -5729,17 +5569,6 @@ const trainingPlanData = {
               "durationMinutes": 44,
               "distanceMeters": 1850,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w34-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 49,
-              "distanceMeters": 20400,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -5765,7 +5594,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w34-jeu-force",
+              "id": "w34-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 49,
+              "distanceMeters": 20400,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-03-26",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w34-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -5776,26 +5622,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-03-26",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-03-27",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w34-ven-swim",
+              "id": "w34-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 24,
               "distanceMeters": 950,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-03-27",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w34-sam-bikelong",
               "sport": "bike",
@@ -5838,15 +5678,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.13
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.97,
-            "km": 99.2
-          },
           "run": {
             "sessions": 2,
             "hours": 2.43,
             "km": 26.6
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.97,
+            "km": 99.2
           }
         }
       }
@@ -5889,17 +5729,6 @@ const trainingPlanData = {
               "durationMinutes": 43,
               "distanceMeters": 1850,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w35-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 49,
-              "distanceMeters": 20400,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -5925,7 +5754,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w35-jeu-force",
+              "id": "w35-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 49,
+              "distanceMeters": 20400,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-04-02",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w35-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -5936,26 +5782,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-04-02",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-04-03",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w35-ven-swim",
+              "id": "w35-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 25,
               "distanceMeters": 1000,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-04-03",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w35-sam-bikelong",
               "sport": "bike",
@@ -6009,15 +5849,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.13
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 4.02,
-            "km": 100.4
-          },
           "run": {
             "sessions": 2,
             "hours": 2.45,
             "km": 32.3
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 4.02,
+            "km": 100.4
           },
           "brick": {
             "sessions": 1,
@@ -6032,7 +5872,7 @@ const trainingPlanData = {
       "endDate": "2027-04-11",
       "phase": "Build",
       "focus": "Spécificité course 70.3 [semaine de décharge]",
-      "targetHours": 7.97,
+      "targetHours": 7.52,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -6059,22 +5899,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1500m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1350m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 35,
-              "distanceMeters": 1500,
+              "durationMinutes": 32,
+              "distanceMeters": 1350,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w36-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 40,
-              "distanceMeters": 16700,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -6089,8 +5918,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 38,
-              "distanceMeters": 7350,
+              "durationMinutes": 36,
+              "distanceMeters": 6970,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -6100,7 +5929,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w36-jeu-force",
+              "id": "w36-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 35,
+              "distanceMeters": 14600,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-04-09",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w36-ven-force",
               "sport": "strength",
               "type": "strength",
               "name": "Musculation - haut du corps",
@@ -6111,26 +5957,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-04-09",
-          "dayOfWeek": "Vendredi",
-          "workouts": [
-            {
-              "id": "w36-ven-swim",
-              "sport": "swim",
-              "type": "technique",
-              "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-              "completed": false,
-              "durationMinutes": 20,
-              "distanceMeters": 800,
-              "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
           "date": "2027-04-10",
           "dayOfWeek": "Samedi",
           "workouts": [
+            {
+              "id": "w36-sam-swim",
+              "sport": "swim",
+              "type": "technique",
+              "name": "Natation - technique (2e séance)",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
+              "completed": false,
+              "durationMinutes": 18,
+              "distanceMeters": 700,
+              "primaryZone": "Zone 1-2"
+            },
             {
               "id": "w36-sam-bikelong",
               "sport": "bike",
@@ -6138,8 +5978,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 146,
-              "distanceMeters": 60800,
+              "durationMinutes": 136,
+              "distanceMeters": 56700,
               "primaryZone": "Zone 2"
             }
           ]
@@ -6155,15 +5995,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 79,
-              "distanceMeters": 14150,
+              "durationMinutes": 74,
+              "distanceMeters": 13250,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 7.97,
+        "totalHours": 7.52,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -6171,17 +6011,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 2,
-            "hours": 0.92
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.1,
-            "km": 77.5
+            "hours": 0.83
           },
           "run": {
             "sessions": 2,
-            "hours": 1.95,
-            "km": 21.5
+            "hours": 1.83,
+            "km": 20.2
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 2.85,
+            "km": 71.3
           }
         }
       }
@@ -6224,17 +6064,6 @@ const trainingPlanData = {
               "durationMinutes": 44,
               "distanceMeters": 1900,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w37-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 20800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -6260,7 +6089,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w37-jeu-force",
+              "id": "w37-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 50,
+              "distanceMeters": 20800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-04-16",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w37-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -6271,26 +6117,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-04-16",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-04-17",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w37-ven-swim",
+              "id": "w37-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 25,
               "distanceMeters": 1000,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-04-17",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w37-sam-bikelong",
               "sport": "bike",
@@ -6344,15 +6184,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.15
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 4.08,
-            "km": 102.0
-          },
           "run": {
             "sessions": 2,
             "hours": 2.5,
             "km": 32.2
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 4.08,
+            "km": 102.0
           },
           "brick": {
             "sessions": 1,
@@ -6399,17 +6239,6 @@ const trainingPlanData = {
               "durationMinutes": 45,
               "distanceMeters": 1950,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w38-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 20800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -6435,7 +6264,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w38-jeu-force",
+              "id": "w38-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 50,
+              "distanceMeters": 20800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-04-23",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w38-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -6446,26 +6292,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-04-23",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-04-24",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w38-ven-swim",
+              "id": "w38-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 26,
               "distanceMeters": 1050,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-04-24",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w38-sam-bikelong",
               "sport": "bike",
@@ -6519,15 +6359,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.18
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 4.17,
-            "km": 104.1
-          },
           "run": {
             "sessions": 2,
             "hours": 2.53,
             "km": 33.3
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 4.17,
+            "km": 104.1
           },
           "brick": {
             "sessions": 1,
@@ -6574,17 +6414,6 @@ const trainingPlanData = {
               "durationMinutes": 44,
               "distanceMeters": 1950,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w39-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 20800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -6610,7 +6439,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w39-jeu-force",
+              "id": "w39-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 50,
+              "distanceMeters": 20800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-04-30",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w39-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -6621,26 +6467,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-04-30",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-05-01",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w39-ven-swim",
+              "id": "w39-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 26,
               "distanceMeters": 1050,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-05-01",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w39-sam-bikelong",
               "sport": "bike",
@@ -6694,15 +6534,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.17
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 4.25,
-            "km": 106.2
-          },
           "run": {
             "sessions": 2,
             "hours": 2.57,
             "km": 34.2
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 4.25,
+            "km": 106.2
           },
           "brick": {
             "sessions": 1,
@@ -6717,7 +6557,7 @@ const trainingPlanData = {
       "endDate": "2027-05-09",
       "phase": "Peak",
       "focus": "Affûtage spécifique, allure course, brick chaque semaine [semaine de décharge]",
-      "targetHours": 8.3,
+      "targetHours": 7.77,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -6744,22 +6584,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1600m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1400m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 36,
-              "distanceMeters": 1600,
+              "durationMinutes": 32,
+              "distanceMeters": 1400,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w40-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 40,
-              "distanceMeters": 16700,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -6774,8 +6603,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 38,
-              "distanceMeters": 7480,
+              "durationMinutes": 36,
+              "distanceMeters": 7080,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -6785,7 +6614,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w40-jeu-force",
+              "id": "w40-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 35,
+              "distanceMeters": 14600,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-05-07",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w40-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -6796,26 +6642,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-05-07",
-          "dayOfWeek": "Vendredi",
-          "workouts": [
-            {
-              "id": "w40-ven-swim",
-              "sport": "swim",
-              "type": "technique",
-              "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-              "completed": false,
-              "durationMinutes": 22,
-              "distanceMeters": 900,
-              "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
           "date": "2027-05-08",
           "dayOfWeek": "Samedi",
           "workouts": [
+            {
+              "id": "w40-sam-swim",
+              "sport": "swim",
+              "type": "technique",
+              "name": "Natation - technique (2e séance)",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
+              "completed": false,
+              "durationMinutes": 18,
+              "distanceMeters": 750,
+              "primaryZone": "Zone 1-2"
+            },
             {
               "id": "w40-sam-bikelong",
               "sport": "bike",
@@ -6823,8 +6663,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 158,
-              "distanceMeters": 65800,
+              "durationMinutes": 147,
+              "distanceMeters": 61300,
               "primaryZone": "Zone 2"
             }
           ]
@@ -6840,15 +6680,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 84,
-              "distanceMeters": 15270,
+              "durationMinutes": 78,
+              "distanceMeters": 14180,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 8.3,
+        "totalHours": 7.77,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -6856,17 +6696,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 2,
-            "hours": 0.97
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.3,
-            "km": 82.5
+            "hours": 0.83
           },
           "run": {
             "sessions": 2,
-            "hours": 2.03,
-            "km": 22.8
+            "hours": 1.9,
+            "km": 21.3
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.03,
+            "km": 75.9
           }
         }
       }
@@ -6909,17 +6749,6 @@ const trainingPlanData = {
               "durationMinutes": 46,
               "distanceMeters": 2050,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w41-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 20800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -6945,7 +6774,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w41-jeu-force",
+              "id": "w41-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 50,
+              "distanceMeters": 20800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-05-14",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w41-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -6956,26 +6802,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-05-14",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-05-15",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w41-ven-swim",
+              "id": "w41-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 27,
               "distanceMeters": 1150,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-05-15",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w41-sam-bikelong",
               "sport": "bike",
@@ -7029,15 +6869,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.22
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 4.42,
-            "km": 110.4
-          },
           "run": {
             "sessions": 2,
             "hours": 2.65,
             "km": 36.4
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 4.42,
+            "km": 110.4
           },
           "brick": {
             "sessions": 1,
@@ -7084,17 +6924,6 @@ const trainingPlanData = {
               "durationMinutes": 45,
               "distanceMeters": 2050,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w42-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 50,
-              "distanceMeters": 20800,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -7120,7 +6949,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w42-jeu-force",
+              "id": "w42-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 50,
+              "distanceMeters": 20800,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-05-21",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w42-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -7131,26 +6977,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-05-21",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-05-22",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w42-ven-swim",
+              "id": "w42-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 27,
               "distanceMeters": 1150,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-05-22",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w42-sam-bikelong",
               "sport": "bike",
@@ -7204,15 +7044,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 1.2
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 4.5,
-            "km": 112.5
-          },
           "run": {
             "sessions": 2,
             "hours": 2.68,
             "km": 37.6
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 4.5,
+            "km": 112.5
           },
           "brick": {
             "sessions": 1,
@@ -7227,7 +7067,7 @@ const trainingPlanData = {
       "endDate": "2027-05-30",
       "phase": "Peak",
       "focus": "Affûtage spécifique, allure course, brick chaque semaine [semaine de décharge]",
-      "targetHours": 8.57,
+      "targetHours": 8.05,
       "isRecoveryWeek": true,
       "days": [
         {
@@ -7254,22 +7094,11 @@ const trainingPlanData = {
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique + aérobie",
-              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1700m au total. Arrêter si sensation inhabituelle à l'épaule.",
+              "description": "Progression très graduelle (protection des épaules). 6-8x50m technique (rattrapé, doigt qui traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à ~1450m au total. Arrêter si sensation inhabituelle à l'épaule.",
               "completed": false,
-              "durationMinutes": 37,
-              "distanceMeters": 1700,
+              "durationMinutes": 31,
+              "distanceMeters": 1450,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w43-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 40,
-              "distanceMeters": 16700,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -7284,8 +7113,8 @@ const trainingPlanData = {
               "name": "Course - facile + accélérations",
               "description": "Footing facile avec 4-6x20s accélérations progressives (strides), retour au calme complet entre chaque.",
               "completed": false,
-              "durationMinutes": 38,
-              "distanceMeters": 7600,
+              "durationMinutes": 36,
+              "distanceMeters": 7200,
               "primaryZone": "Zone 2 + strides"
             }
           ]
@@ -7295,7 +7124,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w43-jeu-force",
+              "id": "w43-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 35,
+              "distanceMeters": 14600,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-05-28",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w43-ven-force",
               "sport": "strength",
               "type": "power",
               "name": "Musculation - haut du corps",
@@ -7306,26 +7152,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-05-28",
-          "dayOfWeek": "Vendredi",
-          "workouts": [
-            {
-              "id": "w43-ven-swim",
-              "sport": "swim",
-              "type": "technique",
-              "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-              "completed": false,
-              "durationMinutes": 22,
-              "distanceMeters": 950,
-              "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
           "date": "2027-05-29",
           "dayOfWeek": "Samedi",
           "workouts": [
+            {
+              "id": "w43-sam-swim",
+              "sport": "swim",
+              "type": "technique",
+              "name": "Natation - technique (2e séance)",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
+              "completed": false,
+              "durationMinutes": 20,
+              "distanceMeters": 850,
+              "primaryZone": "Zone 1-2"
+            },
             {
               "id": "w43-sam-bikelong",
               "sport": "bike",
@@ -7333,8 +7173,8 @@ const trainingPlanData = {
               "name": "Vélo - sortie longue",
               "description": "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu.",
               "completed": false,
-              "durationMinutes": 169,
-              "distanceMeters": 70400,
+              "durationMinutes": 158,
+              "distanceMeters": 65800,
               "primaryZone": "Zone 2"
             }
           ]
@@ -7350,15 +7190,15 @@ const trainingPlanData = {
               "name": "Course - sortie longue",
               "description": "Sortie longue en zone 2, allure stable. Pratiquer la nutrition de course sur les séances >75min.",
               "completed": false,
-              "durationMinutes": 88,
-              "distanceMeters": 16250,
+              "durationMinutes": 83,
+              "distanceMeters": 15320,
               "primaryZone": "Zone 2"
             }
           ]
         }
       ],
       "summary": {
-        "totalHours": 8.57,
+        "totalHours": 8.05,
         "bySport": {
           "strength": {
             "sessions": 2,
@@ -7366,17 +7206,17 @@ const trainingPlanData = {
           },
           "swim": {
             "sessions": 2,
-            "hours": 0.98
-          },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.48,
-            "km": 87.1
+            "hours": 0.85
           },
           "run": {
             "sessions": 2,
-            "hours": 2.1,
-            "km": 23.9
+            "hours": 1.98,
+            "km": 22.5
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.22,
+            "km": 80.4
           }
         }
       }
@@ -7419,17 +7259,6 @@ const trainingPlanData = {
               "durationMinutes": 36,
               "distanceMeters": 1500,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w44-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 35,
-              "distanceMeters": 14600,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -7455,7 +7284,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w44-jeu-force",
+              "id": "w44-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 35,
+              "distanceMeters": 14600,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-06-04",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w44-ven-force",
               "sport": "strength",
               "type": "maintenance",
               "name": "Musculation - haut du corps",
@@ -7466,26 +7312,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-06-04",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-06-05",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w44-ven-swim",
+              "id": "w44-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 21,
               "distanceMeters": 800,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-06-05",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w44-sam-bikelong",
               "sport": "bike",
@@ -7528,15 +7368,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 0.95
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 3.08,
-            "km": 77.1
-          },
           "run": {
             "sessions": 2,
             "hours": 1.67,
             "km": 18.3
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 3.08,
+            "km": 77.1
           }
         }
       }
@@ -7579,17 +7419,6 @@ const trainingPlanData = {
               "durationMinutes": 29,
               "distanceMeters": 1100,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w45-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 25,
-              "distanceMeters": 10400,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -7615,7 +7444,24 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w45-jeu-force",
+              "id": "w45-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
+              "completed": false,
+              "durationMinutes": 25,
+              "distanceMeters": 10400,
+              "primaryZone": "Zone 2"
+            }
+          ]
+        },
+        {
+          "date": "2027-06-11",
+          "dayOfWeek": "Vendredi",
+          "workouts": [
+            {
+              "id": "w45-ven-force",
               "sport": "strength",
               "type": "maintenance",
               "name": "Musculation - haut du corps",
@@ -7626,26 +7472,20 @@ const trainingPlanData = {
           ]
         },
         {
-          "date": "2027-06-11",
-          "dayOfWeek": "Vendredi",
+          "date": "2027-06-12",
+          "dayOfWeek": "Samedi",
           "workouts": [
             {
-              "id": "w45-ven-swim",
+              "id": "w45-sam-swim",
               "sport": "swim",
               "type": "technique",
               "name": "Natation - technique (2e séance)",
-              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée.",
+              "description": "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. Fréquence augmentée maintenant que la charge du stage coop est terminée. Placée le matin, avant le vélo long.",
               "completed": false,
               "durationMinutes": 17,
               "distanceMeters": 600,
               "primaryZone": "Zone 1-2"
-            }
-          ]
-        },
-        {
-          "date": "2027-06-12",
-          "dayOfWeek": "Samedi",
-          "workouts": [
+            },
             {
               "id": "w45-sam-bikelong",
               "sport": "bike",
@@ -7688,15 +7528,15 @@ const trainingPlanData = {
             "sessions": 2,
             "hours": 0.77
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 1.92,
-            "km": 47.9
-          },
           "run": {
             "sessions": 2,
             "hours": 1.12,
             "km": 11.8
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 1.92,
+            "km": 47.9
           }
         }
       }
@@ -7739,17 +7579,6 @@ const trainingPlanData = {
               "durationMinutes": 18,
               "distanceMeters": 600,
               "primaryZone": "Zone 1-2"
-            },
-            {
-              "id": "w46-mar-bike",
-              "sport": "bike",
-              "type": "endurance",
-              "name": "Vélo - endurance facile (2e séance)",
-              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
-              "completed": false,
-              "durationMinutes": 15,
-              "distanceMeters": 6200,
-              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -7775,13 +7604,15 @@ const trainingPlanData = {
           "dayOfWeek": "Jeudi",
           "workouts": [
             {
-              "id": "w46-jeu-force",
-              "sport": "strength",
-              "type": "maintenance",
-              "name": "Musculation - haut du corps",
-              "description": "Haut du corps, charge légère, 2 séries x 8-10 reps - maintien seulement avant la course.",
+              "id": "w46-jeu-bike",
+              "sport": "bike",
+              "type": "endurance",
+              "name": "Vélo - endurance facile (2e séance)",
+              "description": "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
               "completed": false,
-              "durationMinutes": 60
+              "durationMinutes": 15,
+              "distanceMeters": 6200,
+              "primaryZone": "Zone 2"
             }
           ]
         },
@@ -7790,12 +7621,13 @@ const trainingPlanData = {
           "dayOfWeek": "Vendredi",
           "workouts": [
             {
-              "id": "w46-ven-repos",
-              "sport": "rest",
-              "type": "rest",
-              "name": "Repos complet",
-              "description": "Journée de repos complet - aucune activité structurée.",
-              "completed": false
+              "id": "w46-ven-force",
+              "sport": "strength",
+              "type": "maintenance",
+              "name": "Musculation - haut du corps",
+              "description": "Haut du corps, charge légère, 2 séries x 8-10 reps - maintien seulement avant la course.",
+              "completed": false,
+              "durationMinutes": 60
             }
           ]
         },
@@ -7843,15 +7675,15 @@ const trainingPlanData = {
             "sessions": 1,
             "hours": 0.3
           },
-          "bike": {
-            "sessions": 2,
-            "hours": 0.67,
-            "km": 16.6
-          },
           "run": {
             "sessions": 1,
             "hours": 0.3,
             "km": 3.2
+          },
+          "bike": {
+            "sessions": 2,
+            "hours": 0.67,
+            "km": 16.6
           }
         }
       }
@@ -7917,21 +7749,11 @@ const trainingPlanData = {
   "notes": {
     "zonesEstimation": "Zones course basées sur le LTHR réellement mesuré par Garmin (182 bpm). Zones vélo et natation encore estimées faute de test formel - à valider via les tests de terrain prévus semaines 1-2 (vélo: test FTP/FC 20min; natation: test CSS 400m/200m, à réévaluer une fois la distance de 1900m atteinte confortablement).",
     "eventDateStatus": "Date du 20 juin 2027 estimée (dimanche). L'édition 2026 a eu lieu le 21 juin 2026; la date officielle 2027 n'était pas encore publiée par IRONMAN au 4 août 2026 (source: finishers.com). À confirmer dès publication officielle.",
-    "constraintsApplied": "Plan révisé le 4 août 2026 selon les contraintes réelles de l'athlète: musculation fixe 2x60min/semaine (lundi bas du corps+abdos, jeudi haut du corps), natation 1x/semaine à l'automne dès 1000-1200m (progression très graduelle, protection des épaules), vélo long dès 90min, course du mercredi toujours la plus courte et toujours avec intensité (tempo/intervalles).",
-    "updateLog": [
-      {
-        "date": "2026-08-04T17:27:39Z",
-        "weeksUpdated": [
-          2,
-          9
-        ],
-        "volumeAdjust": {
-          "swim": 1.0,
-          "bike": 0.9,
-          "run": 0.9
-        },
-        "reason": "Semaine du 28 juil-4 août 2026: readiness_score moyen 7j = 47/100 (<50, signal de fatigue), avec un creux à 25 le 31 juillet. ACWR a grimpé jusqu'à 1.3 en fin de semaine (charge aigue en hausse rapide, encore sous le seuil de risque 1.5). HRV moyenne 7j 79 vs 83 les 2 semaines précédentes (-4%, léger). Sommeil resté bon (82/100 moyenne). Un seul signal net (readiness<50) -> réduction modérée et prudente (0.90) vélo/course pour 8 semaines, natation laissée inchangée (aucun signal d'épaule)."
-      }
-    ]
+    "constraintsApplied": "Plan révisé le 4 août 2026 selon les contraintes réelles de l'athlète: musculation fixe 2x60min/semaine (lundi bas du corps+abdos, vendredi haut du corps), natation 1x/semaine à l'automne dès 1000-1200m (progression très graduelle, protection des épaules), vélo long dès 90min, course du mercredi toujours la plus courte et toujours avec intensité (tempo/intervalles). Révisé à nouveau le 4 août 2026 (v2.1): gabarit hebdomadaire réorganisé (vélo jeudi, musculation haut du corps vendredi, 2e natation samedi matin dès semaine 21) pour éviter deux séances la même journée en début de plan; réduction de volume des semaines de décharge portée à ~30% (source: \"règle des 30%\" citée par des coachs de triathlon pour les semaines de récupération, triathlete.com / endogusto.com).",
+    "deloadResearch": {
+      "midBlockRecoveryWeeks": "Réduction de volume d'environ 30% (fréquence des séances maintenue, durée réduite), avec un ratio charge:décharge de 3:1 à 4:1 typique en triathlon. Sources: Triathlete.com (\"What's the Right Way to Approach A Recovery Week?\"), EndoGusto (\"How to Use Periodization in Your Triathlon Training Plan\"), USA Triathlon (\"The Importance of Recovery Weeks and Rest Days\").",
+      "taperFinal": "Réduction de volume de 41-60% sur 2-3 semaines avant la course, intensité et fréquence maintenues, pondérée davantage sur la dernière semaine (ex. 80%/60%/40% du volume de pointe). Source: méta-analyse PLOS ONE \"Effects of tapering on performance in endurance athletes\" (2023) — une réduction de 41-60% a produit les meilleurs gains de performance en contre-la-montre."
+    },
+    "updateLog": []
   }
 };

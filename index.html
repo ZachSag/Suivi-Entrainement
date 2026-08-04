@@ -136,12 +136,13 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
 .recovery-tag{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#0a0a0b; background:var(--accent); padding:2px 8px; border-radius:5px; margin-left:8px;}
 
 .days-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:1px; background:var(--border-subtle);}
-.day-col{background:var(--bg-secondary); padding:12px 9px; min-height:150px; display:flex; flex-direction:column; gap:7px;}
+.day-col{background:var(--bg-secondary); padding:12px 9px; min-height:340px; display:flex; flex-direction:column; gap:7px;}
 .day-col.today{background:var(--bg-elevated);}
 .day-col.today .day-name{color:var(--accent);}
 .day-name{font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted);}
 .day-date{font-family:var(--mono); font-size:9.5px; color:var(--text-muted); margin-bottom:2px;}
-.workout-card{border-radius:8px; padding:8px 9px; position:relative; overflow:hidden; background:var(--bg-tertiary);}
+.workout-card{border-radius:8px; padding:8px 9px; position:relative; overflow:hidden; background:var(--bg-tertiary); cursor:pointer; transition:filter .12s ease;}
+.workout-card:hover{filter:brightness(1.15);}
 .workout-card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px;}
 .workout-card.swim{background:var(--swim-glow);} .workout-card.swim::before{background:var(--swim);}
 .workout-card.bike{background:var(--bike-glow);} .workout-card.bike::before{background:var(--bike);}
@@ -150,7 +151,11 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
 .workout-card.brick{background:var(--brick-glow);} .workout-card.brick::before{background:var(--brick);}
 .workout-card.race{background:var(--race-glow);} .workout-card.race::before{background:var(--race);}
 .workout-card.rest{background:var(--rest-glow); opacity:.7;} .workout-card.rest::before{background:var(--rest);}
-.workout-sport{font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px;}
+.workout-card.other{background:var(--bg-elevated);} .workout-card.other::before{background:var(--text-muted);}
+.workout-card.is-custom{border:1px dashed var(--border-medium);}
+.workout-card.is-completed{opacity:.5;}
+.workout-card.is-completed .workout-name{text-decoration:line-through;}
+.workout-sport{font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px; display:flex; align-items:center; justify-content:space-between; gap:4px;}
 .workout-card.swim .workout-sport{color:var(--swim);}
 .workout-card.bike .workout-sport{color:var(--bike);}
 .workout-card.run .workout-sport{color:var(--run);}
@@ -158,10 +163,34 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
 .workout-card.brick .workout-sport{color:var(--brick);}
 .workout-card.race .workout-sport{color:var(--race);}
 .workout-card.rest .workout-sport{color:var(--rest);}
+.workout-card.other .workout-sport{color:var(--text-muted);}
+.wo-check{width:12px; height:12px; flex-shrink:0; accent-color:var(--accent); cursor:pointer;}
 .workout-name{font-size:11px; font-weight:500; color:var(--text-primary); line-height:1.32;}
 .workout-meta{font-family:var(--mono); font-size:9.5px; color:var(--text-muted); margin-top:4px;}
-@media (max-width:900px){.days-grid{grid-template-columns:repeat(2,1fr);}}
+.add-workout-btn{border:1px dashed var(--border-medium); border-radius:8px; background:transparent; color:var(--text-muted); font-size:10.5px; padding:8px 6px; cursor:pointer; font-family:var(--sans); transition:border-color .15s ease, color .15s ease; margin-top:auto;}
+.add-workout-btn:hover{border-color:var(--accent); color:var(--accent);}
+@media (max-width:900px){.days-grid{grid-template-columns:repeat(2,1fr);} .day-col{min-height:0;}}
 @media (max-width:520px){.days-grid{grid-template-columns:1fr;}}
+
+/* ---- CH5 : modale d'édition d'entraînement ---- */
+.modal-backdrop{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; z-index:100; padding:20px;}
+.modal-backdrop.open{display:flex;}
+.modal-box{background:var(--bg-secondary); border:1px solid var(--border-medium); border-radius:var(--radius-lg); width:100%; max-width:440px; max-height:88vh; overflow-y:auto; padding:22px 24px;}
+.modal-box h3{font-size:15px; margin-bottom:16px; color:var(--text-primary);}
+.modal-field{margin-bottom:13px;}
+.modal-field label{display:block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin-bottom:5px; font-weight:600;}
+.modal-field input, .modal-field select, .modal-field textarea{width:100%; background:var(--bg-primary); border:1px solid var(--border-medium); border-radius:var(--radius-sm); padding:8px 10px; color:var(--text-primary); font-family:var(--sans); font-size:13px;}
+.modal-field textarea{min-height:70px; resize:vertical; font-family:var(--sans);}
+.modal-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.modal-check-row{display:flex; align-items:center; gap:8px; margin-bottom:16px;}
+.modal-check-row input{width:15px; height:15px; accent-color:var(--accent);}
+.modal-actions{display:flex; justify-content:space-between; gap:10px; margin-top:6px;}
+.modal-actions .right{display:flex; gap:10px; margin-left:auto;}
+.btn-primary, .btn-secondary, .btn-danger{border:none; border-radius:var(--radius-sm); padding:9px 16px; font-size:13px; font-weight:600; cursor:pointer; font-family:var(--sans);}
+.btn-primary{background:var(--accent); color:#0a0a0b;}
+.btn-secondary{background:var(--bg-tertiary); color:var(--text-secondary); border:1px solid var(--border-medium);}
+.btn-danger{background:transparent; color:var(--run); border:1px solid var(--run);}
+.week-actions{display:flex; gap:8px; align-items:center;}
 
 .zones-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px;}
 .zone-card{background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:16px 18px;}
@@ -303,11 +332,25 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
     </div>
 
     <div class="panel-title">Semaine détaillée</div>
+    <div class="callout">
+      Clique sur un entraînement pour voir ses détails, le modifier, le déplacer à une autre date ou le marquer
+      complété. Utilise <b>+ Ajouter</b> en bas d'une journée pour insérer une activité personnalisée (rendez-vous,
+      sortie non planifiée, etc.). Ces changements sont enregistrés uniquement dans ce navigateur (localStorage) —
+      ils ne seront pas visibles sur un autre appareil et ne modifient pas le fichier source du plan.
+      <b>Exporter (.ics)</b> génère un fichier calendrier standard compatible avec Google Calendar, Apple Calendar
+      et Outlook. Note: <b>Garmin Connect n'accepte pas l'import de fichiers .ics</b> pour les entraînements planifiés
+      (limitation confirmée de la plateforme) — le fichier s'ajoutera donc à ton calendrier de téléphone, mais pas
+      directement à la montre.
+    </div>
     <div class="week-nav">
       <button id="week-prev-5">← Précédente</button>
       <select id="week-select-5"></select>
       <button id="week-next-5">Suivante →</button>
       <span class="week-badge today-badge" id="week-today-badge"></span>
+      <span class="week-actions" style="margin-left:auto;">
+        <button id="week-export-ics-5">⇩ Exporter (.ics)</button>
+        <button id="week-reset-overrides-5" title="Effacer tous les ajouts/modifications personnels enregistrés dans ce navigateur">↺ Réinitialiser mes modifs</button>
+      </span>
     </div>
     <div class="week-card">
       <div class="week-card-header" id="week-card-header-5"></div>
@@ -316,6 +359,43 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
 
     <div class="panel-title">Zones d'entraînement de référence</div>
     <div class="zones-grid" id="zones-grid-5"></div>
+  </div>
+
+  <!-- ================= Modale d'édition d'entraînement (CH5) ================= -->
+  <div class="modal-backdrop" id="wo-modal-backdrop">
+    <div class="modal-box">
+      <h3 id="wo-modal-title">Entraînement</h3>
+      <input type="hidden" id="wo-id" value="">
+      <div class="modal-row">
+        <div class="modal-field"><label>Date</label><input type="date" id="wo-date"></div>
+        <div class="modal-field"><label>Sport</label>
+          <select id="wo-sport">
+            <option value="swim">Natation</option>
+            <option value="bike">Vélo</option>
+            <option value="run">Course</option>
+            <option value="strength">Musculation</option>
+            <option value="brick">Brick</option>
+            <option value="rest">Repos</option>
+            <option value="other">Autre / perso</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-field"><label>Nom</label><input type="text" id="wo-name" placeholder="Ex: Rendez-vous physio"></div>
+      <div class="modal-field"><label>Description / détails</label><textarea id="wo-desc" placeholder="Détails, intervalles, notes techniques..."></textarea></div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Durée (min)</label><input type="number" id="wo-duration" min="0" step="5"></div>
+        <div class="modal-field"><label>Distance (m, optionnel)</label><input type="number" id="wo-distance" min="0" step="50"></div>
+      </div>
+      <div class="modal-field"><label>Zone (optionnel)</label><input type="text" id="wo-zone" placeholder="Ex: Zone 2, Seuil..."></div>
+      <div class="modal-check-row"><input type="checkbox" id="wo-completed"><label for="wo-completed" style="margin:0; text-transform:none; font-size:13px; color:var(--text-secondary);">Complété</label></div>
+      <div class="modal-actions">
+        <button class="btn-danger" id="wo-delete-btn" style="display:none;">Supprimer</button>
+        <span class="right">
+          <button class="btn-secondary" id="wo-cancel-btn">Annuler</button>
+          <button class="btn-primary" id="wo-save-btn">Enregistrer</button>
+        </span>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -748,6 +828,161 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
 
   const DAY_ABBR = {"Lundi":"LUN","Mardi":"MAR","Mercredi":"MER","Jeudi":"JEU","Vendredi":"VEN","Samedi":"SAM","Dimanche":"DIM"};
 
+  /* ---------------------------------------------------------------------
+     Surcouche personnelle (ajout / édition / déplacement / complétion des
+     entraînements), stockée dans le navigateur uniquement (localStorage).
+     Ne modifie jamais training-plan-data.js — purement une surcouche
+     appliquée au rendu. items: { [id]: {..champs modifiés.., date?, custom?, deleted?} }
+  --------------------------------------------------------------------- */
+  const OVERRIDE_KEY = "suivi70_3_plan_overrides_v1";
+  function loadOverrides(){
+    try { return JSON.parse(localStorage.getItem(OVERRIDE_KEY)) || {items:{}}; }
+    catch(e){ return {items:{}}; }
+  }
+  function saveOverrides(ov){ localStorage.setItem(OVERRIDE_KEY, JSON.stringify(ov)); }
+
+  // Construit une carte date -> liste d'entraînements effectifs, en appliquant la surcouche
+  // (édition, déplacement, suppression, ajouts perso) par-dessus les 46 semaines de base.
+  function buildDayMap(){
+    const ov = loadOverrides();
+    const map = {};
+    weeks.forEach(w=>w.days.forEach(d=>{ if(!map[d.date]) map[d.date]=[]; }));
+    weeks.forEach(w=>w.days.forEach(d=>{
+      d.workouts.forEach(wo=>{
+        const patch = ov.items[wo.id];
+        if(patch && patch.deleted) return;
+        const targetDate = (patch && patch.date) || d.date;
+        // Chaque entrée fusionnée porte toujours sa date effective (les workouts de base ne
+        // portent pas nativement de champ "date" - il vit sur le jour parent) afin que la
+        // modale d'édition puisse pré-remplir correctement le champ date lors d'un déplacement.
+        const eff = Object.assign({}, wo, patch, {date: targetDate});
+        if(!map[targetDate]) map[targetDate] = [];
+        map[targetDate].push(eff);
+      });
+    }));
+    Object.entries(ov.items).forEach(([id,it])=>{
+      if(it.custom && !it.deleted){
+        const eff = Object.assign({id}, it);
+        if(!map[eff.date]) map[eff.date] = [];
+        map[eff.date].push(eff);
+      }
+    });
+    return map;
+  }
+
+  /* ---------------------------------------------------------------------
+     Modale d'ajout / édition
+  --------------------------------------------------------------------- */
+  const modalBackdrop = document.getElementById("wo-modal-backdrop");
+  const mId = document.getElementById("wo-id"), mDate = document.getElementById("wo-date"),
+        mSport = document.getElementById("wo-sport"), mName = document.getElementById("wo-name"),
+        mDesc = document.getElementById("wo-desc"), mDuration = document.getElementById("wo-duration"),
+        mDistance = document.getElementById("wo-distance"), mZone = document.getElementById("wo-zone"),
+        mCompleted = document.getElementById("wo-completed"), mDeleteBtn = document.getElementById("wo-delete-btn");
+
+  function openModal(mode, data){
+    document.getElementById("wo-modal-title").textContent = mode==="new" ? "Ajouter un entraînement" : "Détails de l'entraînement";
+    mId.value = data.id || "";
+    mId.dataset.mode = mode;
+    mId.dataset.custom = data.custom ? "1" : "";
+    mDate.value = data.date || "";
+    mSport.value = data.sport || "other";
+    mName.value = data.name || "";
+    mDesc.value = data.description || data.notes || "";
+    mDuration.value = data.durationMinutes || "";
+    mDistance.value = data.distanceMeters || "";
+    mZone.value = data.primaryZone || data.zone || "";
+    mCompleted.checked = !!data.completed;
+    mDeleteBtn.style.display = mode==="edit" ? "" : "none";
+    modalBackdrop.classList.add("open");
+  }
+  function closeModal(){ modalBackdrop.classList.remove("open"); }
+  document.getElementById("wo-cancel-btn").addEventListener("click", closeModal);
+  modalBackdrop.addEventListener("click", (e)=>{ if(e.target===modalBackdrop) closeModal(); });
+
+  document.getElementById("wo-save-btn").addEventListener("click", ()=>{
+    if(!mName.value.trim()){ mName.focus(); return; }
+    const ov = loadOverrides();
+    const isCustom = mId.dataset.custom === "1" || mId.dataset.mode === "new";
+    const id = mId.value || ("custom-"+Date.now()+"-"+Math.random().toString(36).slice(2,7));
+    const record = {
+      date: mDate.value, sport: mSport.value, name: mName.value.trim(), description: mDesc.value.trim(),
+      durationMinutes: mDuration.value ? parseInt(mDuration.value,10) : undefined,
+      distanceMeters: mDistance.value ? parseInt(mDistance.value,10) : undefined,
+      primaryZone: mZone.value.trim() || undefined, completed: mCompleted.checked,
+    };
+    if(isCustom) record.custom = true;
+    ov.items[id] = Object.assign({}, ov.items[id], record);
+    saveOverrides(ov);
+    closeModal();
+    renderWeek(parseInt(select.value,10));
+  });
+  mDeleteBtn.addEventListener("click", ()=>{
+    if(!confirm("Supprimer cet entraînement ?")) return;
+    const ov = loadOverrides();
+    const id = mId.value;
+    ov.items[id] = Object.assign({}, ov.items[id], {deleted:true});
+    saveOverrides(ov);
+    closeModal();
+    renderWeek(parseInt(select.value,10));
+  });
+
+  document.getElementById("week-reset-overrides-5").addEventListener("click", ()=>{
+    if(!confirm("Effacer toutes tes modifications personnelles (ajouts, éditions, déplacements) enregistrées dans ce navigateur ? Cette action est irréversible.")) return;
+    localStorage.removeItem(OVERRIDE_KEY);
+    renderWeek(parseInt(select.value,10));
+  });
+
+  /* ---------------------------------------------------------------------
+     Export .ics (compatible Google Calendar / Apple Calendar / Outlook)
+  --------------------------------------------------------------------- */
+  function icsEscape(s){ return String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n"); }
+  function pad2(n){ return String(n).padStart(2,"0"); }
+  function icsDateTime(dateStr, hh, mm){ const [y,m,d]=dateStr.split("-"); return `${y}${m}${d}T${pad2(hh)}${pad2(mm)}00`; }
+  function foldICSLine(line){
+    if(line.length<=74) return line;
+    let out = line.slice(0,74), i = 74;
+    while(i<line.length){ out += "\r\n " + line.slice(i,i+73); i += 73; }
+    return out;
+  }
+  function exportWeekICS(w){
+    const dayMap = buildDayMap();
+    const lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Suivi-Entrainement//Plan 70.3 Mont-Tremblant//FR","CALSCALE:GREGORIAN"];
+    const nowStamp = icsDateTime(localISO(new Date()), 12, 0) + "Z";
+    w.days.forEach(d=>{
+      const items = (dayMap[d.date]||[]).filter(wo=>wo.sport!=="rest");
+      items.forEach((wo, i)=>{
+        const durMin = wo.durationMinutes || 30;
+        const startH = 6 + i;
+        const dtStart = icsDateTime(d.date, Math.min(startH,22), 0);
+        const endTotalMin = Math.min(startH,22)*60 + durMin;
+        const dtEnd = icsDateTime(d.date, Math.min(Math.floor(endTotalMin/60),23), endTotalMin%60);
+        const descParts = [];
+        if(wo.description) descParts.push(wo.description);
+        if(wo.primaryZone) descParts.push("Zone: "+wo.primaryZone);
+        if(wo.distanceMeters) descParts.push("Distance: "+(wo.distanceMeters/1000).toFixed(1)+"km");
+        lines.push(foldICSLine("BEGIN:VEVENT"));
+        lines.push(foldICSLine("UID:"+(wo.id||("custom-"+d.date+"-"+i))+"@suivi-entrainement.zachsag"));
+        lines.push(foldICSLine("DTSTAMP:"+nowStamp));
+        lines.push(foldICSLine("DTSTART:"+dtStart));
+        lines.push(foldICSLine("DTEND:"+dtEnd));
+        lines.push(foldICSLine("SUMMARY:"+icsEscape(`[${wo.sport}] ${wo.name}`)));
+        if(descParts.length) lines.push(foldICSLine("DESCRIPTION:"+icsEscape(descParts.join(" — "))));
+        lines.push(foldICSLine("END:VEVENT"));
+      });
+    });
+    lines.push("END:VCALENDAR");
+    const blob = new Blob([lines.join("\r\n")], {type:"text/calendar;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `entrainement-semaine-${w.weekNumber}.ics`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+  document.getElementById("week-export-ics-5").addEventListener("click", ()=>{
+    exportWeekICS(weeks[parseInt(select.value,10)]);
+  });
+
   function renderWeek(idx){
     idx = Math.max(0, Math.min(weeks.length-1, idx));
     const w = weeks[idx];
@@ -756,6 +991,12 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
     nextBtn.disabled = idx===weeks.length-1;
     document.getElementById("week-today-badge").textContent = idx===currentIdx ? "◉ Semaine en cours" : "";
 
+    const dayMap = buildDayMap();
+    let mergedTotalMin = 0;
+    w.days.forEach(d=>(dayMap[d.date]||[]).forEach(wo=>{ if(wo.sport!=="rest") mergedTotalMin += (wo.durationMinutes||0); }));
+    const mergedTotalH = Math.round(mergedTotalMin/6)/10;
+    const hasCustomizations = mergedTotalH !== w.summary.totalHours;
+
     document.getElementById("week-card-header-5").innerHTML = `
       <div class="week-card-title">
         <span class="week-number">SEMAINE ${w.weekNumber}</span>
@@ -763,18 +1004,23 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
         <span class="week-focus-text">${w.focus}</span>
         ${w.isRecoveryWeek?'<span class="recovery-tag">Décharge</span>':""}
       </div>
-      <div class="week-hours-badge">${w.summary.totalHours}h <span>/ ${w.targetHours}h ciblées · ${w.startDate} → ${w.endDate}</span></div>
+      <div class="week-hours-badge">${mergedTotalH}h <span>${hasCustomizations?`(plan original: ${w.summary.totalHours}h) · `:"/ "+w.targetHours+"h ciblées · "}${w.startDate} → ${w.endDate}</span></div>
     `;
 
     document.getElementById("week-days-5").innerHTML = w.days.map(d=>{
       const isToday = d.date === localISO(today);
-      const cards = d.workouts.map(wo=>{
+      const items = dayMap[d.date] || [];
+      const cards = items.map(wo=>{
         const meta = [];
         if (wo.durationMinutes) meta.push(wo.durationMinutes+"min");
         if (wo.distanceMeters) meta.push((wo.distanceMeters/1000).toFixed(1)+"km");
-        if (wo.primaryZone) meta.push(wo.primaryZone);
-        return `<div class="workout-card ${wo.sport}">
-          <div class="workout-sport">${wo.sport}</div>
+        if (wo.primaryZone || wo.zone) meta.push(wo.primaryZone||wo.zone);
+        const woJson = encodeURIComponent(JSON.stringify(wo));
+        return `<div class="workout-card ${wo.sport} ${wo.custom?"is-custom":""} ${wo.completed?"is-completed":""}" data-wo="${woJson}">
+          <div class="workout-sport">
+            <span>${wo.sport}${wo.custom?" · perso":""}</span>
+            <input type="checkbox" class="wo-check" ${wo.completed?"checked":""} title="Marquer complété">
+          </div>
           <div class="workout-name">${wo.name}</div>
           ${meta.length?`<div class="workout-meta">${meta.join(" · ")}</div>`:""}
         </div>`;
@@ -783,8 +1029,26 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
         <div class="day-name">${DAY_ABBR[d.dayOfWeek]||d.dayOfWeek}</div>
         <div class="day-date">${d.date.slice(5)}</div>
         ${cards}
+        <button class="add-workout-btn" data-add-date="${d.date}">+ Ajouter</button>
       </div>`;
     }).join("");
+
+    // Clic sur une carte = ouvrir la modale d'édition (sauf clic direct sur la case à cocher)
+    document.querySelectorAll("#week-days-5 .workout-card").forEach(card=>{
+      const data = JSON.parse(decodeURIComponent(card.dataset.wo));
+      card.querySelector(".wo-check").addEventListener("click", (e)=>{
+        e.stopPropagation();
+        const ov = loadOverrides();
+        ov.items[data.id] = Object.assign({}, ov.items[data.id], {completed: e.target.checked});
+        if(data.custom) ov.items[data.id].custom = true;
+        saveOverrides(ov);
+        renderWeek(parseInt(select.value,10));
+      });
+      card.addEventListener("click", ()=> openModal("edit", data));
+    });
+    document.querySelectorAll("#week-days-5 .add-workout-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=> openModal("new", {date: btn.dataset.addDate, sport:"other", durationMinutes:60}));
+    });
   }
 
   select.addEventListener("change", ()=>renderWeek(parseInt(select.value,10)));
