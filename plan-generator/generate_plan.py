@@ -3,14 +3,21 @@
 Générateur du plan d'entraînement Ironman 70.3 Mont-Tremblant pour Zachary Desbiens.
 V2 - basé sur les contraintes réelles précisées par l'athlète le 4 août 2026:
 - Musculation fixe 2x/semaine, 60min chacune, ne varie jamais (bas du corps+abdos lundi,
-  haut du corps jeudi). Ne pas augmenter la durée dans le temps.
+  haut du corps vendredi). Ne pas augmenter la durée dans le temps.
 - Natation: capacité actuelle réelle 1000-1200m (pas plus). Progression très graduelle pour
   éviter les blessures aux épaules. Une seule séance/semaine à l'automne (semaines 5-20,
-  période du stage coop), 2x/semaine après.
+  période du stage coop), 2x/semaine après (mardi + samedi matin, avant le vélo long).
 - Vélo: sortie longue démarre à 90min minimum, augmente graduellement. Sport à faible risque
-  de blessure -> volume plus facile à augmenter (2e séance courte ajoutée en semaine).
+  de blessure -> volume plus facile à augmenter (2e séance courte le jeudi).
 - Course: 2x/semaine. La plus courte (mercredi) comporte plus d'intensité (tempo/intervalles),
   la longue (dimanche) reste en endurance.
+
+V2.1 - révision du 4 août 2026 (suite): gabarit hebdomadaire réorganisé pour éviter 2 séances la
+même journée en début de plan (vélo mardi -> jeudi, musculation haut du corps jeudi -> vendredi,
+2e natation vendredi -> samedi matin dès la semaine 21). Réduction de volume des semaines de
+décharge portée à ~30% (contre ~15-25% dans la V2), alignée sur la "règle des 30%" citée par des
+coachs de triathlon pour les semaines de récupération en cours de bloc (voir commentaires sur
+DELOAD_WEEKS plus bas pour les sources).
 """
 import json
 import datetime
@@ -185,7 +192,7 @@ def build_assessment():
         ],
         "constraints": [
             "Stage coop à temps plein automne 2026 (~semaines 5 à 20 du plan, sept-déc) - natation limitée à 1x/semaine durant cette période pour respecter le temps disponible et la progression prudente à l'épaule",
-            "2 séances de musculation fixes et non-négociables chaque semaine, 60min chacune (bas du corps+abdos le lundi, haut du corps le jeudi), durée fixe qui n'augmente jamais",
+            "2 séances de musculation fixes et non-négociables chaque semaine, 60min chacune (bas du corps+abdos le lundi, haut du corps le vendredi), durée fixe qui n'augmente jamais",
             "Risque de blessure aux épaules en natation - progression de volume délibérément lente",
             "Natation en piscine seulement jusqu'au dégel (eau libre non praticable au Québec avant fin mai / début juin)",
         ],
@@ -198,7 +205,7 @@ def build_assessment():
 
 # Vélo - sortie longue du samedi (minutes). Démarre à 90min minimum tel que demandé.
 BIKE_LONG_ANCHORS = [(1, 90), (20, 150), (21, 150), (36, 195), (37, 195), (43, 225), (44, 150), (45, 90), (46, 25)]
-# Vélo - 2e séance courte du mardi (minutes)
+# Vélo - 2e séance courte du jeudi (minutes)
 BIKE_SHORT_ANCHORS = [(1, 30), (20, 40), (21, 40), (36, 50), (37, 50), (43, 50), (44, 35), (45, 25), (46, 15)]
 
 # Course - sortie longue du dimanche (minutes)
@@ -210,18 +217,30 @@ RUN_QUALITY_ANCHORS = [(1, 25), (20, 35), (21, 35), (36, 45), (37, 45), (43, 45)
 # Natation - séance principale (mardi): distance (m). Départ réaliste 1000-1100m.
 SWIM_MAIN_DIST_ANCHORS = [(1, 1000), (20, 1500), (21, 1500), (36, 1900), (37, 1900), (43, 2100),
                            (44, 1500), (45, 1100), (46, 600)]
-# Natation - 2e séance (vendredi, dès semaine 21): distance (m), plus courte / technique
+# Natation - 2e séance (samedi matin, avant le vélo long, dès semaine 21): distance (m), plus courte / technique
 SWIM_SECOND_DIST_ANCHORS = [(21, 700), (36, 1000), (37, 1000), (43, 1200), (44, 800), (45, 600)]
 # Allure de nage (sec/100m) - s'améliore progressivement avec la pratique
 SWIM_PACE_ANCHORS = [(1, 175), (20, 155), (21, 155), (36, 140), (37, 140), (43, 130), (46, 175)]
 
 RUN_LONG_PACE_ANCHORS = [(1, 365), (20, 350), (21, 350), (36, 335), (37, 335), (43, 325), (46, 360)]  # sec/km
 
+# Réduction de volume des semaines de décharge en cours de bloc (DELOAD_WEEKS), révisée le
+# 4 août 2026 sur la base de recherche factuelle (voir plan.notes.deloadResearch pour le détail
+# et les sources): la "règle des 30%" est communément citée par des coachs de triathlon pour les
+# semaines de récupération (fréquence des séances maintenue, volume/durée réduits d'environ 30%).
+# Sources: triathlete.com ("What's the Right Way to Approach A Recovery Week?"),
+# endogusto.com ("How to Use Periodization in Your Triathlon Training Plan"),
+# usatriathlon.org ("The Importance of Recovery Weeks and Rest Days").
+# La séance de qualité du mercredi est réduite un peu moins (~20%) pour préserver davantage la
+# fréquence/intensité (principe général de périodisation: couper le volume avant l'intensité).
+DELOAD_MULT_VOLUME = 0.70   # -30%: vélo long/court, course longue, natation (volume/distance)
+DELOAD_MULT_QUALITY = 0.80  # -20%: séance de qualité du mercredi (intensité préservée)
+
 
 def bike_long_min(w):
     v = interp(w, BIKE_LONG_ANCHORS)
     if w in DELOAD_WEEKS and w != 46:
-        v *= 0.75
+        v *= DELOAD_MULT_VOLUME
     v *= VOLUME_ADJUST["bike"]
     return round(v)
 
@@ -229,7 +248,7 @@ def bike_long_min(w):
 def bike_short_min(w):
     v = interp(w, BIKE_SHORT_ANCHORS)
     if w in DELOAD_WEEKS and w != 46:
-        v *= 0.8
+        v *= DELOAD_MULT_VOLUME
     v *= VOLUME_ADJUST["bike"]
     return round(v)
 
@@ -237,7 +256,7 @@ def bike_short_min(w):
 def run_long_min(w):
     v = interp(w, RUN_LONG_ANCHORS)
     if w in DELOAD_WEEKS and w != 46:
-        v *= 0.75
+        v *= DELOAD_MULT_VOLUME
     v *= VOLUME_ADJUST["run"]
     return round(v)
 
@@ -245,7 +264,7 @@ def run_long_min(w):
 def run_quality_min(w):
     v = interp(w, RUN_QUALITY_ANCHORS)
     if w in DELOAD_WEEKS and w != 46:
-        v *= 0.85
+        v *= DELOAD_MULT_QUALITY
     v *= VOLUME_ADJUST["run"]
     return round(v)
 
@@ -253,7 +272,7 @@ def run_quality_min(w):
 def swim_main_dist(w):
     v = interp(w, SWIM_MAIN_DIST_ANCHORS)
     if w in DELOAD_WEEKS and w != 46:
-        v *= 0.8
+        v *= DELOAD_MULT_VOLUME
     v *= VOLUME_ADJUST["swim"]
     return round(v / 50) * 50
 
@@ -263,7 +282,7 @@ def swim_second_dist(w):
         return 0
     v = interp(w, SWIM_SECOND_DIST_ANCHORS)
     if w in DELOAD_WEEKS and w != 46:
-        v *= 0.8
+        v *= DELOAD_MULT_VOLUME
     v *= VOLUME_ADJUST["swim"]
     return round(v / 50) * 50
 
@@ -402,8 +421,10 @@ def build_week(w):
     # --- Lundi: musculation bas du corps (fixe, toujours présente) ---
     days[0] = [strength_lower(f"{wid_base}-lun-force", phase, is_deload)]
 
-    # --- Mardi: natation (séance principale) + vélo court (double) ---
-    tue = []
+    # --- Mardi: natation (séance principale) SEULE ---
+    # Révision du 4 août 2026: le vélo court est déplacé au jeudi et la musculation du
+    # haut du corps au vendredi, pour ne plus avoir 2 séances la même journée durant
+    # les premières semaines (à la demande de l'athlète).
     s_dist = swim_main_dist(w)
     s_pace = swim_pace(w)
     s_min = swim_minutes_from_dist(s_dist, s_pace)
@@ -423,9 +444,14 @@ def build_week(w):
                  f"traîne, respiration bilatérale) puis nage continue/fractionnée en zone 1-2 jusqu'à "
                  f"~{s_dist}m au total. Arrêter si sensation inhabituelle à l'épaule.")
         szone = "Zone 1-2"
-    tue.append(mk_workout(f"{wid_base}-mar-swim", "swim", "technique", sname, sdesc,
-                           duration_min=s_min, distance_m=s_dist, zone=szone))
+    days[1] = [mk_workout(f"{wid_base}-mar-swim", "swim", "technique", sname, sdesc,
+                           duration_min=s_min, distance_m=s_dist, zone=szone)]
 
+    # --- Mercredi: course courte AVEC intensité (toujours la plus courte des 2) ---
+    rq_min = run_quality_min(w)
+    days[2] = [run_quality_workout(f"{wid_base}-mer-run", w, phase, is_deload, rq_min)]
+
+    # --- Jeudi: vélo court (2e séance), déplacé du mardi ---
     b_short = bike_short_min(w)
     if w == 2:
         bname, bdesc, bzone = ("Vélo - test FTP/FC 20min",
@@ -436,44 +462,39 @@ def build_week(w):
                                 "Sortie ou home-trainer facile en zone 2, cadence fluide 85-95rpm. Séance courte "
                                 "et à faible risque - sert à augmenter le volume vélo sans stress articulaire.",
                                 "Zone 2")
-    tue.append(mk_workout(f"{wid_base}-mar-bike", "bike", "endurance", bname, bdesc,
-                           duration_min=b_short, distance_m=bike_km(b_short) * 1000, zone=bzone))
-    days[1] = tue
+    days[3] = [mk_workout(f"{wid_base}-jeu-bike", "bike", "endurance", bname, bdesc,
+                           duration_min=b_short, distance_m=bike_km(b_short) * 1000, zone=bzone)]
 
-    # --- Mercredi: course courte AVEC intensité (toujours la plus courte des 2) ---
-    rq_min = run_quality_min(w)
-    days[2] = [run_quality_workout(f"{wid_base}-mer-run", w, phase, is_deload, rq_min)]
+    # --- Vendredi: musculation haut du corps (fixe, toujours présente), déplacée du jeudi ---
+    days[4] = [strength_upper(f"{wid_base}-ven-force", phase, is_deload)]
 
-    # --- Jeudi: musculation haut du corps (fixe, toujours présente) ---
-    days[3] = [strength_upper(f"{wid_base}-jeu-force", phase, is_deload)]
-
-    # --- Vendredi: 2e natation (dès semaine 21) ou repos ---
+    # --- Samedi: 2e natation (dès semaine 21, avant le vélo) + vélo long (+ brick en Build/Peak) ---
+    # À la demande de l'athlète, la 2e séance de natation hebdomadaire (introduite en semaine 21)
+    # est placée le samedi matin, avant le vélo long, plutôt que le vendredi (occupé par la
+    # musculation) ou le jeudi (déjà occupé par le vélo court).
+    sat = []
     if w >= 21 and w != 46:
         s2_dist = swim_second_dist(w)
         if s2_dist > 0:
             s2_min = swim_minutes_from_dist(s2_dist, s_pace + 10)
-            days[4] = [mk_workout(f"{wid_base}-ven-swim", "swim", "technique", "Natation - technique (2e séance)",
+            sat.append(mk_workout(f"{wid_base}-sam-swim", "swim", "technique", "Natation - technique (2e séance)",
                                    "Séance courte, focus pur sur la technique: drills + nage aisée en zone 1-2. "
-                                   "Fréquence augmentée maintenant que la charge du stage coop est terminée.",
-                                   duration_min=s2_min, distance_m=s2_dist, zone="Zone 1-2")]
-        else:
-            days[4] = [rest_day(f"{wid_base}-ven-repos")]
-    else:
-        days[4] = [rest_day(f"{wid_base}-ven-repos")]
+                                   "Fréquence augmentée maintenant que la charge du stage coop est terminée. "
+                                   "Placée le matin, avant le vélo long.",
+                                   duration_min=s2_min, distance_m=s2_dist, zone="Zone 1-2"))
 
-    # --- Samedi: vélo long (+ brick en Build/Peak) ---
     bl_min = bike_long_min(w)
     if phase == "Taper" and w == 46:
-        sat = [mk_workout(f"{wid_base}-sam-activation", "bike", "recovery", "Vélo - activation courte + repos",
-                           "15-20min très facile, vérification matériel (vélo, transition). Repos le reste de la journée.",
-                           duration_min=bl_min, distance_m=bike_km(bl_min) * 1000, zone="Zone 1")]
+        sat.append(mk_workout(f"{wid_base}-sam-activation", "bike", "recovery", "Vélo - activation courte + repos",
+                               "15-20min très facile, vérification matériel (vélo, transition). Repos le reste de la journée.",
+                               duration_min=bl_min, distance_m=bike_km(bl_min) * 1000, zone="Zone 1"))
     else:
-        sat = [mk_workout(f"{wid_base}-sam-bikelong", "bike", "long", "Vélo - sortie longue",
-                           "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement "
-                           "et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu."
-                           + (" Bloc final à allure course (60-90min @ 70-77% FTP)." if phase == "Peak" and not is_deload else ""),
-                           duration_min=bl_min, distance_m=bike_km(bl_min) * 1000,
-                           zone="Zone 2-3" if phase in ("Build", "Peak") and not is_deload else "Zone 2")]
+        sat.append(mk_workout(f"{wid_base}-sam-bikelong", "bike", "long", "Vélo - sortie longue",
+                               "Zone 2 stable. Sport à faible risque de blessure: volume augmenté progressivement "
+                               "et plus rapidement que la natation. Pratiquer l'hydratation/nutrition en continu."
+                               + (" Bloc final à allure course (60-90min @ 70-77% FTP)." if phase == "Peak" and not is_deload else ""),
+                               duration_min=bl_min, distance_m=bike_km(bl_min) * 1000,
+                               zone="Zone 2-3" if phase in ("Build", "Peak") and not is_deload else "Zone 2"))
         brick_min = 0
         if phase == "Build" and not is_deload and (w % 2 == 1):
             brick_min = round(interp(w, [(21, 15), (36, 30)]))
@@ -486,6 +507,8 @@ def build_week(w):
                                    "objectif = habituer les jambes à la transition vélo-course.",
                                    duration_min=brick_min, distance_m=run_km_from_pace(brick_min, pace_b) * 1000,
                                    zone="Zone 2-3"))
+    if not sat:
+        sat = [rest_day(f"{wid_base}-sam-repos")]
     days[5] = sat
 
     # --- Dimanche: course longue (endurance) ---
@@ -562,8 +585,8 @@ def build_phases(all_weeks=None):
                      "2x60min/semaine, course courte du mercredi avec intensité. Recouvre le stage coop (~semaines 5-20).",
             "weeklyHoursRange": rng(range(1, 21), all_weeks),
             "keyWorkouts": ["Tests de terrain (course/vélo/natation, semaines 1-2)", "Natation 1x/semaine (mardi)",
-                             "Vélo long + court (mardi/samedi)", "Course qualité mercredi + longue dimanche",
-                             "Musculation bas du corps (lundi) + haut du corps (jeudi), 60min fixe"],
+                             "Vélo long + court (jeudi/samedi)", "Course qualité mercredi + longue dimanche",
+                             "Musculation bas du corps (lundi) + haut du corps (vendredi), 60min fixe"],
             "physiologicalGoals": ["Rétablir l'équilibre aérobie après l'ultra du 18 juillet",
                                     "Construire la technique de nage prudemment à partir de 1000-1200m",
                                     "Développer la capillarisation et la densité mitochondriale (zone 2)",
@@ -574,7 +597,7 @@ def build_phases(all_weeks=None):
             "focus": "Natation 2x/semaine (stage coop terminé), intensité accrue en course (intervalles seuil "
                      "mercredi), vélo sweet spot, brick une semaine sur deux, musculation fixe inchangée.",
             "weeklyHoursRange": rng(range(21, 37), all_weeks),
-            "keyWorkouts": ["Natation mardi + vendredi", "Vélo sweet spot (mardi court) + long (samedi)",
+            "keyWorkouts": ["Natation mardi + samedi (avant le vélo long)", "Vélo sweet spot (jeudi court) + long (samedi)",
                              "Course intervalles seuil (mercredi) + longue (dimanche)",
                              "Brick vélo-course (samedi, semaines alternées)"],
             "physiologicalGoals": ["Élever le seuil lactique dans les 3 disciplines",
@@ -668,10 +691,28 @@ def build_full_plan():
                                 "la date officielle 2027 n'était pas encore publiée par IRONMAN au 4 août 2026 "
                                 "(source: finishers.com). À confirmer dès publication officielle.",
             "constraintsApplied": "Plan révisé le 4 août 2026 selon les contraintes réelles de l'athlète: musculation "
-                                   "fixe 2x60min/semaine (lundi bas du corps+abdos, jeudi haut du corps), natation "
+                                   "fixe 2x60min/semaine (lundi bas du corps+abdos, vendredi haut du corps), natation "
                                    "1x/semaine à l'automne dès 1000-1200m (progression très graduelle, protection "
                                    "des épaules), vélo long dès 90min, course du mercredi toujours la plus courte "
-                                   "et toujours avec intensité (tempo/intervalles).",
+                                   "et toujours avec intensité (tempo/intervalles). Révisé à nouveau le 4 août 2026 "
+                                   "(v2.1): gabarit hebdomadaire réorganisé (vélo jeudi, musculation haut du corps "
+                                   "vendredi, 2e natation samedi matin dès semaine 21) pour éviter deux séances la "
+                                   "même journée en début de plan; réduction de volume des semaines de décharge "
+                                   "portée à ~30% (source: \"règle des 30%\" citée par des coachs de triathlon pour "
+                                   "les semaines de récupération, triathlete.com / endogusto.com).",
+            "deloadResearch": {
+                "midBlockRecoveryWeeks": "Réduction de volume d'environ 30% (fréquence des séances maintenue, "
+                                          "durée réduite), avec un ratio charge:décharge de 3:1 à 4:1 typique en "
+                                          "triathlon. Sources: Triathlete.com (\"What's the Right Way to Approach "
+                                          "A Recovery Week?\"), EndoGusto (\"How to Use Periodization in Your "
+                                          "Triathlon Training Plan\"), USA Triathlon (\"The Importance of Recovery "
+                                          "Weeks and Rest Days\").",
+                "taperFinal": "Réduction de volume de 41-60% sur 2-3 semaines avant la course, intensité et "
+                               "fréquence maintenues, pondérée davantage sur la dernière semaine (ex. 80%/60%/40% "
+                               "du volume de pointe). Source: méta-analyse PLOS ONE \"Effects of tapering on "
+                               "performance in endurance athletes\" (2023) — une réduction de 41-60% a produit les "
+                               "meilleurs gains de performance en contre-la-montre.",
+            },
             "updateLog": [],
         },
     }
@@ -695,7 +736,7 @@ def main():
 # semaines (8 par défaut) à partir d'un plan.json existant, en fonction de
 # multiplicateurs de volume optionnels (données Garmin: récupération, body
 # battery, statut d'entraînement, HRV, etc.). Le reste des 46 semaines n'est
-# JAMAIS touché. La musculation (lundi/jeudi, 60min) n'est jamais affectée.
+# JAMAIS touché. La musculation (lundi/vendredi, 60min) n'est jamais affectée.
 # ---------------------------------------------------------------------------
 def update_plan(existing_path, start_week, num_weeks=8, swim_adjust=1.0, bike_adjust=1.0,
                  run_adjust=1.0, reason="", output_path=None):
