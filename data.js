@@ -3229,7 +3229,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 8895788035
     },
     {
       "date": "2022-06-15",
@@ -3244,7 +3245,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9091031146
     },
     {
       "date": "2022-07-06",
@@ -3259,7 +3261,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9155495274
     },
     {
       "date": "2022-07-06",
@@ -3274,7 +3277,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9155495195
     },
     {
       "date": "2022-07-15",
@@ -3289,7 +3293,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9228306252
     },
     {
       "date": "2022-07-19",
@@ -3304,7 +3309,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9236952083
     },
     {
       "date": "2022-07-21",
@@ -3319,7 +3325,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9249632427
     },
     {
       "date": "2022-07-25",
@@ -3334,7 +3341,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9274215761
     },
     {
       "date": "2022-07-29",
@@ -3349,7 +3357,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 9296887317
     },
     {
       "date": "2023-03-06",
@@ -3364,7 +3373,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 10663702509
     },
     {
       "date": "2023-04-11",
@@ -3379,7 +3389,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11009025168
     },
     {
       "date": "2023-04-18",
@@ -3394,7 +3405,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11009025720
     },
     {
       "date": "2023-04-28",
@@ -3409,7 +3421,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11009026301
     },
     {
       "date": "2023-05-05",
@@ -3424,7 +3437,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11175674799
     },
     {
       "date": "2023-05-22",
@@ -3439,7 +3453,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11179733162
     },
     {
       "date": "2023-05-25",
@@ -3454,7 +3469,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11197963019
     },
     {
       "date": "2023-05-29",
@@ -3469,7 +3485,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11253876654
     },
     {
       "date": "2023-05-29",
@@ -3484,7 +3501,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11253875883
     },
     {
       "date": "2023-05-30",
@@ -3499,7 +3517,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11253878236
     },
     {
       "date": "2023-06-02",
@@ -3514,7 +3533,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11253879201
     },
     {
       "date": "2023-06-20",
@@ -3529,7 +3549,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 11474481871
     },
     {
       "date": "2023-10-14",
@@ -3544,7 +3565,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 12357643924
     },
     {
       "date": "2023-10-21",
@@ -3559,7 +3581,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 12447528981
     },
     {
       "date": "2023-11-05",
@@ -3574,7 +3597,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 12860738832
     },
     {
       "date": "2023-11-24",
@@ -3589,7 +3613,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 12860739323
     },
     {
       "date": "2024-05-02",
@@ -3604,7 +3629,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 15404698470
     },
     {
       "date": "2024-05-22",
@@ -3619,7 +3645,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 15530501442
     },
     {
       "date": "2024-05-24",
@@ -3634,7 +3661,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 15564006461
     },
     {
       "date": "2024-06-03",
@@ -3649,7 +3677,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 15729376074
     },
     {
       "date": "2024-06-06",
@@ -3664,7 +3693,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 15826044076
     },
     {
       "date": "2024-06-09",
@@ -3679,7 +3709,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 15826046006
     },
     {
       "date": "2024-06-19",
@@ -3694,7 +3725,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 16313792158
     },
     {
       "date": "2024-06-19",
@@ -3709,7 +3741,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 16313791343
     },
     {
       "date": "2024-08-20",
@@ -3724,7 +3757,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 16827306736
     },
     {
       "date": "2024-12-04",
@@ -3739,7 +3773,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 17703679177
     },
     {
       "date": "2025-01-03",
@@ -3754,7 +3789,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 17906809853
     },
     {
       "date": "2025-01-09",
@@ -3769,7 +3805,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 17964466447
     },
     {
       "date": "2025-01-14",
@@ -3784,7 +3821,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18011830643
     },
     {
       "date": "2025-01-19",
@@ -3799,7 +3837,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18049145506
     },
     {
       "date": "2025-01-21",
@@ -3814,7 +3853,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18066438810
     },
     {
       "date": "2025-01-22",
@@ -3829,7 +3869,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18076231255
     },
     {
       "date": "2025-01-28",
@@ -3844,7 +3885,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18127832373
     },
     {
       "date": "2025-01-30",
@@ -3859,7 +3901,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18146125793
     },
     {
       "date": "2025-02-05",
@@ -3874,7 +3917,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18204294931
     },
     {
       "date": "2025-02-11",
@@ -3889,7 +3933,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18253525317
     },
     {
       "date": "2025-02-13",
@@ -3904,7 +3949,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18270726455
     },
     {
       "date": "2025-02-25",
@@ -3919,7 +3965,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18377211077
     },
     {
       "date": "2025-03-02",
@@ -3934,7 +3981,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18422358574
     },
     {
       "date": "2025-03-04",
@@ -3949,7 +3997,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18440788096
     },
     {
       "date": "2025-03-11",
@@ -3964,7 +4013,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18506328246
     },
     {
       "date": "2025-03-22",
@@ -3979,7 +4029,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18608556701
     },
     {
       "date": "2025-04-26",
@@ -3994,7 +4045,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 18944130709
     },
     {
       "date": "2025-05-18",
@@ -4009,7 +4061,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 19165832449
     },
     {
       "date": "2025-07-10",
@@ -4024,7 +4077,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 19694653836
     },
     {
       "date": "2025-07-11",
@@ -4039,7 +4093,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 19704058590
     },
     {
       "date": "2026-01-24",
@@ -4054,7 +4109,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 21653358250
     },
     {
       "date": "2026-01-31",
@@ -4069,7 +4125,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 21723865760
     },
     {
       "date": "2026-02-07",
@@ -4084,7 +4141,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 21796608244
     },
     {
       "date": "2026-03-12",
@@ -4099,7 +4157,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 22150624950
     },
     {
       "date": "2026-05-23",
@@ -4114,7 +4173,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 22988098952
     },
     {
       "date": "2026-05-23",
@@ -4129,7 +4189,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 22988098338
     },
     {
       "date": "2026-06-13",
@@ -4144,7 +4205,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 23238832069
     },
     {
       "date": "2026-06-15",
@@ -4159,7 +4221,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 23281526525
     },
     {
       "date": "2026-06-20",
@@ -4174,7 +4237,8 @@ const trainingData = {
       "anaerobic_te": null,
       "training_load": null,
       "rpe": null,
-      "body_battery_diff": null
+      "body_battery_diff": null,
+      "activity_id": 23320649486
     },
     {
       "date": "2026-06-27",
@@ -4189,7 +4253,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 5.4,
       "rpe": null,
-      "body_battery_diff": -2
+      "body_battery_diff": -2,
+      "activity_id": 23401087971
     },
     {
       "date": "2026-06-28",
@@ -4204,7 +4269,8 @@ const trainingData = {
       "anaerobic_te": 0.30000001192092896,
       "training_load": 173.9,
       "rpe": 60,
-      "body_battery_diff": -38
+      "body_battery_diff": -38,
+      "activity_id": 23408764193
     },
     {
       "date": "2026-06-29",
@@ -4219,7 +4285,8 @@ const trainingData = {
       "anaerobic_te": 3.0,
       "training_load": 137.0,
       "rpe": null,
-      "body_battery_diff": -8
+      "body_battery_diff": -8,
+      "activity_id": 23424145217
     },
     {
       "date": "2026-07-01",
@@ -4234,7 +4301,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 17.7,
       "rpe": null,
-      "body_battery_diff": -3
+      "body_battery_diff": -3,
+      "activity_id": 23445243492
     },
     {
       "date": "2026-07-01",
@@ -4249,7 +4317,8 @@ const trainingData = {
       "anaerobic_te": 2.0999999046325684,
       "training_load": 75.9,
       "rpe": null,
-      "body_battery_diff": -9
+      "body_battery_diff": -9,
+      "activity_id": 23444642841
     },
     {
       "date": "2026-07-02",
@@ -4264,7 +4333,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 70.6,
       "rpe": 30,
-      "body_battery_diff": -8
+      "body_battery_diff": -8,
+      "activity_id": 23455145705
     },
     {
       "date": "2026-07-04",
@@ -4279,7 +4349,8 @@ const trainingData = {
       "anaerobic_te": 3.0,
       "training_load": 160.4,
       "rpe": 50,
-      "body_battery_diff": -12
+      "body_battery_diff": -12,
+      "activity_id": 23479747230
     },
     {
       "date": "2026-07-04",
@@ -4294,7 +4365,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 5.8,
       "rpe": null,
-      "body_battery_diff": -3
+      "body_battery_diff": -3,
+      "activity_id": 23477591485
     },
     {
       "date": "2026-07-05",
@@ -4309,7 +4381,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 4.2,
       "rpe": null,
-      "body_battery_diff": -1
+      "body_battery_diff": -1,
+      "activity_id": 23491493349
     },
     {
       "date": "2026-07-06",
@@ -4324,7 +4397,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 15.6,
       "rpe": null,
-      "body_battery_diff": -2
+      "body_battery_diff": -2,
+      "activity_id": 23503451985
     },
     {
       "date": "2026-07-06",
@@ -4339,7 +4413,8 @@ const trainingData = {
       "anaerobic_te": 2.200000047683716,
       "training_load": 76.0,
       "rpe": null,
-      "body_battery_diff": -10
+      "body_battery_diff": -10,
+      "activity_id": 23502013681
     },
     {
       "date": "2026-07-08",
@@ -4354,21 +4429,6 @@ const trainingData = {
       "anaerobic_te": 0.8999999761581421,
       "training_load": 162.8,
       "rpe": 70,
-      "body_battery_diff": -10
-    },
-    {
-      "date": "2026-07-08",
-      "name": "Sherbrooke - Seuil",
-      "type": "Course à pied",
-      "distance_km": 7.06,
-      "duration_min": 37.8,
-      "elevation_m": 95.0,
-      "avg_hr": 168,
-      "max_hr": 191,
-      "aerobic_te": 4.199999809265137,
-      "anaerobic_te": 0.8999999761581421,
-      "training_load": 162.75025939941406,
-      "rpe": null,
       "body_battery_diff": -10,
       "activity_id": 23528236959
     },
@@ -4385,7 +4445,8 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 17.0,
       "rpe": null,
-      "body_battery_diff": -4
+      "body_battery_diff": -4,
+      "activity_id": 23552801719
     },
     {
       "date": "2026-07-10",
@@ -4399,37 +4460,6 @@ const trainingData = {
       "aerobic_te": 2.0999999046325684,
       "anaerobic_te": 1.399999976158142,
       "training_load": 39.9,
-      "rpe": null,
-      "body_battery_diff": -5
-    },
-    {
-      "date": "2026-07-10",
-      "name": "Sherbrooke Marche à pied",
-      "type": "Marche",
-      "distance_km": 3.55,
-      "duration_min": 38.0,
-      "elevation_m": 85.0,
-      "avg_hr": 117,
-      "max_hr": 153,
-      "aerobic_te": 1.5,
-      "anaerobic_te": 0.0,
-      "training_load": 16.980148315429688,
-      "rpe": null,
-      "body_battery_diff": -4,
-      "activity_id": 23552801719
-    },
-    {
-      "date": "2026-07-10",
-      "name": "Musculation",
-      "type": "Entraînement aux poids",
-      "distance_km": 0.0,
-      "duration_min": 55.3,
-      "elevation_m": 0,
-      "avg_hr": 120,
-      "max_hr": 164,
-      "aerobic_te": 2.0999999046325684,
-      "anaerobic_te": 1.399999976158142,
-      "training_load": 39.8590087890625,
       "rpe": null,
       "body_battery_diff": -5,
       "activity_id": 23552801371
@@ -4447,21 +4477,6 @@ const trainingData = {
       "anaerobic_te": 0.8999999761581421,
       "training_load": 110.5,
       "rpe": 40,
-      "body_battery_diff": -13
-    },
-    {
-      "date": "2026-07-11",
-      "name": "Sherbrooke Cyclisme",
-      "type": "Vélo",
-      "distance_km": 42.78,
-      "duration_min": 101.3,
-      "elevation_m": 436.0,
-      "avg_hr": 148,
-      "max_hr": 172,
-      "aerobic_te": 3.4000000953674316,
-      "anaerobic_te": 0.8999999761581421,
-      "training_load": 110.48133850097656,
-      "rpe": null,
       "body_battery_diff": -13,
       "activity_id": 23563502014
     },
@@ -4477,21 +4492,6 @@ const trainingData = {
       "aerobic_te": 2.5999999046325684,
       "anaerobic_te": 2.0,
       "training_load": 72.4,
-      "rpe": null,
-      "body_battery_diff": -6
-    },
-    {
-      "date": "2026-07-12",
-      "name": "Sherbrooke Volley-ball",
-      "type": "Volleyball",
-      "distance_km": 1.46,
-      "duration_min": 25.0,
-      "elevation_m": 0,
-      "avg_hr": 136,
-      "max_hr": 165,
-      "aerobic_te": 2.5999999046325684,
-      "anaerobic_te": 2.0,
-      "training_load": 72.39126586914062,
       "rpe": null,
       "body_battery_diff": -6,
       "activity_id": 23575226786
@@ -4509,21 +4509,6 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 120.3,
       "rpe": 40,
-      "body_battery_diff": -7
-    },
-    {
-      "date": "2026-07-13",
-      "name": "Sherbrooke - Seuil",
-      "type": "Course à pied",
-      "distance_km": 7.15,
-      "duration_min": 37.9,
-      "elevation_m": 114.0,
-      "avg_hr": 159,
-      "max_hr": 177,
-      "aerobic_te": 3.5999999046325684,
-      "anaerobic_te": 0.0,
-      "training_load": 120.25559997558594,
-      "rpe": null,
       "body_battery_diff": -7,
       "activity_id": 23587219692
     },
@@ -4539,21 +4524,6 @@ const trainingData = {
       "aerobic_te": 2.4000000953674316,
       "anaerobic_te": 2.200000047683716,
       "training_load": 72.5,
-      "rpe": null,
-      "body_battery_diff": -8
-    },
-    {
-      "date": "2026-07-14",
-      "name": "Musculation",
-      "type": "Entraînement aux poids",
-      "distance_km": 0.0,
-      "duration_min": 68.8,
-      "elevation_m": 0,
-      "avg_hr": 125,
-      "max_hr": 167,
-      "aerobic_te": 2.4000000953674316,
-      "anaerobic_te": 2.200000047683716,
-      "training_load": 72.48544311523438,
       "rpe": null,
       "body_battery_diff": -8,
       "activity_id": 23600210100
@@ -4571,21 +4541,6 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 5.8,
       "rpe": null,
-      "body_battery_diff": -2
-    },
-    {
-      "date": "2026-07-16",
-      "name": "Sherbrooke Marche à pied",
-      "type": "Marche",
-      "distance_km": 2.0,
-      "duration_min": 21.6,
-      "elevation_m": 32.0,
-      "avg_hr": 108,
-      "max_hr": 124,
-      "aerobic_te": 0.5,
-      "anaerobic_te": 0.0,
-      "training_load": 5.8007354736328125,
-      "rpe": null,
       "body_battery_diff": -2,
       "activity_id": 23622365273
     },
@@ -4602,21 +4557,6 @@ const trainingData = {
       "anaerobic_te": 0.20000000298023224,
       "training_load": 314.8,
       "rpe": 100,
-      "body_battery_diff": -62
-    },
-    {
-      "date": "2026-07-18",
-      "name": "Sherbrooke Course à pied",
-      "type": "Course à pied",
-      "distance_km": 51.01,
-      "duration_min": 349.8,
-      "elevation_m": 464.0,
-      "avg_hr": 153,
-      "max_hr": 172,
-      "aerobic_te": 5.0,
-      "anaerobic_te": 0.20000000298023224,
-      "training_load": 314.8249206542969,
-      "rpe": null,
       "body_battery_diff": -62,
       "activity_id": 23646496165
     },
@@ -4632,21 +4572,6 @@ const trainingData = {
       "aerobic_te": 2.200000047683716,
       "anaerobic_te": 2.0999999046325684,
       "training_load": 62.8,
-      "rpe": null,
-      "body_battery_diff": -5
-    },
-    {
-      "date": "2026-07-22",
-      "name": "Musculation",
-      "type": "Entraînement aux poids",
-      "distance_km": 0.0,
-      "duration_min": 64.2,
-      "elevation_m": 0,
-      "avg_hr": 124,
-      "max_hr": 183,
-      "aerobic_te": 2.200000047683716,
-      "anaerobic_te": 2.0999999046325684,
-      "training_load": 62.81964111328125,
       "rpe": null,
       "body_battery_diff": -5,
       "activity_id": 23696530695
@@ -4664,21 +4589,6 @@ const trainingData = {
       "anaerobic_te": 1.0,
       "training_load": 96.7,
       "rpe": 40,
-      "body_battery_diff": -5
-    },
-    {
-      "date": "2026-07-23",
-      "name": "Sherbrooke - Base",
-      "type": "Course à pied",
-      "distance_km": 5.23,
-      "duration_min": 29.9,
-      "elevation_m": 60.0,
-      "avg_hr": 155,
-      "max_hr": 185,
-      "aerobic_te": 3.200000047683716,
-      "anaerobic_te": 1.0,
-      "training_load": 96.65800476074219,
-      "rpe": null,
       "body_battery_diff": -5,
       "activity_id": 23708591319
     },
@@ -4695,21 +4605,6 @@ const trainingData = {
       "anaerobic_te": 1.899999976158142,
       "training_load": 101.1,
       "rpe": 30,
-      "body_battery_diff": -6
-    },
-    {
-      "date": "2026-07-26",
-      "name": "Saguenay Course à pied",
-      "type": "Course à pied",
-      "distance_km": 5.43,
-      "duration_min": 31.1,
-      "elevation_m": 31.0,
-      "avg_hr": 145,
-      "max_hr": 203,
-      "aerobic_te": 3.0999999046325684,
-      "anaerobic_te": 1.899999976158142,
-      "training_load": 101.10403442382812,
-      "rpe": null,
       "body_battery_diff": -6,
       "activity_id": 23744257213
     },
@@ -4725,21 +4620,6 @@ const trainingData = {
       "aerobic_te": 3.0,
       "anaerobic_te": 2.0999999046325684,
       "training_load": 100.1,
-      "rpe": null,
-      "body_battery_diff": -6
-    },
-    {
-      "date": "2026-07-27",
-      "name": "Musculation",
-      "type": "Entraînement aux poids",
-      "distance_km": 0.0,
-      "duration_min": 70.2,
-      "elevation_m": 0,
-      "avg_hr": 138,
-      "max_hr": 176,
-      "aerobic_te": 3.0,
-      "anaerobic_te": 2.0999999046325684,
-      "training_load": 100.05191040039062,
       "rpe": null,
       "body_battery_diff": -6,
       "activity_id": 23755406773
@@ -4757,21 +4637,6 @@ const trainingData = {
       "anaerobic_te": 1.100000023841858,
       "training_load": 67.5,
       "rpe": 40,
-      "body_battery_diff": null
-    },
-    {
-      "date": "2026-07-28",
-      "name": "Nat. piscine",
-      "type": "Natation",
-      "distance_km": 1.0,
-      "duration_min": 28.3,
-      "elevation_m": 0,
-      "avg_hr": 132,
-      "max_hr": 173,
-      "aerobic_te": 2.700000047683716,
-      "anaerobic_te": 1.100000023841858,
-      "training_load": 67.52726745605469,
-      "rpe": null,
       "body_battery_diff": null,
       "activity_id": 23769686003
     },
@@ -4787,21 +4652,6 @@ const trainingData = {
       "aerobic_te": 3.0,
       "anaerobic_te": 2.5,
       "training_load": 120.8,
-      "rpe": null,
-      "body_battery_diff": -7
-    },
-    {
-      "date": "2026-07-29",
-      "name": "Sherbrooke Football",
-      "type": "Football",
-      "distance_km": 4.15,
-      "duration_min": 42.1,
-      "elevation_m": 0,
-      "avg_hr": 147,
-      "max_hr": 191,
-      "aerobic_te": 3.0,
-      "anaerobic_te": 2.5,
-      "training_load": 120.80351257324219,
       "rpe": null,
       "body_battery_diff": -7,
       "activity_id": 23783324393
@@ -4819,36 +4669,6 @@ const trainingData = {
       "anaerobic_te": 0.0,
       "training_load": 14.5,
       "rpe": null,
-      "body_battery_diff": 0
-    },
-    {
-      "date": "2026-07-30",
-      "name": "Sherbrooke Cyclisme",
-      "type": "Vélo",
-      "distance_km": 20.62,
-      "duration_min": 49.4,
-      "elevation_m": 293.0,
-      "avg_hr": 150,
-      "max_hr": 173,
-      "aerobic_te": 3.200000047683716,
-      "anaerobic_te": 0.5,
-      "training_load": 93.4,
-      "rpe": 40,
-      "body_battery_diff": -8
-    },
-    {
-      "date": "2026-07-30",
-      "name": "Sherbrooke Marche à pied",
-      "type": "Marche",
-      "distance_km": 2.6,
-      "duration_min": 24.9,
-      "elevation_m": 55.0,
-      "avg_hr": 127,
-      "max_hr": 152,
-      "aerobic_te": 1.2000000476837158,
-      "anaerobic_te": 0.0,
-      "training_load": 14.456787109375,
-      "rpe": null,
       "body_battery_diff": 0,
       "activity_id": 23799597963
     },
@@ -4863,8 +4683,8 @@ const trainingData = {
       "max_hr": 173,
       "aerobic_te": 3.200000047683716,
       "anaerobic_te": 0.5,
-      "training_load": 93.41700744628906,
-      "rpe": null,
+      "training_load": 93.4,
+      "rpe": 40,
       "body_battery_diff": -8,
       "activity_id": 23791137241
     },
@@ -4880,21 +4700,6 @@ const trainingData = {
       "aerobic_te": 2.0999999046325684,
       "anaerobic_te": 1.100000023841858,
       "training_load": 40.4,
-      "rpe": null,
-      "body_battery_diff": -5
-    },
-    {
-      "date": "2026-08-01",
-      "name": "Musculation",
-      "type": "Entraînement aux poids",
-      "distance_km": 0.0,
-      "duration_min": 61.5,
-      "elevation_m": 0,
-      "avg_hr": 124,
-      "max_hr": 159,
-      "aerobic_te": 2.0999999046325684,
-      "anaerobic_te": 1.100000023841858,
-      "training_load": 40.4346923828125,
       "rpe": null,
       "body_battery_diff": -5,
       "activity_id": 23818492738
@@ -4912,21 +4717,6 @@ const trainingData = {
       "anaerobic_te": 2.0,
       "training_load": 181.7,
       "rpe": 50,
-      "body_battery_diff": -29
-    },
-    {
-      "date": "2026-08-02",
-      "name": "Sherbrooke Cyclisme",
-      "type": "Vélo",
-      "distance_km": 59.49,
-      "duration_min": 140.1,
-      "elevation_m": 628.0,
-      "avg_hr": 153,
-      "max_hr": 190,
-      "aerobic_te": 4.0,
-      "anaerobic_te": 2.0,
-      "training_load": 181.6993865966797,
-      "rpe": null,
       "body_battery_diff": -29,
       "activity_id": 23826494880
     },
