@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-04",
+    "lastAutoSync": "2026-08-05",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -4735,6 +4735,22 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": null,
       "activity_id": 23838422819
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Sherbrooke Football",
+      "type": "Football",
+      "distance_km": 3.98,
+      "duration_min": 41.6,
+      "elevation_m": 0,
+      "avg_hr": 158,
+      "max_hr": 188,
+      "aerobic_te": 3.4000000953674316,
+      "anaerobic_te": 3.200000047683716,
+      "training_load": 211.48484802246094,
+      "rpe": null,
+      "body_battery_diff": -9,
+      "activity_id": 23855433928
     }
   ],
   "wellness_monthly": [
@@ -6601,12 +6617,24 @@ const trainingData = {
     },
     {
       "date": "2026-08-04",
-      "readiness_score": 69,
+      "readiness_score": 17,
       "sleep_score": 83,
-      "level": "MODERATE",
+      "level": "POOR",
       "hrv": 82,
       "hrv_weekly_avg": 78,
-      "acute_load": 509,
+      "acute_load": 778,
+      "chronic_load": null,
+      "acwr": null,
+      "acwr_status": null
+    },
+    {
+      "date": "2026-08-05",
+      "readiness_score": 25,
+      "sleep_score": 81,
+      "level": "LOW",
+      "hrv": 74,
+      "hrv_weekly_avg": 76,
+      "acute_load": 649,
       "chronic_load": null,
       "acwr": null,
       "acwr_status": null
