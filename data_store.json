@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-05",
+    "lastAutoSync": "2026-08-07",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -4738,6 +4738,38 @@
       "rpe": null,
       "body_battery_diff": -9,
       "activity_id": 23855433928
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Sherbrooke Football",
+      "type": "Football",
+      "distance_km": 4.06,
+      "duration_min": 40.2,
+      "elevation_m": 0,
+      "avg_hr": 148,
+      "max_hr": 185,
+      "aerobic_te": 3.299999952316284,
+      "anaerobic_te": 3.4000000953674316,
+      "training_load": 213.7425537109375,
+      "rpe": null,
+      "body_battery_diff": -9,
+      "activity_id": 23869726520
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Musculation",
+      "type": "Entraînement aux poids",
+      "distance_km": 0.0,
+      "duration_min": 57.0,
+      "elevation_m": 0,
+      "avg_hr": 126,
+      "max_hr": 170,
+      "aerobic_te": 2.0999999046325684,
+      "anaerobic_te": 2.0,
+      "training_load": 57.6435546875,
+      "rpe": null,
+      "body_battery_diff": -5,
+      "activity_id": 23879602399
     }
   ],
   "wellness_monthly": [
@@ -6616,12 +6648,36 @@
     },
     {
       "date": "2026-08-05",
-      "readiness_score": 25,
+      "readiness_score": 1,
       "sleep_score": 81,
-      "level": "LOW",
+      "level": "POOR",
       "hrv": 74,
       "hrv_weekly_avg": 76,
-      "acute_load": 649,
+      "acute_load": 921,
+      "chronic_load": null,
+      "acwr": null,
+      "acwr_status": null
+    },
+    {
+      "date": "2026-08-06",
+      "readiness_score": 1,
+      "sleep_score": 87,
+      "level": "POOR",
+      "hrv": 81,
+      "hrv_weekly_avg": 77,
+      "acute_load": 852,
+      "chronic_load": null,
+      "acwr": null,
+      "acwr_status": null
+    },
+    {
+      "date": "2026-08-07",
+      "readiness_score": 36,
+      "sleep_score": 87,
+      "level": "LOW",
+      "hrv": 100,
+      "hrv_weekly_avg": 85,
+      "acute_load": 714,
       "chronic_load": null,
       "acwr": null,
       "acwr_status": null
