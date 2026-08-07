@@ -223,7 +223,6 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
     </div>
     <div class="status">
       <div><span class="dot"></span>MAJ <span id="lastUpdated">—</span></div>
-      <div class="sub" id="lastAutoSync"></div>
     </div>
   </header>
 
@@ -231,7 +230,7 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
     <button class="ch-btn active" data-ch="1"><span class="sw"></span>CH1 — Strava historique</button>
     <button class="ch-btn" data-ch="2"><span class="sw"></span>CH2 — Garmin activités</button>
     <button class="ch-btn" data-ch="3"><span class="sw"></span>CH3 — Physiologie</button>
-    <button class="ch-btn" data-ch="4"><span class="sw"></span>CH4 — VFC / Charge / Corrélations</button>
+    <button class="ch-btn" data-ch="4"><span class="sw"></span>CH4 — Préparation à l'entraînement</button>
     <button class="ch-btn" data-ch="5"><span class="sw"></span>CH5 — Plan 70.3 Mont-Tremblant</button>
   </nav>
 
@@ -455,8 +454,7 @@ function statCard(color, label, value, unit, sub, subClass){
 }
 
 document.getElementById("athleteName").textContent = trainingData.meta.athlete;
-document.getElementById("lastUpdated").textContent = trainingData.meta.lastUpdated;
-document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAutoSync ? "sync auto "+trainingData.meta.lastAutoSync : "";
+document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoSync || trainingData.meta.lastUpdated;
 
 /* =====================================================================
    CH1 — STRAVA HISTORIQUE
@@ -552,17 +550,18 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
   });
 
   const chrono = [...acts].sort((a,b)=>new Date(a.date)-new Date(b.date));
-  const teValues = chrono.flatMap(a=>[a.aerobic_te, a.anaerobic_te]).filter(v=>v!=null);
+  const chronoTE = chrono.filter(a=> a.aerobic_te!=null || a.anaerobic_te!=null);
+  const teValues = chronoTE.flatMap(a=>[a.aerobic_te, a.anaerobic_te]).filter(v=>v!=null);
   const teMax = teValues.length ? Math.min(5, Math.ceil((Math.max(...teValues)+0.4)*2)/2) : 5;
   new Chart(document.getElementById("chart-2b"), {
     type: "line",
-    data: { labels: chrono.map(a=>a.date), datasets: [
-      { label:"Effet aérobie", data: chrono.map(a=>a.aerobic_te), borderColor:"#38bdf8", backgroundColor:"rgba(56,189,248,.18)", fill:true, tension:.35, pointRadius:2, pointHoverRadius:4, borderWidth:2, spanGaps:true },
-      { label:"Effet anaérobie", data: chrono.map(a=>a.anaerobic_te), borderColor:"#ec4899", backgroundColor:"rgba(236,72,153,.1)", fill:true, tension:.35, pointRadius:2, pointHoverRadius:4, borderWidth:2, spanGaps:true }
+    data: { labels: chronoTE.map(a=>a.date), datasets: [
+      { label:"Effet aérobie", data: chronoTE.map(a=>a.aerobic_te), borderColor:"#38bdf8", backgroundColor:"rgba(56,189,248,.18)", fill:true, tension:.35, pointRadius:2, pointHoverRadius:4, borderWidth:2, spanGaps:true },
+      { label:"Effet anaérobie", data: chronoTE.map(a=>a.anaerobic_te), borderColor:"#ec4899", backgroundColor:"rgba(236,72,153,.1)", fill:true, tension:.35, pointRadius:2, pointHoverRadius:4, borderWidth:2, spanGaps:true }
     ]},
     options: { responsive:true, maintainAspectRatio:false,
       plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}},
-        tooltip:{ callbacks:{ title:(items)=> chrono[items[0].dataIndex].date,
+        tooltip:{ callbacks:{ title:(items)=> chronoTE[items[0].dataIndex].date,
           label:(ctx)=> `${ctx.dataset.label} : ${ctx.parsed.y!=null?ctx.parsed.y.toFixed(1):"—"}` } } },
       scales: { x:{ticks:{display:false}, grid:{display:false}},
                 y:{min:0, max:teMax, ticks:{color:AXIS_COLOR,font:{size:10}, stepSize:0.5}, grid:{color:GRID_COLOR}} } }
@@ -675,7 +674,7 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
 })();
 
 /* =====================================================================
-   CH4 — VFC / CHARGE / CORRÉLATIONS
+   CH4 — PRÉPARATION À L'ENTRAÎNEMENT
 ===================================================================== */
 (function(){
   const rr = trainingData.readiness_recent;
@@ -693,11 +692,9 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
     statCard("var(--ch4)","Sommeil moy.", sleepScores.length?avg(sleepScores).toFixed(0):"—", "/100"),
   ].join("");
 
-  // Bande "zone optimale" approximative = charge chronique × [0.8, 1.3]
-  // (référence communément citée pour l'ACWR ; Garmin ne publie pas la formule exacte de
-  // sa propre zone personnalisée, voir la note sous le graphique)
+  // Bande "zone optimale" = charge chronique × [0.8, 1.5] (plage confirmée dans l'appli Garmin)
   const optLow = rr.map(r=> r.chronic_load!=null ? r.chronic_load*0.8 : null);
-  const optHigh = rr.map(r=> r.chronic_load!=null ? r.chronic_load*1.3 : null);
+  const optHigh = rr.map(r=> r.chronic_load!=null ? r.chronic_load*1.5 : null);
   new Chart(document.getElementById("chart-4a"), {
     type: "line",
     data: { labels: rr.map(r=>dateLabel(r.date)), datasets: [
@@ -759,7 +756,7 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
   document.getElementById("corr-note").innerHTML =
     `Corrélation (coefficient de Pearson, r ∈ [-1, 1]) calculée sur ${pairsSleepReady.length} jours pour sommeil/préparation. `+
     `<b>r proche de 0</b> = pas de lien linéaire détectable sur cette période ; <b>|r| supérieur à 0.5</b> = lien notable. `+
-    `La <b>zone optimale</b> du graphique de charge est une approximation (charge chronique × 0,8 à 1,3, la plage communément citée pour le ratio ACWR) — Garmin ne publie pas la formule exacte de sa propre zone personnalisée, donc traite cette bande comme indicative plutôt qu'officielle. `+
+    `La <b>zone optimale</b> du graphique de charge correspond à la charge chronique × 0,8 à 1,5, la plage confirmée dans l'application Garmin. `+
     `CTL (charge chronique / "fitness") et ATL (charge aiguë / "fatigue") suivent la même logique que le plan d'entraînement du CH5 — voir <b>callout Taper</b> pour les cibles de forme (TSB) en vue de la course.`;
 
   document.getElementById("table-4").innerHTML = [...rr].reverse().map(r=>`
