@@ -7245,7 +7245,7 @@ const trainingData = {
     },
     {
       "date": "2026-07-29",
-      "resting_hr": 52,
+      "resting_hr": 51,
       "stress_avg": 37,
       "body_battery_charged": 77,
       "body_battery_drained": 86,
@@ -7261,7 +7261,7 @@ const trainingData = {
     },
     {
       "date": "2026-07-31",
-      "resting_hr": 53,
+      "resting_hr": 54,
       "stress_avg": 37,
       "body_battery_charged": 25,
       "body_battery_drained": 22,
@@ -7269,7 +7269,7 @@ const trainingData = {
     },
     {
       "date": "2026-08-01",
-      "resting_hr": 52,
+      "resting_hr": 51,
       "stress_avg": 33,
       "body_battery_charged": 96,
       "body_battery_drained": 60,
@@ -7277,7 +7277,7 @@ const trainingData = {
     },
     {
       "date": "2026-08-02",
-      "resting_hr": 52,
+      "resting_hr": 51,
       "stress_avg": 38,
       "body_battery_charged": 73,
       "body_battery_drained": 82,
@@ -7285,11 +7285,43 @@ const trainingData = {
     },
     {
       "date": "2026-08-03",
+      "resting_hr": 49,
+      "stress_avg": 41,
+      "body_battery_charged": 89,
+      "body_battery_drained": 89,
+      "steps": 5347
+    },
+    {
+      "date": "2026-08-04",
+      "resting_hr": 50,
+      "stress_avg": 39,
+      "body_battery_charged": 70,
+      "body_battery_drained": 82,
+      "steps": 12079
+    },
+    {
+      "date": "2026-08-05",
+      "resting_hr": 53,
+      "stress_avg": 33,
+      "body_battery_charged": 71,
+      "body_battery_drained": 63,
+      "steps": 9538
+    },
+    {
+      "date": "2026-08-06",
       "resting_hr": 52,
-      "stress_avg": 20,
-      "body_battery_charged": 82,
+      "stress_avg": 34,
+      "body_battery_charged": 87,
+      "body_battery_drained": 79,
+      "steps": 6315
+    },
+    {
+      "date": "2026-08-07",
+      "resting_hr": 48,
+      "stress_avg": 18,
+      "body_battery_charged": 76,
       "body_battery_drained": 27,
-      "steps": 484
+      "steps": 433
     }
   ]
 };
