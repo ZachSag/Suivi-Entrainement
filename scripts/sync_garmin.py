@@ -119,6 +119,55 @@ def extract_readiness_row(day_str, readiness_raw, hrv_raw):
     }
 
 
+def extract_wellness_row(day_str, stats_raw):
+    """
+    stats_raw : réponse de client.get_stats(day_str) — normalement le résumé
+    quotidien complet (FC repos, stress, body battery, pas), mais les noms de
+    champs exacts n'ont pas pu être vérifiés contre un vrai compte. Plusieurs
+    chemins plausibles sont essayés ; si aucun ne correspond, le champ reste
+    `null` plutôt que de planter tout le run.
+    """
+    s = stats_raw or {}
+    return {
+        "date": day_str,
+        "resting_hr": s.get("restingHeartRate"),
+        "stress_avg": s.get("averageStressLevel") if (s.get("averageStressLevel") or 0) >= 0 else None,
+        "body_battery_charged": s.get("bodyBatteryChargedValue") or s.get("bodyBatteryHighestValue"),
+        "body_battery_drained": s.get("bodyBatteryDrainedValue"),
+        "steps": s.get("totalSteps"),
+    }
+
+
+def fill_chronic_load_gaps(readiness_list):
+    """
+    get_training_readiness() ne renvoie pas la charge chronique (Garmin ne
+    l'expose que dans l'export GDPR complet, pas via l'API en direct). Pour
+    éviter un trou grandissant sur le graphique de charge, on approxime la
+    charge chronique jour après jour avec une moyenne mobile exponentielle
+    standard (constante de temps 28 jours), amorcée à partir de la dernière
+    vraie valeur Garmin connue. C'est une approximation assumée — voir la
+    note affichée sous le graphique CH4 dans le tableau de bord.
+    """
+    rows = sorted(readiness_list, key=lambda r: r["date"])
+    prev_chronic = None
+    for r in rows:
+        if r.get("chronic_load") is not None:
+            prev_chronic = r["chronic_load"]
+            continue
+        if prev_chronic is not None and r.get("acute_load") is not None:
+            new_chronic = prev_chronic + (r["acute_load"] - prev_chronic) / 28
+            r["chronic_load"] = round(new_chronic, 1)
+            r["acwr"] = round(r["acute_load"] / new_chronic, 2) if new_chronic else None
+            if r["acwr"] is not None:
+                r["acwr_status"] = (
+                    "OPTIMAL" if 0.8 <= r["acwr"] <= 1.3 else
+                    "HIGH" if r["acwr"] > 1.3 else "LOW"
+                )
+            r["_chronic_estimated"] = True  # marque interne, retirée avant écriture
+            prev_chronic = new_chronic
+    return rows
+
+
 ACTIVITY_TYPE_LABELS = {
     "running": "Course à pied", "treadmill_running": "Course (tapis)",
     "track_running": "Course (piste)", "walking": "Marche", "cycling": "Vélo",
@@ -183,7 +232,23 @@ def main():
         existing_readiness[d_str] = row
         n_updated += 1
 
-    store["readiness_recent"] = sorted(existing_readiness.values(), key=lambda r: r["date"])
+    readiness_filled = fill_chronic_load_gaps(list(existing_readiness.values()))
+    for r in readiness_filled:
+        r.pop("_chronic_estimated", None)
+    store["readiness_recent"] = readiness_filled
+
+    # ---- 1b) Bien-être quotidien (FC repos, stress, body battery) ----
+    existing_wellness = {w["date"]: w for w in store.get("wellness_daily", [])}
+    n_wellness = 0
+    for i in range(SYNC_WINDOW_DAYS):
+        d = today - timedelta(days=i)
+        d_str = d.isoformat()
+        stats_raw = safe_get(client.get_stats, d_str, label=f"get_stats({d_str})")
+        if stats_raw is None:
+            continue
+        existing_wellness[d_str] = extract_wellness_row(d_str, stats_raw)
+        n_wellness += 1
+    store["wellness_daily"] = sorted(existing_wellness.values(), key=lambda r: r["date"])
 
     # ---- 2) Nouvelles activités ----
     existing_ids = {a.get("activity_id") for a in store.get("garmin_activities", []) if a.get("activity_id")}
@@ -203,7 +268,7 @@ def main():
         json.dump(store, f, ensure_ascii=False, indent=2)
 
     # Ne JAMAIS logguer de valeurs individuelles ici (dépôt public = logs publics)
-    log(f"Terminé : {n_updated} jours de préparation/VFC vérifiés, {n_new_activities} nouvelle(s) activité(s).")
+    log(f"Terminé : {n_updated} jours de préparation/VFC, {n_wellness} jours de bien-être, {n_new_activities} nouvelle(s) activité(s).")
 
 
 if __name__ == "__main__":
