@@ -160,8 +160,8 @@ def fill_chronic_load_gaps(readiness_list):
             r["acwr"] = round(r["acute_load"] / new_chronic, 2) if new_chronic else None
             if r["acwr"] is not None:
                 r["acwr_status"] = (
-                    "OPTIMAL" if 0.8 <= r["acwr"] <= 1.3 else
-                    "HIGH" if r["acwr"] > 1.3 else "LOW"
+                    "OPTIMAL" if 0.8 <= r["acwr"] <= 1.5 else
+                    "HIGH" if r["acwr"] > 1.5 else "LOW"
                 )
             r["_chronic_estimated"] = True  # marque interne, retirée avant écriture
             prev_chronic = new_chronic
