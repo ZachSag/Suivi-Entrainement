@@ -6642,9 +6642,9 @@
       "hrv": 82,
       "hrv_weekly_avg": 78,
       "acute_load": 778,
-      "chronic_load": null,
-      "acwr": null,
-      "acwr_status": null
+      "chronic_load": 455.9,
+      "acwr": 1.71,
+      "acwr_status": "HIGH"
     },
     {
       "date": "2026-08-05",
@@ -6654,9 +6654,9 @@
       "hrv": 74,
       "hrv_weekly_avg": 76,
       "acute_load": 921,
-      "chronic_load": null,
-      "acwr": null,
-      "acwr_status": null
+      "chronic_load": 472.5,
+      "acwr": 1.95,
+      "acwr_status": "HIGH"
     },
     {
       "date": "2026-08-06",
@@ -6666,9 +6666,9 @@
       "hrv": 81,
       "hrv_weekly_avg": 77,
       "acute_load": 852,
-      "chronic_load": null,
-      "acwr": null,
-      "acwr_status": null
+      "chronic_load": 486.1,
+      "acwr": 1.75,
+      "acwr_status": "HIGH"
     },
     {
       "date": "2026-08-07",
@@ -6678,9 +6678,9 @@
       "hrv": 100,
       "hrv_weekly_avg": 85,
       "acute_load": 714,
-      "chronic_load": null,
-      "acwr": null,
-      "acwr_status": null
+      "chronic_load": 494.2,
+      "acwr": 1.44,
+      "acwr_status": "HIGH"
     }
   ],
   "fitness_age_recent": [
@@ -6907,6 +6907,376 @@
       "bio_age": 18.0,
       "resting_hr": 50,
       "bmi": 20.6
+    }
+  ],
+  "wellness_daily": [
+    {
+      "date": "2026-06-19",
+      "resting_hr": 55,
+      "stress_avg": 29,
+      "body_battery_charged": 54,
+      "body_battery_drained": 56,
+      "steps": 3772
+    },
+    {
+      "date": "2026-06-20",
+      "resting_hr": 54,
+      "stress_avg": 28,
+      "body_battery_charged": 75,
+      "body_battery_drained": 80,
+      "steps": 2947
+    },
+    {
+      "date": "2026-06-21",
+      "resting_hr": 55,
+      "stress_avg": 34,
+      "body_battery_charged": 82,
+      "body_battery_drained": 79,
+      "steps": 13183
+    },
+    {
+      "date": "2026-06-22",
+      "resting_hr": 55,
+      "stress_avg": 37,
+      "body_battery_charged": 67,
+      "body_battery_drained": 75,
+      "steps": 7248
+    },
+    {
+      "date": "2026-06-23",
+      "resting_hr": 54,
+      "stress_avg": 34,
+      "body_battery_charged": 69,
+      "body_battery_drained": 79,
+      "steps": 14677
+    },
+    {
+      "date": "2026-06-24",
+      "resting_hr": 54,
+      "stress_avg": 33,
+      "body_battery_charged": 76,
+      "body_battery_drained": 43,
+      "steps": 7936
+    },
+    {
+      "date": "2026-06-25",
+      "resting_hr": 55,
+      "stress_avg": 35,
+      "body_battery_charged": 62,
+      "body_battery_drained": 59,
+      "steps": 12676
+    },
+    {
+      "date": "2026-06-26",
+      "resting_hr": 55,
+      "stress_avg": 35,
+      "body_battery_charged": 71,
+      "body_battery_drained": 79,
+      "steps": 7161
+    },
+    {
+      "date": "2026-06-27",
+      "resting_hr": 54,
+      "stress_avg": 30,
+      "body_battery_charged": 107,
+      "body_battery_drained": 79,
+      "steps": 4800
+    },
+    {
+      "date": "2026-06-28",
+      "resting_hr": 53,
+      "stress_avg": 40,
+      "body_battery_charged": 76,
+      "body_battery_drained": 93,
+      "steps": 26671
+    },
+    {
+      "date": "2026-06-29",
+      "resting_hr": 53,
+      "stress_avg": 25,
+      "body_battery_charged": 80,
+      "body_battery_drained": 70,
+      "steps": 8706
+    },
+    {
+      "date": "2026-06-30",
+      "resting_hr": 53,
+      "stress_avg": 27,
+      "body_battery_charged": 78,
+      "body_battery_drained": 73,
+      "steps": 3192
+    },
+    {
+      "date": "2026-07-01",
+      "resting_hr": 53,
+      "stress_avg": 35,
+      "body_battery_charged": 67,
+      "body_battery_drained": 88,
+      "steps": 11451
+    },
+    {
+      "date": "2026-07-02",
+      "resting_hr": 52,
+      "stress_avg": 39,
+      "body_battery_charged": 84,
+      "body_battery_drained": 90,
+      "steps": 13586
+    },
+    {
+      "date": "2026-07-03",
+      "resting_hr": 52,
+      "stress_avg": 29,
+      "body_battery_charged": 88,
+      "body_battery_drained": 38,
+      "steps": 1532
+    },
+    {
+      "date": "2026-07-04",
+      "resting_hr": 52,
+      "stress_avg": 34,
+      "body_battery_charged": 69,
+      "body_battery_drained": 85,
+      "steps": 14010
+    },
+    {
+      "date": "2026-07-05",
+      "resting_hr": 52,
+      "stress_avg": 37,
+      "body_battery_charged": 48,
+      "body_battery_drained": 49,
+      "steps": 7406
+    },
+    {
+      "date": "2026-07-06",
+      "resting_hr": 52,
+      "stress_avg": 32,
+      "body_battery_charged": 90,
+      "body_battery_drained": 86,
+      "steps": 10225
+    },
+    {
+      "date": "2026-07-07",
+      "resting_hr": 52,
+      "stress_avg": 30,
+      "body_battery_charged": 87,
+      "body_battery_drained": 75,
+      "steps": 5365
+    },
+    {
+      "date": "2026-07-08",
+      "resting_hr": 52,
+      "stress_avg": 33,
+      "body_battery_charged": 85,
+      "body_battery_drained": 89,
+      "steps": 11410
+    },
+    {
+      "date": "2026-07-09",
+      "resting_hr": 52,
+      "stress_avg": 22,
+      "body_battery_charged": 93,
+      "body_battery_drained": 62,
+      "steps": 3530
+    },
+    {
+      "date": "2026-07-10",
+      "resting_hr": 51,
+      "stress_avg": 29,
+      "body_battery_charged": 46,
+      "body_battery_drained": 80,
+      "steps": 8975
+    },
+    {
+      "date": "2026-07-11",
+      "resting_hr": 51,
+      "stress_avg": 41,
+      "body_battery_charged": 55,
+      "body_battery_drained": 74,
+      "steps": 4412
+    },
+    {
+      "date": "2026-07-12",
+      "resting_hr": 51,
+      "stress_avg": 38,
+      "body_battery_charged": 62,
+      "body_battery_drained": 56,
+      "steps": 11819
+    },
+    {
+      "date": "2026-07-13",
+      "resting_hr": 51,
+      "stress_avg": 28,
+      "body_battery_charged": 99,
+      "body_battery_drained": 79,
+      "steps": 12901
+    },
+    {
+      "date": "2026-07-14",
+      "resting_hr": 51,
+      "stress_avg": 29,
+      "body_battery_charged": 74,
+      "body_battery_drained": 81,
+      "steps": 6750
+    },
+    {
+      "date": "2026-07-15",
+      "resting_hr": 51,
+      "stress_avg": 29,
+      "body_battery_charged": 84,
+      "body_battery_drained": 77,
+      "steps": 7222
+    },
+    {
+      "date": "2026-07-16",
+      "resting_hr": 50,
+      "stress_avg": 31,
+      "body_battery_charged": 81,
+      "body_battery_drained": 78,
+      "steps": 4746
+    },
+    {
+      "date": "2026-07-17",
+      "resting_hr": 50,
+      "stress_avg": 30,
+      "body_battery_charged": 76,
+      "body_battery_drained": 81,
+      "steps": 4752
+    },
+    {
+      "date": "2026-07-18",
+      "resting_hr": 49,
+      "stress_avg": 35,
+      "body_battery_charged": 72,
+      "body_battery_drained": 88,
+      "steps": 60305
+    },
+    {
+      "date": "2026-07-19",
+      "resting_hr": 49,
+      "stress_avg": 31,
+      "body_battery_charged": 73,
+      "body_battery_drained": 54,
+      "steps": 3085
+    },
+    {
+      "date": "2026-07-20",
+      "resting_hr": 48,
+      "stress_avg": 32,
+      "body_battery_charged": 73,
+      "body_battery_drained": 80,
+      "steps": 2925
+    },
+    {
+      "date": "2026-07-21",
+      "resting_hr": 49,
+      "stress_avg": 36,
+      "body_battery_charged": 63,
+      "body_battery_drained": 64,
+      "steps": 4345
+    },
+    {
+      "date": "2026-07-22",
+      "resting_hr": 49,
+      "stress_avg": 37,
+      "body_battery_charged": 74,
+      "body_battery_drained": 79,
+      "steps": 8087
+    },
+    {
+      "date": "2026-07-23",
+      "resting_hr": 50,
+      "stress_avg": 41,
+      "body_battery_charged": 73,
+      "body_battery_drained": 81,
+      "steps": 11356
+    },
+    {
+      "date": "2026-07-24",
+      "resting_hr": 51,
+      "stress_avg": 41,
+      "body_battery_charged": 65,
+      "body_battery_drained": 69,
+      "steps": 5107
+    },
+    {
+      "date": "2026-07-25",
+      "resting_hr": 51,
+      "stress_avg": 38,
+      "body_battery_charged": 61,
+      "body_battery_drained": 56,
+      "steps": 4781
+    },
+    {
+      "date": "2026-07-26",
+      "resting_hr": 51,
+      "stress_avg": 32,
+      "body_battery_charged": 85,
+      "body_battery_drained": 76,
+      "steps": 8872
+    },
+    {
+      "date": "2026-07-27",
+      "resting_hr": 52,
+      "stress_avg": 48,
+      "body_battery_charged": 66,
+      "body_battery_drained": 78,
+      "steps": 5187
+    },
+    {
+      "date": "2026-07-28",
+      "resting_hr": 52,
+      "stress_avg": 39,
+      "body_battery_charged": 83,
+      "body_battery_drained": 71,
+      "steps": 6851
+    },
+    {
+      "date": "2026-07-29",
+      "resting_hr": 52,
+      "stress_avg": 37,
+      "body_battery_charged": 77,
+      "body_battery_drained": 86,
+      "steps": 9485
+    },
+    {
+      "date": "2026-07-30",
+      "resting_hr": 52,
+      "stress_avg": 47,
+      "body_battery_charged": 60,
+      "body_battery_drained": 66,
+      "steps": 11551
+    },
+    {
+      "date": "2026-07-31",
+      "resting_hr": 53,
+      "stress_avg": 37,
+      "body_battery_charged": 25,
+      "body_battery_drained": 22,
+      "steps": 2925
+    },
+    {
+      "date": "2026-08-01",
+      "resting_hr": 52,
+      "stress_avg": 33,
+      "body_battery_charged": 96,
+      "body_battery_drained": 60,
+      "steps": 5515
+    },
+    {
+      "date": "2026-08-02",
+      "resting_hr": 52,
+      "stress_avg": 38,
+      "body_battery_charged": 73,
+      "body_battery_drained": 82,
+      "steps": 2395
+    },
+    {
+      "date": "2026-08-03",
+      "resting_hr": 52,
+      "stress_avg": 20,
+      "body_battery_charged": 82,
+      "body_battery_drained": 27,
+      "steps": 484
     }
   ]
 }

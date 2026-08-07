@@ -230,7 +230,7 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
   <nav class="channels">
     <button class="ch-btn active" data-ch="1"><span class="sw"></span>CH1 — Strava historique</button>
     <button class="ch-btn" data-ch="2"><span class="sw"></span>CH2 — Garmin activités</button>
-    <button class="ch-btn" data-ch="3"><span class="sw"></span>CH3 — Physiologie (long terme)</button>
+    <button class="ch-btn" data-ch="3"><span class="sw"></span>CH3 — Physiologie</button>
     <button class="ch-btn" data-ch="4"><span class="sw"></span>CH4 — VFC / Charge / Corrélations</button>
     <button class="ch-btn" data-ch="5"><span class="sw"></span>CH5 — Plan 70.3 Mont-Tremblant</button>
   </nav>
@@ -272,12 +272,12 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
   <div id="panel-3" class="tab-panel">
     <div class="stat-grid" id="stats-3"></div>
     <div class="chart-grid-2">
-      <div class="chart-card"><div class="chart-card-title">FC repos mensuelle vs VO2 max</div><canvas id="chart-3a"></canvas></div>
-      <div class="chart-card"><div class="chart-card-title">Body Battery mensuelle (chargée / drainée)</div><canvas id="chart-3b"></canvas></div>
+      <div class="chart-card"><div class="chart-card-title">FC repos quotidienne (30 derniers jours)</div><canvas id="chart-3a"></canvas></div>
+      <div class="chart-card"><div class="chart-card-title">Body Battery quotidienne (30 derniers jours)</div><canvas id="chart-3b"></canvas></div>
     </div>
     <div class="chart-grid-2">
-      <div class="chart-card"><div class="chart-card-title">Âge biologique vs âge réel (30 derniers jours)</div><canvas id="chart-3c"></canvas></div>
-      <div class="chart-card"><div class="chart-card-title">Stress moyen mensuel</div><canvas id="chart-3d"></canvas></div>
+      <div class="chart-card"><div class="chart-card-title">VO2 max (8 dernières semaines)</div><canvas id="chart-3c"></canvas></div>
+      <div class="chart-card"><div class="chart-card-title">Stress quotidien (30 derniers jours)</div><canvas id="chart-3d"></canvas></div>
     </div>
     <div class="table-card">
       <div class="table-card-title">Moyennes mensuelles</div>
@@ -534,29 +534,38 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
     statCard("var(--ch2)","FC moy. globale", avgHr?avgHr.toFixed(0):"—", "bpm"),
   ].join("");
 
-  const byMonth = {};
-  acts.forEach(a=>{ const k=a.date.slice(0,7); byMonth[k]=(byMonth[k]||0)+a.distance_km; });
+  const byMonth = {}, byMonthHours = {};
+  acts.forEach(a=>{ const k=a.date.slice(0,7); byMonth[k]=(byMonth[k]||0)+a.distance_km; byMonthHours[k]=(byMonthHours[k]||0)+a.duration_min/60; });
   const months = Object.keys(byMonth).sort();
   new Chart(document.getElementById("chart-2a"), {
     type: "bar",
     data: { labels: months.map(monthLabel), datasets: [{ data: months.map(k=>byMonth[k]),
-      backgroundColor: "var(--ch2)".trim()==="var(--ch2)" ? "#38bdf8" : "#38bdf8", borderRadius:4, maxBarThickness:22 }] },
-    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      backgroundColor: "#38bdf8", borderRadius:4, maxBarThickness:22 }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},
+      tooltip:{ callbacks:{ label:(ctx)=>{
+        const k = months[ctx.dataIndex];
+        const h = byMonthHours[k];
+        return [`Distance : ${ctx.parsed.y.toFixed(1)} km`, `Temps : ${h.toFixed(1)} h`];
+      } } } },
       scales: { x:{ticks:{color:AXIS_COLOR,font:{size:9}},grid:{display:false}},
                 y:{ticks:{color:AXIS_COLOR,font:{size:10}},grid:{color:GRID_COLOR}} } }
   });
 
   const chrono = [...acts].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const teValues = chrono.flatMap(a=>[a.aerobic_te, a.anaerobic_te]).filter(v=>v!=null);
+  const teMax = teValues.length ? Math.min(5, Math.ceil((Math.max(...teValues)+0.4)*2)/2) : 5;
   new Chart(document.getElementById("chart-2b"), {
     type: "line",
     data: { labels: chrono.map(a=>a.date), datasets: [
-      { label:"Effet aérobie", data: chrono.map(a=>a.aerobic_te), borderColor:"#38bdf8", backgroundColor:"rgba(56,189,248,.12)", fill:true, tension:.3, pointRadius:1.5, spanGaps:true },
-      { label:"Effet anaérobie", data: chrono.map(a=>a.anaerobic_te), borderColor:"#ec4899", backgroundColor:"transparent", tension:.3, pointRadius:1.5, spanGaps:true }
+      { label:"Effet aérobie", data: chrono.map(a=>a.aerobic_te), borderColor:"#38bdf8", backgroundColor:"rgba(56,189,248,.18)", fill:true, tension:.35, pointRadius:2, pointHoverRadius:4, borderWidth:2, spanGaps:true },
+      { label:"Effet anaérobie", data: chrono.map(a=>a.anaerobic_te), borderColor:"#ec4899", backgroundColor:"rgba(236,72,153,.1)", fill:true, tension:.35, pointRadius:2, pointHoverRadius:4, borderWidth:2, spanGaps:true }
     ]},
     options: { responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}} },
+      plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}},
+        tooltip:{ callbacks:{ title:(items)=> chrono[items[0].dataIndex].date,
+          label:(ctx)=> `${ctx.dataset.label} : ${ctx.parsed.y!=null?ctx.parsed.y.toFixed(1):"—"}` } } },
       scales: { x:{ticks:{display:false}, grid:{display:false}},
-                y:{min:0,max:5, ticks:{color:AXIS_COLOR,font:{size:10}}, grid:{color:GRID_COLOR}} } }
+                y:{min:0, max:teMax, ticks:{color:AXIS_COLOR,font:{size:10}, stepSize:0.5}, grid:{color:GRID_COLOR}} } }
   });
 
   new Chart(document.getElementById("chart-2c"), {
@@ -583,7 +592,7 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
   document.getElementById("table-2").innerHTML = rows.map(a=>`
     <tr><td>${a.date}</td><td><span class="type-chip"><span class="type-dot" style="background:${typeColor(a.type)}"></span>${a.name||a.type}</span></td>
     <td>${a.distance_km.toFixed(1)} km</td><td>${a.duration_min.toFixed(0)} min</td>
-    <td>${a.avg_hr??"—"} / ${a.max_hr??"—"}</td><td>${a.aerobic_te??"—"} / ${a.anaerobic_te??"—"}</td>
+    <td>${a.avg_hr??"—"} / ${a.max_hr??"—"}</td><td>${a.aerobic_te!=null?a.aerobic_te.toFixed(1):"—"} / ${a.anaerobic_te!=null?a.anaerobic_te.toFixed(1):"—"}</td>
     <td>${a.training_load??"—"}</td><td>${a.rpe??"—"}</td></tr>`).join("");
 })();
 
@@ -593,45 +602,43 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
 (function(){
   const wm = trainingData.wellness_monthly;
   const bio = trainingData.biometrics_history;
-  const fa = trainingData.fitness_age_recent;
+  const wd = [...(trainingData.wellness_daily||[])].sort((a,b)=> new Date(a.date)-new Date(b.date));
+  const wd30 = wd.slice(-30);
 
-  const firstRhr = wm.find(m=>m.resting_hr_avg!=null)?.resting_hr_avg;
-  const lastRhr = [...wm].reverse().find(m=>m.resting_hr_avg!=null)?.resting_hr_avg;
+  const lastRhr = [...wd30].reverse().find(d=>d.resting_hr!=null)?.resting_hr;
+  const firstRhr30 = wd30.find(d=>d.resting_hr!=null)?.resting_hr;
   const lastVo2 = bio[bio.length-1]?.vo2max_running;
   const firstVo2 = bio[0]?.vo2max_running;
-  const lastBBc = [...wm].reverse().find(m=>m.body_battery_charged_avg!=null)?.body_battery_charged_avg;
-  const lastFa = fa[fa.length-1];
+  const lastBBc = [...wd30].reverse().find(d=>d.body_battery_charged!=null)?.body_battery_charged;
+  const stress30 = wd30.filter(d=>d.stress_avg!=null).map(d=>d.stress_avg);
 
   document.getElementById("stats-3").innerHTML = [
     statCard("var(--ch3)","FC repos actuelle", lastRhr??"—", "bpm",
-      (firstRhr&&lastRhr) ? ((lastRhr-firstRhr)<=0?"":"+")+(lastRhr-firstRhr).toFixed(1)+" bpm depuis "+wm[0].month : "",
-      (firstRhr&&lastRhr&&(lastRhr-firstRhr)<0) ? "pos" : ""),
+      (firstRhr30&&lastRhr) ? ((lastRhr-firstRhr30)<=0?"":"+")+(lastRhr-firstRhr30).toFixed(0)+" bpm sur 30j" : "",
+      (firstRhr30&&lastRhr&&(lastRhr-firstRhr30)<0) ? "pos" : ""),
     statCard("var(--ch3)","VO2 max (course)", lastVo2??"—", "ml/kg/min",
       (firstVo2&&lastVo2) ? ((lastVo2-firstVo2)<=0?"":"+")+(lastVo2-firstVo2).toFixed(0)+" depuis "+bio[0].date : ""),
-    statCard("var(--ch3)","Âge biologique", lastFa?lastFa.bio_age:"—", "ans",
-      lastFa ? `vs ${lastFa.chronological_age} ans réels (Garmin, ${lastFa.date})` : "", "pos"),
+    statCard("var(--ch3)","Stress moyen (30j)", stress30.length?avg(stress30).toFixed(0):"—", "/100"),
     statCard("var(--ch3)","Body Battery (charge)", lastBBc?lastBBc.toFixed(0):"—", "/100"),
   ].join("");
 
+  // FC repos quotidienne — 30 derniers jours
   new Chart(document.getElementById("chart-3a"), {
     type: "line",
-    data: { labels: wm.map(m=>monthLabel(m.month)), datasets: [
-      { label:"FC repos (bpm)", data: wm.map(m=>m.resting_hr_avg), borderColor:"#4ade80", backgroundColor:"rgba(74,222,128,.1)", fill:true, yAxisID:"y", tension:.3, pointRadius:1.5 },
-      { label:"VO2 max", data: wm.map(m=>{ const match=[...bio].reverse().find(b=>b.date.slice(0,7)<=m.month && b.vo2max_running!=null); return match?match.vo2max_running:null; }),
-        borderColor:"#fb923c", backgroundColor:"transparent", yAxisID:"y1", tension:.3, pointRadius:1.5, spanGaps:true }
+    data: { labels: wd30.map(d=>dateLabel(d.date)), datasets: [
+      { label:"FC repos (bpm)", data: wd30.map(d=>d.resting_hr), borderColor:"#4ade80", backgroundColor:"rgba(74,222,128,.14)", fill:true, tension:.3, pointRadius:2, spanGaps:true }
     ]},
-    options: { responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}} },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
       scales: { x:{ticks:{color:AXIS_COLOR,font:{size:8},maxRotation:90,minRotation:90}, grid:{display:false}},
-                y:{position:"left", ticks:{color:"#4ade80",font:{size:9}}, grid:{color:GRID_COLOR}},
-                y1:{position:"right", ticks:{color:"#fb923c",font:{size:9}}, grid:{display:false}} } }
+                y:{ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}} } }
   });
 
+  // Body Battery quotidienne — 30 derniers jours
   new Chart(document.getElementById("chart-3b"), {
     type: "bar",
-    data: { labels: wm.map(m=>monthLabel(m.month)), datasets: [
-      { label:"Chargée", data: wm.map(m=>m.body_battery_charged_avg), backgroundColor:"#4ade80", borderRadius:3 },
-      { label:"Drainée", data: wm.map(m=>m.body_battery_drained_avg), backgroundColor:"#ef4444", borderRadius:3 }
+    data: { labels: wd30.map(d=>dateLabel(d.date)), datasets: [
+      { label:"Chargée", data: wd30.map(d=>d.body_battery_charged), backgroundColor:"#4ade80", borderRadius:3 },
+      { label:"Drainée", data: wd30.map(d=>d.body_battery_drained), backgroundColor:"#ef4444", borderRadius:3 }
     ]},
     options: { responsive:true, maintainAspectRatio:false,
       plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}} },
@@ -639,21 +646,23 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
                 y:{ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}} } }
   });
 
+  // VO2 max — 8 dernières semaines
+  const cutoff8w = new Date(); cutoff8w.setDate(cutoff8w.getDate()-56);
+  const bio8w = bio.filter(b=> new Date(b.date+"T00:00:00") >= cutoff8w && b.vo2max_running!=null);
   new Chart(document.getElementById("chart-3c"), {
     type: "line",
-    data: { labels: fa.map(f=>dateLabel(f.date)), datasets: [
-      { label:"Âge biologique", data: fa.map(f=>f.bio_age), borderColor:"#4ade80", backgroundColor:"rgba(74,222,128,.12)", fill:true, tension:.25, pointRadius:1 },
-      { label:"Âge réel", data: fa.map(f=>f.chronological_age), borderColor:"#71717a", borderDash:[4,3], backgroundColor:"transparent", tension:0, pointRadius:0 }
+    data: { labels: bio8w.map(b=>dateLabel(b.date)), datasets: [
+      { label:"VO2 max", data: bio8w.map(b=>b.vo2max_running), borderColor:"#fb923c", backgroundColor:"rgba(251,146,60,.14)", fill:true, tension:.25, pointRadius:3, stepped:false }
     ]},
-    options: { responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}} },
-      scales: { x:{ticks:{color:AXIS_COLOR,font:{size:8},maxRotation:90,minRotation:90}, grid:{display:false}},
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales: { x:{ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{display:false}},
                 y:{ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}} } }
   });
 
+  // Stress quotidien — 30 derniers jours
   new Chart(document.getElementById("chart-3d"), {
     type: "bar",
-    data: { labels: wm.map(m=>monthLabel(m.month)), datasets: [{ data: wm.map(m=>m.stress_avg),
+    data: { labels: wd30.map(d=>dateLabel(d.date)), datasets: [{ data: wd30.map(d=>d.stress_avg),
       backgroundColor:"#c084fc", borderRadius:3 }] },
     options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
       scales: { x:{ticks:{color:AXIS_COLOR,font:{size:8},maxRotation:90,minRotation:90}, grid:{display:false}},
@@ -684,14 +693,22 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
     statCard("var(--ch4)","Sommeil moy.", sleepScores.length?avg(sleepScores).toFixed(0):"—", "/100"),
   ].join("");
 
+  // Bande "zone optimale" approximative = charge chronique × [0.8, 1.3]
+  // (référence communément citée pour l'ACWR ; Garmin ne publie pas la formule exacte de
+  // sa propre zone personnalisée, voir la note sous le graphique)
+  const optLow = rr.map(r=> r.chronic_load!=null ? r.chronic_load*0.8 : null);
+  const optHigh = rr.map(r=> r.chronic_load!=null ? r.chronic_load*1.3 : null);
   new Chart(document.getElementById("chart-4a"), {
     type: "line",
     data: { labels: rr.map(r=>dateLabel(r.date)), datasets: [
-      { label:"CTL (charge chronique)", data: rr.map(r=>r.chronic_load), borderColor:"#3b82f6", backgroundColor:"rgba(59,130,246,.12)", fill:true, tension:.25, pointRadius:0, spanGaps:true },
-      { label:"ATL (charge aiguë)", data: rr.map(r=>r.acute_load), borderColor:"#ec4899", backgroundColor:"transparent", tension:.25, pointRadius:0, spanGaps:true }
+      { label:"Zone optimale (haut)", data: optHigh, borderColor:"transparent", backgroundColor:"rgba(74,222,128,.14)", fill:"+1", tension:.25, pointRadius:0, spanGaps:false },
+      { label:"Zone optimale (bas)", data: optLow, borderColor:"transparent", backgroundColor:"transparent", fill:false, tension:.25, pointRadius:0, spanGaps:false },
+      { label:"CTL (charge chronique)", data: rr.map(r=>r.chronic_load), borderColor:"#3b82f6", backgroundColor:"transparent", tension:.25, pointRadius:0, borderWidth:2, spanGaps:true },
+      { label:"ATL (charge aiguë)", data: rr.map(r=>r.acute_load), borderColor:"#ec4899", backgroundColor:"transparent", tension:.25, pointRadius:0, borderWidth:2, spanGaps:true }
     ]},
     options: { responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}}} },
+      plugins:{ legend:{position:"bottom", labels:{color:AXIS_COLOR, boxWidth:9, font:{size:10}, filter:(item)=>!item.text.startsWith("Zone optimale")}},
+        tooltip:{ filter:(item)=> !item.dataset.label.startsWith("Zone optimale") } },
       scales: { x:{ticks:{color:AXIS_COLOR,font:{size:8},maxRotation:90,minRotation:90}, grid:{display:false}},
                 y:{ticks:{color:AXIS_COLOR,font:{size:10}}, grid:{color:GRID_COLOR}} } }
   });
@@ -706,20 +723,20 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
                 y:{ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}} } }
   });
 
-  const pairsAcwrHrv = rr.filter(r=>r.acwr!=null && r.hrv!=null).map(r=>({x:r.acwr, y:r.hrv}));
-  const rAcwrHrv = pearson(pairsAcwrHrv.map(p=>p.x), pairsAcwrHrv.map(p=>p.y));
-  const regAH = pairsAcwrHrv.length>2 ? linreg(pairsAcwrHrv.map(p=>p.x), pairsAcwrHrv.map(p=>p.y)) : null;
-  const lineAH = regAH ? [0,2].map(x=>({x, y: regAH.slope*x+regAH.intercept})) : [];
-  document.getElementById("corr-title-1").textContent = `ACWR vs VFC (r = ${fmtR(rAcwrHrv)})`;
+  // Préparation à l'entraînement quotidienne — 30 derniers jours
+  const rr30 = [...rr].sort((a,b)=>new Date(a.date)-new Date(b.date)).slice(-30);
+  document.getElementById("corr-title-1").textContent = `Préparation quotidienne (30 derniers jours)`;
   new Chart(document.getElementById("chart-4c"), {
-    type: "scatter",
-    data: { datasets: [
-      { label:"Jours", data: pairsAcwrHrv, backgroundColor:"#c084fc", pointRadius:3.5 },
-      { label:"Tendance", data: lineAH, type:"line", borderColor:"#ec4899", borderWidth:1.5, pointRadius:0, borderDash:[4,3] }
+    type: "bar",
+    data: { labels: rr30.map(r=>dateLabel(r.date)), datasets: [
+      { label:"Score de préparation", data: rr30.map(r=>r.readiness_score),
+        backgroundColor: rr30.map(r=> r.readiness_score==null ? "#3f3f46" : r.readiness_score>=70 ? "#4ade80" : r.readiness_score>=40 ? "#facc15" : "#ef4444"),
+        borderRadius:3 }
     ]},
-    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
-      scales: { x:{title:{display:true,text:"ACWR",color:AXIS_COLOR,font:{size:9}}, ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}},
-                y:{title:{display:true,text:"VFC (ms)",color:AXIS_COLOR,font:{size:9}}, ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}} } }
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},
+        tooltip:{ callbacks:{ label:(ctx)=> `Préparation : ${ctx.parsed.y??"—"}/100 (${rr30[ctx.dataIndex].level??"—"})` } } },
+      scales: { x:{ticks:{color:AXIS_COLOR,font:{size:8},maxRotation:90,minRotation:90}, grid:{display:false}},
+                y:{min:0,max:100, ticks:{color:AXIS_COLOR,font:{size:9}}, grid:{color:GRID_COLOR}} } }
   });
 
   const pairsSleepReady = rr.filter(r=>r.sleep_score!=null && r.readiness_score!=null).map(r=>({x:r.sleep_score, y:r.readiness_score}));
@@ -740,8 +757,9 @@ document.getElementById("lastAutoSync").textContent = trainingData.meta.lastAuto
   });
 
   document.getElementById("corr-note").innerHTML =
-    `Corrélation (coefficient de Pearson, r ∈ [-1, 1]) calculée sur ${pairsAcwrHrv.length} jours pour ACWR/VFC et ${pairsSleepReady.length} jours pour sommeil/préparation. `+
+    `Corrélation (coefficient de Pearson, r ∈ [-1, 1]) calculée sur ${pairsSleepReady.length} jours pour sommeil/préparation. `+
     `<b>r proche de 0</b> = pas de lien linéaire détectable sur cette période ; <b>|r| supérieur à 0.5</b> = lien notable. `+
+    `La <b>zone optimale</b> du graphique de charge est une approximation (charge chronique × 0,8 à 1,3, la plage communément citée pour le ratio ACWR) — Garmin ne publie pas la formule exacte de sa propre zone personnalisée, donc traite cette bande comme indicative plutôt qu'officielle. `+
     `CTL (charge chronique / "fitness") et ATL (charge aiguë / "fatigue") suivent la même logique que le plan d'entraînement du CH5 — voir <b>callout Taper</b> pour les cibles de forme (TSB) en vue de la course.`;
 
   document.getElementById("table-4").innerHTML = [...rr].reverse().map(r=>`

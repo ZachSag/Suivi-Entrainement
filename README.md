@@ -71,6 +71,29 @@ Les coefficients affichés (r) sont calculés directement dans le navigateur à 
   acute_load: 0, chronic_load: 0, acwr: 0, acwr_status: "OPTIMAL" }
 ```
 
-## Mettre à jour avec de nouvelles données
+## Mettre à jour avec de nouvelles données (méthode manuelle)
 
-Refais un export Garmin (voir la méthode qu'on a vue ensemble) de temps en temps, partage-le moi ici, et je fusionne les nouveaux jours dans `data.js`. Plus l'historique s'allonge, plus les corrélations du CH4 deviennent fiables.
+Refais un export Garmin de temps en temps, partage-le moi ici, et je fusionne les nouveaux jours dans `data_store.json` (puis je régénère `data.js`).
+
+## Nouvelle section de données : `wellness_daily`
+
+En plus des sections existantes, `data_store.json` contient maintenant `wellness_daily` : FC repos, stress moyen, Body Battery et pas, **au jour le jour** (contrairement à `wellness_monthly` qui reste une moyenne mensuelle). C'est ce que lisent les graphiques "30 derniers jours" du CH3. Rétro-rempli à partir de l'export bulk du 3 août pour ~45 jours d'historique ; le script de synchro l'alimente désormais automatiquement chaque jour.
+
+## Charge chronique estimée (CH4)
+
+L'API Garmin en direct ne renvoie pas la charge chronique (elle n'est présente que dans l'export GDPR complet). Depuis le 7 août, `sync_garmin.py` **estime** la charge chronique jour après jour avec une moyenne mobile exponentielle standard (constante 28 jours), amorcée à partir de la dernière vraie valeur connue de Garmin. C'est une approximation scientifiquement standard, mais ce n'est pas le chiffre exact de Garmin — voir la note affichée sous le graphique dans le tableau de bord.
+
+## Automatisation optionnelle (synchronisation quotidienne)
+
+Le dépôt inclut maintenant :
+- `data_store.json` — la vraie source de vérité (JSON pur)
+- `scripts/build_data_js.py` — régénère `data.js` à partir de `data_store.json`
+- `scripts/sync_garmin.py` — se connecte à Garmin Connect (bibliothèque non officielle `garminconnect`) et met à jour `data_store.json`
+- `.github/workflows/garmin-sync.yml` — fait tourner les deux scripts ci-dessus automatiquement chaque jour (7h00 heure de l'Est), via GitHub Actions (gratuit)
+
+**⚠️ Avant d'activer :**
+1. **Identifiants** : tu dois toi-même ajouter deux "Secrets" dans **Settings → Secrets and variables → Actions → New repository secret** : `GARMIN_EMAIL` et `GARMIN_PASSWORD`. Claude ne les voit jamais et ne peut pas les ajouter à ta place.
+2. **MFA** : si l'authentification à deux facteurs est active sur ton compte Garmin, l'automatisation ne pourra pas fonctionner (GitHub Actions ne peut pas répondre à un code MFA).
+3. **Logs publics** : ce dépôt doit rester public pour que GitHub Pages soit gratuit — ce qui rend aussi les journaux d'exécution des Actions publics. Le script ne logue donc jamais tes valeurs de santé individuelles, seulement des compteurs.
+4. **Champs non vérifiés** : certains champs de l'API en direct (`get_hrv_data`, `get_activities`) n'ont pas pu être testés contre un vrai compte — un premier essai manuel (bouton "Run workflow" dans l'onglet Actions) permettra de repérer et corriger tout ajustement nécessaire.
+5. **Risque général** : voir la discussion complète sur les risques de sécurité et de conditions d'utilisation liés aux bibliothèques non officielles Garmin.
