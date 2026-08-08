@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-07",
+    "lastAutoSync": "2026-08-08",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -4783,6 +4783,22 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -5,
       "activity_id": 23879602399
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Sherbrooke Marche à pied",
+      "type": "Marche",
+      "distance_km": 4.01,
+      "duration_min": 44.8,
+      "elevation_m": 62.0,
+      "avg_hr": 103,
+      "max_hr": 121,
+      "aerobic_te": 0.800000011920929,
+      "anaerobic_te": 0.0,
+      "training_load": 10.407180786132812,
+      "rpe": null,
+      "body_battery_diff": -3,
+      "activity_id": 23891758342
     }
   ],
   "wellness_monthly": [
@@ -6685,15 +6701,27 @@ const trainingData = {
     },
     {
       "date": "2026-08-07",
-      "readiness_score": 36,
+      "readiness_score": 50,
       "sleep_score": 87,
-      "level": "LOW",
+      "level": "MODERATE",
       "hrv": 100,
       "hrv_weekly_avg": 85,
-      "acute_load": 714,
+      "acute_load": 727,
       "chronic_load": 494.2,
       "acwr": 1.44,
       "acwr_status": "HIGH"
+    },
+    {
+      "date": "2026-08-08",
+      "readiness_score": null,
+      "sleep_score": null,
+      "level": null,
+      "hrv": null,
+      "hrv_weekly_avg": null,
+      "acute_load": null,
+      "chronic_load": null,
+      "acwr": null,
+      "acwr_status": null
     }
   ],
   "fitness_age_recent": [
@@ -7318,10 +7346,18 @@ const trainingData = {
     {
       "date": "2026-08-07",
       "resting_hr": 48,
-      "stress_avg": 18,
+      "stress_avg": 26,
       "body_battery_charged": 76,
-      "body_battery_drained": 27,
-      "steps": 433
+      "body_battery_drained": 58,
+      "steps": 6058
+    },
+    {
+      "date": "2026-08-08",
+      "resting_hr": null,
+      "stress_avg": null,
+      "body_battery_charged": null,
+      "body_battery_drained": null,
+      "steps": null
     }
   ]
 };
