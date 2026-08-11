@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-10",
+    "lastAutoSync": "2026-08-11",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -4818,6 +4818,22 @@
       "rpe": null,
       "body_battery_diff": -18,
       "activity_id": 23916074421
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Musculation",
+      "type": "Entraînement aux poids",
+      "distance_km": 0.0,
+      "duration_min": 65.3,
+      "elevation_m": 0,
+      "avg_hr": 119,
+      "max_hr": 159,
+      "aerobic_te": 2.0,
+      "anaerobic_te": 0.800000011920929,
+      "training_load": 35.5548095703125,
+      "rpe": null,
+      "body_battery_diff": -6,
+      "activity_id": 23928004196
     }
   ],
   "wellness_monthly": [
@@ -6756,14 +6772,26 @@
     },
     {
       "date": "2026-08-10",
-      "readiness_score": 56,
+      "readiness_score": 61,
       "sleep_score": 84,
       "level": "MODERATE",
       "hrv": 79,
       "hrv_weekly_avg": 84,
-      "acute_load": 627,
+      "acute_load": 672,
       "chronic_load": 505.5,
       "acwr": 1.24,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-08-11",
+      "readiness_score": 79,
+      "sleep_score": 89,
+      "level": "HIGH",
+      "hrv": 86,
+      "hrv_weekly_avg": 84,
+      "acute_load": 538,
+      "chronic_load": 506.7,
+      "acwr": 1.06,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -7413,10 +7441,18 @@
     {
       "date": "2026-08-10",
       "resting_hr": 52,
-      "stress_avg": 13,
-      "body_battery_charged": 70,
-      "body_battery_drained": 2,
-      "steps": 334
+      "stress_avg": 30,
+      "body_battery_charged": 79,
+      "body_battery_drained": 64,
+      "steps": 7227
+    },
+    {
+      "date": "2026-08-11",
+      "resting_hr": 49,
+      "stress_avg": 10,
+      "body_battery_charged": 76,
+      "body_battery_drained": 1,
+      "steps": 186
     }
   ]
 }
