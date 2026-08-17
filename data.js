@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-16",
+    "lastAutoSync": "2026-08-17",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -4911,6 +4911,22 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -7,
       "activity_id": 23978582658
+    },
+    {
+      "date": "2026-08-16",
+      "name": "Saguenay Cyclisme",
+      "type": "Vélo",
+      "distance_km": 58.56,
+      "duration_min": 123.2,
+      "elevation_m": 637.0,
+      "avg_hr": 151,
+      "max_hr": 185,
+      "aerobic_te": 3.700000047683716,
+      "anaerobic_te": 2.0,
+      "training_load": 170.00717163085938,
+      "rpe": null,
+      "body_battery_diff": -17,
+      "activity_id": 24003807763
     }
   ],
   "wellness_monthly": [
@@ -6921,15 +6937,27 @@ const trainingData = {
     },
     {
       "date": "2026-08-16",
-      "readiness_score": 71,
+      "readiness_score": 47,
       "sleep_score": 83,
-      "level": "MODERATE",
+      "level": "LOW",
       "hrv": 78,
       "hrv_weekly_avg": 83,
-      "acute_load": 360,
+      "acute_load": 577,
       "chronic_load": 500.4,
       "acwr": 0.72,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-08-17",
+      "readiness_score": null,
+      "sleep_score": null,
+      "level": null,
+      "hrv": null,
+      "hrv_weekly_avg": null,
+      "acute_load": null,
+      "chronic_load": null,
+      "acwr": null,
+      "acwr_status": null
     }
   ],
   "fitness_age_recent": [
@@ -7626,10 +7654,18 @@ const trainingData = {
     {
       "date": "2026-08-16",
       "resting_hr": 51,
-      "stress_avg": 11,
+      "stress_avg": 23,
       "body_battery_charged": 74,
-      "body_battery_drained": 0,
-      "steps": 62
+      "body_battery_drained": 57,
+      "steps": 4834
+    },
+    {
+      "date": "2026-08-17",
+      "resting_hr": null,
+      "stress_avg": null,
+      "body_battery_charged": null,
+      "body_battery_drained": null,
+      "steps": null
     }
   ]
 };
