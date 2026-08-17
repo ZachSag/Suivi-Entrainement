@@ -6937,9 +6937,9 @@ const trainingData = {
     },
     {
       "date": "2026-08-16",
-      "readiness_score": 47,
+      "readiness_score": 50,
       "sleep_score": 83,
-      "level": "LOW",
+      "level": "MODERATE",
       "hrv": 78,
       "hrv_weekly_avg": 83,
       "acute_load": 577,
@@ -6949,15 +6949,15 @@ const trainingData = {
     },
     {
       "date": "2026-08-17",
-      "readiness_score": null,
-      "sleep_score": null,
-      "level": null,
-      "hrv": null,
-      "hrv_weekly_avg": null,
-      "acute_load": null,
-      "chronic_load": null,
-      "acwr": null,
-      "acwr_status": null
+      "readiness_score": 76,
+      "sleep_score": 95,
+      "level": "HIGH",
+      "hrv": 86,
+      "hrv_weekly_avg": 84,
+      "acute_load": 480,
+      "chronic_load": 499.7,
+      "acwr": 0.96,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -7654,18 +7654,18 @@ const trainingData = {
     {
       "date": "2026-08-16",
       "resting_hr": 51,
-      "stress_avg": 23,
-      "body_battery_charged": 74,
-      "body_battery_drained": 57,
-      "steps": 4834
+      "stress_avg": 25,
+      "body_battery_charged": 88,
+      "body_battery_drained": 65,
+      "steps": 5465
     },
     {
       "date": "2026-08-17",
-      "resting_hr": null,
-      "stress_avg": null,
-      "body_battery_charged": null,
-      "body_battery_drained": null,
-      "steps": null
+      "resting_hr": 52,
+      "stress_avg": 10,
+      "body_battery_charged": 71,
+      "body_battery_drained": 3,
+      "steps": 220
     }
   ]
 };
