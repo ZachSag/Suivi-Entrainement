@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-database-compat.js"></script>
 <script src="data.js"></script>
 <script src="training-plan-data.js"></script>
 <style>
@@ -120,6 +122,8 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
 .week-nav button:disabled{opacity:.35; cursor:not-allowed;}
 .week-badge{font-family:var(--mono); font-size:11px; padding:5px 11px; border-radius:6px; background:var(--bg-tertiary); color:var(--text-secondary); font-weight:600;}
 .week-badge.today-badge{background:var(--accent-glow); color:var(--accent);}
+.sync-badge{font-family:var(--mono); font-size:10.5px; padding:5px 10px; border-radius:6px; background:var(--bg-tertiary); color:var(--text-tertiary,var(--text-secondary));}
+.sync-badge.warn{background:rgba(250,204,21,.12); color:#facc15;}
 
 .week-card{background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); overflow:hidden; margin-bottom:26px;}
 .week-card-header{padding:16px 20px; background:var(--bg-tertiary); border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;}
@@ -334,8 +338,8 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
     <div class="callout">
       Clique sur un entraînement pour voir ses détails, le modifier, le déplacer à une autre date ou le marquer
       complété. Utilise <b>+ Ajouter</b> en bas d'une journée pour insérer une activité personnalisée (rendez-vous,
-      sortie non planifiée, etc.). Ces changements sont enregistrés uniquement dans ce navigateur (localStorage) —
-      ils ne seront pas visibles sur un autre appareil et ne modifient pas le fichier source du plan.
+      sortie non planifiée, etc.). Ces changements sont synchronisés automatiquement entre tes appareils
+      (badge d'état ci-dessous) et ne modifient jamais le fichier source du plan.
       <b>Exporter (.ics)</b> génère un fichier calendrier standard compatible avec Google Calendar, Apple Calendar
       et Outlook. Note: <b>Garmin Connect n'accepte pas l'import de fichiers .ics</b> pour les entraînements planifiés
       (limitation confirmée de la plateforme) — le fichier s'ajoutera donc à ton calendrier de téléphone, mais pas
@@ -346,9 +350,10 @@ footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--border-subt
       <select id="week-select-5"></select>
       <button id="week-next-5">Suivante →</button>
       <span class="week-badge today-badge" id="week-today-badge"></span>
+      <span class="sync-badge" id="sync-badge-5"></span>
       <span class="week-actions" style="margin-left:auto;">
         <button id="week-export-ics-5">⇩ Exporter (.ics)</button>
-        <button id="week-reset-overrides-5" title="Effacer tous les ajouts/modifications personnels enregistrés dans ce navigateur">↺ Réinitialiser mes modifs</button>
+        <button id="week-reset-overrides-5" title="Effacer tous les ajouts/modifications personnels, sur tous tes appareils">↺ Réinitialiser mes modifs</button>
       </span>
     </div>
     <div class="week-card">
@@ -840,21 +845,100 @@ document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoS
   select.innerHTML = weeks.map((w,i)=>`<option value="${i}">S${w.weekNumber} · ${w.phase} · ${w.startDate}</option>`).join("");
   const prevBtn = document.getElementById("week-prev-5");
   const nextBtn = document.getElementById("week-next-5");
+  let syncBadgeEl = document.getElementById("sync-badge-5");
 
   const DAY_ABBR = {"Lundi":"LUN","Mardi":"MAR","Mercredi":"MER","Jeudi":"JEU","Vendredi":"VEN","Samedi":"SAM","Dimanche":"DIM"};
 
   /* ---------------------------------------------------------------------
      Surcouche personnelle (ajout / édition / déplacement / complétion des
-     entraînements), stockée dans le navigateur uniquement (localStorage).
-     Ne modifie jamais training-plan-data.js — purement une surcouche
-     appliquée au rendu. items: { [id]: {..champs modifiés.., date?, custom?, deleted?} }
+     entraînements) — synchronisée entre appareils via Firebase Realtime
+     Database, avec repli automatique sur localStorage si Firebase est
+     indisponible (config manquante, hors ligne, erreur réseau). Ne modifie
+     jamais training-plan-data.js — purement une surcouche appliquée au
+     rendu. items: { [id]: {..champs modifiés.., date?, custom?, deleted?} }
   --------------------------------------------------------------------- */
   const OVERRIDE_KEY = "suivi70_3_plan_overrides_v1";
-  function loadOverrides(){
+  const FIREBASE_PASSPHRASE = "zach-sherbrooke-2026";
+
+  // ⚠️ Config Firebase — PAS un secret (voir note dans le README), sécurité
+  // assurée par les règles de la base de données, pas en cachant ceci.
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIoOKAeYOJzcFOHe_-DiCjY0BlejCJ028",
+    authDomain: "suivi-entrainement-84b19.firebaseapp.com",
+    databaseURL: "https://suivi-entrainement-84b19-default-rtdb.firebaseio.com",
+    projectId: "suivi-entrainement-84b19",
+    storageBucket: "suivi-entrainement-84b19.firebasestorage.app",
+    messagingSenderId: "907453306766",
+    appId: "1:907453306766:web:d157090bae03fa1b32f6df"
+  };
+
+  let overridesCache = {items:{}};
+  let firebaseDb = null;
+
+  function loadLocalOverrides(){
     try { return JSON.parse(localStorage.getItem(OVERRIDE_KEY)) || {items:{}}; }
     catch(e){ return {items:{}}; }
   }
-  function saveOverrides(ov){ localStorage.setItem(OVERRIDE_KEY, JSON.stringify(ov)); }
+  function setSyncBadge(state){
+    // state: "cloud" | "local" | "saving" | "error"
+    if(!syncBadgeEl) return;
+    const map = {
+      cloud: ["☁️ Synchronisé entre appareils", ""],
+      local: ["💾 Local à cet appareil seulement", "warn"],
+      saving: ["☁️ Synchronisation…", ""],
+      error: ["⚠️ Échec de synchro — copie locale conservée", "warn"]
+    };
+    const [txt, cls] = map[state] || map.local;
+    syncBadgeEl.textContent = txt;
+    syncBadgeEl.className = "sync-badge" + (cls ? " " + cls : "");
+  }
+
+  function initOverridesSync(onReady){
+    let called = false;
+    const ready = () => { if(!called){ called = true; onReady(); } };
+    if(!firebaseConfig.apiKey || firebaseConfig.apiKey === "REMPLACE_MOI"){
+      overridesCache = loadLocalOverrides();
+      setSyncBadge("local");
+      ready();
+      return;
+    }
+    try{
+      const app = firebase.initializeApp(firebaseConfig);
+      firebaseDb = firebase.database();
+      const ref = firebaseDb.ref("trainingOverrides");
+      ref.on("value", (snapshot)=>{
+        const val = snapshot.val();
+        overridesCache = (val && val.items) ? {items: val.items} : {items:{}};
+        try{ localStorage.setItem(OVERRIDE_KEY, JSON.stringify(overridesCache)); }catch(e){}
+        setSyncBadge("cloud");
+        if(called){ renderWeek(parseInt(select.value,10)); } // mise à jour en direct depuis un autre appareil
+        ready();
+      }, (err)=>{
+        console.error("Firebase (lecture) indisponible, repli local :", err);
+        overridesCache = loadLocalOverrides();
+        setSyncBadge("error");
+        ready();
+      });
+    }catch(e){
+      console.error("Firebase indisponible, repli local :", e);
+      overridesCache = loadLocalOverrides();
+      setSyncBadge("local");
+      ready();
+    }
+  }
+
+  function loadOverrides(){ return overridesCache; }
+
+  function saveOverrides(ov){
+    overridesCache = ov;
+    try{ localStorage.setItem(OVERRIDE_KEY, JSON.stringify(ov)); }catch(e){}
+    if(firebaseDb){
+      setSyncBadge("saving");
+      firebaseDb.ref("trainingOverrides").set(Object.assign({}, ov, {passphrase: FIREBASE_PASSPHRASE}))
+        .then(()=> setSyncBadge("cloud"))
+        .catch(e=>{ console.error("Échec de la synchro Firebase :", e); setSyncBadge("error"); });
+    }
+  }
 
   // Construit une carte date -> liste d'entraînements effectifs, en appliquant la surcouche
   // (édition, déplacement, suppression, ajouts perso) par-dessus les 46 semaines de base.
@@ -943,8 +1027,9 @@ document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoS
   });
 
   document.getElementById("week-reset-overrides-5").addEventListener("click", ()=>{
-    if(!confirm("Effacer toutes tes modifications personnelles (ajouts, éditions, déplacements) enregistrées dans ce navigateur ? Cette action est irréversible.")) return;
+    if(!confirm("Effacer toutes tes modifications personnelles (ajouts, éditions, déplacements), sur tous tes appareils synchronisés ? Cette action est irréversible.")) return;
     localStorage.removeItem(OVERRIDE_KEY);
+    saveOverrides({items:{}});
     renderWeek(parseInt(select.value,10));
   });
 
@@ -1073,7 +1158,7 @@ document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoS
     btn.addEventListener("click", ()=>renderWeek(parseInt(btn.dataset.idx,10)));
   });
   window.__renderPlanWeek = renderWeek; // exposed for chart-5a bar click
-  renderWeek(currentIdx);
+  initOverridesSync(()=> renderWeek(currentIdx));
 
   // Zones de référence
   const z = plan.zones;
