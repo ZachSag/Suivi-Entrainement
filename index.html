@@ -927,6 +927,18 @@ document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoS
     }
   }
 
+  // Convertit récursivement toute valeur "undefined" en null avant l'envoi à Firebase
+  // (le SDK Firebase rejette purement et simplement les valeurs undefined — filet de
+  // sécurité en plus du correctif à la source dans le formulaire).
+  function stripUndefined(obj){
+    if(obj === undefined) return null;
+    if(obj === null || typeof obj !== "object") return obj;
+    if(Array.isArray(obj)) return obj.map(stripUndefined);
+    const out = {};
+    for(const k in obj) out[k] = stripUndefined(obj[k]);
+    return out;
+  }
+
   function loadOverrides(){ return overridesCache; }
 
   function saveOverrides(ov){
@@ -934,9 +946,18 @@ document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoS
     try{ localStorage.setItem(OVERRIDE_KEY, JSON.stringify(ov)); }catch(e){}
     if(firebaseDb){
       setSyncBadge("saving");
-      firebaseDb.ref("trainingOverrides").set(Object.assign({}, ov, {passphrase: FIREBASE_PASSPHRASE}))
-        .then(()=> setSyncBadge("cloud"))
-        .catch(e=>{ console.error("Échec de la synchro Firebase :", e); setSyncBadge("error"); });
+      try{
+        const payload = stripUndefined(Object.assign({}, ov, {passphrase: FIREBASE_PASSPHRASE}));
+        firebaseDb.ref("trainingOverrides").set(payload)
+          .then(()=> setSyncBadge("cloud"))
+          .catch(e=>{ console.error("Échec de la synchro Firebase :", e); setSyncBadge("error"); });
+      }catch(e){
+        // set() peut lancer une exception SYNCHRONE (pas seulement rejeter une promesse) —
+        // sans ce try/catch, toute la suite du gestionnaire de clic (fermeture de la modale,
+        // re-rendu) serait silencieusement interrompue.
+        console.error("Échec de la synchro Firebase (exception synchrone) :", e);
+        setSyncBadge("error");
+      }
     }
   }
 
@@ -1006,9 +1027,9 @@ document.getElementById("lastUpdated").textContent = trainingData.meta.lastAutoS
     const id = mId.value || ("custom-"+Date.now()+"-"+Math.random().toString(36).slice(2,7));
     const record = {
       date: mDate.value, sport: mSport.value, name: mName.value.trim(), description: mDesc.value.trim(),
-      durationMinutes: mDuration.value ? parseInt(mDuration.value,10) : undefined,
-      distanceMeters: mDistance.value ? parseInt(mDistance.value,10) : undefined,
-      primaryZone: mZone.value.trim() || undefined, completed: mCompleted.checked,
+      durationMinutes: mDuration.value ? parseInt(mDuration.value,10) : null,
+      distanceMeters: mDistance.value ? parseInt(mDistance.value,10) : null,
+      primaryZone: mZone.value.trim() || null, completed: mCompleted.checked,
     };
     if(isCustom) record.custom = true;
     ov.items[id] = Object.assign({}, ov.items[id], record);
