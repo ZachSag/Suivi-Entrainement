@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-18",
+    "lastAutoSync": "2026-08-19",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -4930,6 +4930,22 @@
       "rpe": null,
       "body_battery_diff": -9,
       "activity_id": 24013863993
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Saguenay Stand up paddle",
+      "type": "stand_up_paddleboarding_v2",
+      "distance_km": 3.22,
+      "duration_min": 58.5,
+      "elevation_m": 0,
+      "avg_hr": 89,
+      "max_hr": 111,
+      "aerobic_te": 0.20000000298023224,
+      "anaerobic_te": 0.0,
+      "training_load": 3.3357391357421875,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24028827930
     }
   ],
   "wellness_monthly": [
@@ -6969,10 +6985,22 @@
       "level": "PRIME",
       "hrv": 91,
       "hrv_weekly_avg": 85,
-      "acute_load": 411,
+      "acute_load": 416,
       "chronic_load": 496.5,
       "acwr": 0.83,
       "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-08-19",
+      "readiness_score": 100,
+      "sleep_score": 97,
+      "level": "PRIME",
+      "hrv": 87,
+      "hrv_weekly_avg": 84,
+      "acute_load": 322,
+      "chronic_load": 490.3,
+      "acwr": 0.66,
+      "acwr_status": "LOW"
     }
   ],
   "fitness_age_recent": [
@@ -7685,10 +7713,18 @@
     {
       "date": "2026-08-18",
       "resting_hr": 49,
-      "stress_avg": 8,
-      "body_battery_charged": 54,
-      "body_battery_drained": 6,
-      "steps": 335
+      "stress_avg": 33,
+      "body_battery_charged": 63,
+      "body_battery_drained": 66,
+      "steps": 3250
+    },
+    {
+      "date": "2026-08-19",
+      "resting_hr": 50,
+      "stress_avg": 10,
+      "body_battery_charged": 71,
+      "body_battery_drained": 1,
+      "steps": 10
     }
   ]
 }
