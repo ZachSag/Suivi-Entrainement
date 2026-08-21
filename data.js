@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-20",
+    "lastAutoSync": "2026-08-21",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5007,6 +5007,22 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": null,
       "activity_id": 24038502835
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Saguenay Cyclisme",
+      "type": "Vélo",
+      "distance_km": 27.78,
+      "duration_min": 58.2,
+      "elevation_m": 225.0,
+      "avg_hr": 151,
+      "max_hr": 180,
+      "aerobic_te": 3.200000047683716,
+      "anaerobic_te": 1.2999999523162842,
+      "training_load": 113.51681518554688,
+      "rpe": null,
+      "body_battery_diff": -14,
+      "activity_id": 24061289612
     }
   ],
   "wellness_monthly": [
@@ -7074,6 +7090,18 @@ const trainingData = {
       "chronic_load": 491.7,
       "acwr": 1.08,
       "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-08-21",
+      "readiness_score": 85,
+      "sleep_score": 89,
+      "level": "HIGH",
+      "hrv": 98,
+      "hrv_weekly_avg": 87,
+      "acute_load": 576,
+      "chronic_load": 494.7,
+      "acwr": 1.16,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -7801,11 +7829,19 @@ const trainingData = {
     },
     {
       "date": "2026-08-20",
-      "resting_hr": 52,
-      "stress_avg": 15,
-      "body_battery_charged": 73,
-      "body_battery_drained": 13,
-      "steps": 538
+      "resting_hr": 50,
+      "stress_avg": 27,
+      "body_battery_charged": 89,
+      "body_battery_drained": 71,
+      "steps": 5813
+    },
+    {
+      "date": "2026-08-21",
+      "resting_hr": 48,
+      "stress_avg": 11,
+      "body_battery_charged": 60,
+      "body_battery_drained": 0,
+      "steps": 930
     }
   ]
 };
