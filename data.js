@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-28",
+    "lastAutoSync": "2026-08-29",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -7282,6 +7282,18 @@ const trainingData = {
       "chronic_load": 488.0,
       "acwr": 0.77,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-08-29",
+      "readiness_score": null,
+      "sleep_score": null,
+      "level": null,
+      "hrv": null,
+      "hrv_weekly_avg": null,
+      "acute_load": null,
+      "chronic_load": null,
+      "acwr": null,
+      "acwr_status": null
     }
   ],
   "fitness_age_recent": [
@@ -8074,10 +8086,18 @@ const trainingData = {
     {
       "date": "2026-08-28",
       "resting_hr": 55,
-      "stress_avg": 36,
-      "body_battery_charged": 52,
-      "body_battery_drained": 37,
-      "steps": 5063
+      "stress_avg": 37,
+      "body_battery_charged": 66,
+      "body_battery_drained": 48,
+      "steps": 5766
+    },
+    {
+      "date": "2026-08-29",
+      "resting_hr": 55,
+      "stress_avg": 16,
+      "body_battery_charged": 20,
+      "body_battery_drained": 0,
+      "steps": null
     }
   ]
 };
