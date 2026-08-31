@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-30",
+    "lastAutoSync": "2026-08-31",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5122,6 +5122,22 @@
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 24166407667
+    },
+    {
+      "date": "2026-08-30",
+      "name": "Saguenay Cyclisme",
+      "type": "Vélo",
+      "distance_km": 56.4,
+      "duration_min": 128.4,
+      "elevation_m": 466.0,
+      "avg_hr": 147,
+      "max_hr": 190,
+      "aerobic_te": 3.5,
+      "anaerobic_te": 2.5,
+      "training_load": 175.93692016601562,
+      "rpe": null,
+      "body_battery_diff": -21,
+      "activity_id": 24175341440
     }
   ],
   "wellness_monthly": [
@@ -7300,15 +7316,27 @@
     },
     {
       "date": "2026-08-30",
-      "readiness_score": 67,
+      "readiness_score": 40,
       "sleep_score": 90,
-      "level": "MODERATE",
+      "level": "LOW",
       "hrv": 84,
       "hrv_weekly_avg": 74,
-      "acute_load": 280,
+      "acute_load": 504,
       "chronic_load": 475.8,
       "acwr": 0.59,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-08-31",
+      "readiness_score": 69,
+      "sleep_score": 94,
+      "level": "MODERATE",
+      "hrv": 89,
+      "hrv_weekly_avg": 74,
+      "acute_load": 411,
+      "chronic_load": 473.5,
+      "acwr": 0.87,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -8117,10 +8145,18 @@
     {
       "date": "2026-08-30",
       "resting_hr": 49,
-      "stress_avg": 13,
-      "body_battery_charged": 72,
-      "body_battery_drained": 4,
-      "steps": 68
+      "stress_avg": 26,
+      "body_battery_charged": 83,
+      "body_battery_drained": 75,
+      "steps": 2283
+    },
+    {
+      "date": "2026-08-31",
+      "resting_hr": 52,
+      "stress_avg": 14,
+      "body_battery_charged": 66,
+      "body_battery_drained": 3,
+      "steps": 72
     }
   ]
 }
