@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-08-31",
+    "lastAutoSync": "2026-09-01",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5138,6 +5138,22 @@
       "rpe": null,
       "body_battery_diff": -21,
       "activity_id": 24175341440
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Musculation",
+      "type": "Entraînement aux poids",
+      "distance_km": 0.0,
+      "duration_min": 70.3,
+      "elevation_m": 0,
+      "avg_hr": 121,
+      "max_hr": 177,
+      "aerobic_te": 2.0,
+      "anaerobic_te": 1.7000000476837158,
+      "training_load": 47.224609375,
+      "rpe": null,
+      "body_battery_diff": -4,
+      "activity_id": 24190612513
     }
   ],
   "wellness_monthly": [
@@ -7328,14 +7344,26 @@
     },
     {
       "date": "2026-08-31",
-      "readiness_score": 69,
+      "readiness_score": 66,
       "sleep_score": 94,
       "level": "MODERATE",
       "hrv": 89,
       "hrv_weekly_avg": 74,
-      "acute_load": 411,
+      "acute_load": 471,
       "chronic_load": 473.5,
       "acwr": 0.87,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-01",
+      "readiness_score": 83,
+      "sleep_score": 89,
+      "level": "HIGH",
+      "hrv": 87,
+      "hrv_weekly_avg": 77,
+      "acute_load": 395,
+      "chronic_load": 470.7,
+      "acwr": 0.84,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -8153,10 +8181,18 @@
     {
       "date": "2026-08-31",
       "resting_hr": 52,
-      "stress_avg": 14,
-      "body_battery_charged": 66,
-      "body_battery_drained": 3,
-      "steps": 72
+      "stress_avg": 31,
+      "body_battery_charged": 74,
+      "body_battery_drained": 78,
+      "steps": 5140
+    },
+    {
+      "date": "2026-09-01",
+      "resting_hr": 52,
+      "stress_avg": 11,
+      "body_battery_charged": 70,
+      "body_battery_drained": 0,
+      "steps": 76
     }
   ]
 }
