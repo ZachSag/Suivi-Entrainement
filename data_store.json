@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-01",
+    "lastAutoSync": "2026-09-02",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5154,6 +5154,22 @@
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 24190612513
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Saguenay Cyclisme",
+      "type": "Vélo",
+      "distance_km": 26.5,
+      "duration_min": 54.8,
+      "elevation_m": 149.0,
+      "avg_hr": 142,
+      "max_hr": 177,
+      "aerobic_te": 2.700000047683716,
+      "anaerobic_te": 1.2000000476837158,
+      "training_load": 75.53544616699219,
+      "rpe": null,
+      "body_battery_diff": -10,
+      "activity_id": 24198853682
     }
   ],
   "wellness_monthly": [
@@ -7356,14 +7372,26 @@
     },
     {
       "date": "2026-09-01",
-      "readiness_score": 83,
+      "readiness_score": 75,
       "sleep_score": 89,
       "level": "HIGH",
       "hrv": 87,
       "hrv_weekly_avg": 77,
-      "acute_load": 395,
+      "acute_load": 491,
       "chronic_load": 470.7,
       "acwr": 0.84,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-02",
+      "readiness_score": 75,
+      "sleep_score": null,
+      "level": "HIGH",
+      "hrv": null,
+      "hrv_weekly_avg": 77,
+      "acute_load": 491,
+      "chronic_load": 471.4,
+      "acwr": 1.04,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -8189,10 +8217,18 @@
     {
       "date": "2026-09-01",
       "resting_hr": 52,
-      "stress_avg": 11,
-      "body_battery_charged": 70,
+      "stress_avg": 31,
+      "body_battery_charged": 72,
+      "body_battery_drained": 71,
+      "steps": 3544
+    },
+    {
+      "date": "2026-09-02",
+      "resting_hr": 53,
+      "stress_avg": 15,
+      "body_battery_charged": 15,
       "body_battery_drained": 0,
-      "steps": 76
+      "steps": null
     }
   ]
 }
