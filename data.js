@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-05",
+    "lastAutoSync": "2026-09-06",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5231,6 +5231,22 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 24239645009
+    },
+    {
+      "date": "2026-09-05",
+      "name": "Saguenay - Récupération",
+      "type": "Course à pied",
+      "distance_km": 5.1,
+      "duration_min": 28.2,
+      "elevation_m": 26.0,
+      "avg_hr": 144,
+      "max_hr": 168,
+      "aerobic_te": 2.700000047683716,
+      "anaerobic_te": 0.0,
+      "training_load": 60.87135314941406,
+      "rpe": null,
+      "body_battery_diff": -4,
+      "activity_id": 24252236178
     }
   ],
   "wellness_monthly": [
@@ -7481,14 +7497,26 @@ const trainingData = {
     },
     {
       "date": "2026-09-05",
-      "readiness_score": 68,
+      "readiness_score": 56,
       "sleep_score": 75,
       "level": "MODERATE",
       "hrv": 75,
       "hrv_weekly_avg": 83,
-      "acute_load": 485,
+      "acute_load": 562,
       "chronic_load": 480.6,
       "acwr": 1.01,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-06",
+      "readiness_score": 65,
+      "sleep_score": 84,
+      "level": "MODERATE",
+      "hrv": 85,
+      "hrv_weekly_avg": 83,
+      "acute_load": 459,
+      "chronic_load": 479.8,
+      "acwr": 0.96,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -8346,10 +8374,18 @@ const trainingData = {
     {
       "date": "2026-09-05",
       "resting_hr": 53,
-      "stress_avg": 15,
+      "stress_avg": 42,
       "body_battery_charged": 62,
-      "body_battery_drained": 1,
-      "steps": 166
+      "body_battery_drained": 75,
+      "steps": 10184
+    },
+    {
+      "date": "2026-09-06",
+      "resting_hr": 50,
+      "stress_avg": 11,
+      "body_battery_charged": 88,
+      "body_battery_drained": 4,
+      "steps": 426
     }
   ]
 };
