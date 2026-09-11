@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-10",
+    "lastAutoSync": "2026-09-11",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5282,6 +5282,86 @@
       "rpe": null,
       "body_battery_diff": null,
       "activity_id": 24291223374
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 1.58,
+      "duration_min": 8.7,
+      "elevation_m": 3.0,
+      "avg_hr": 154,
+      "max_hr": 167,
+      "aerobic_te": 2.0,
+      "anaerobic_te": 0.0,
+      "training_load": 27.045135498046875,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24315369215
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 2.09,
+      "duration_min": 8.4,
+      "elevation_m": 7.0,
+      "avg_hr": 166,
+      "max_hr": 194,
+      "aerobic_te": 2.700000047683716,
+      "anaerobic_te": 3.0999999046325684,
+      "training_load": 147.31997680664062,
+      "rpe": null,
+      "body_battery_diff": -3,
+      "activity_id": 24315368917
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Saguenay Course à pied sur piste",
+      "type": "Course (piste)",
+      "distance_km": 1.72,
+      "duration_min": 7.0,
+      "elevation_m": 0,
+      "avg_hr": 186,
+      "max_hr": 192,
+      "aerobic_te": 2.5999999046325684,
+      "anaerobic_te": 0.6000000238418579,
+      "training_load": 64.78517150878906,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24315368598
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Saguenay Course à pied sur piste",
+      "type": "Course (piste)",
+      "distance_km": 0.69,
+      "duration_min": 3.1,
+      "elevation_m": 0,
+      "avg_hr": 128,
+      "max_hr": 179,
+      "aerobic_te": 1.399999976158142,
+      "anaerobic_te": 2.0,
+      "training_load": 45.12702941894531,
+      "rpe": null,
+      "body_battery_diff": -1,
+      "activity_id": 24315368289
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Saguenay Course à pied sur piste",
+      "type": "Course (piste)",
+      "distance_km": 3.8,
+      "duration_min": 19.1,
+      "elevation_m": 27.0,
+      "avg_hr": 165,
+      "max_hr": 184,
+      "aerobic_te": 3.0999999046325684,
+      "anaerobic_te": 0.0,
+      "training_load": 84.26535034179688,
+      "rpe": null,
+      "body_battery_diff": -3,
+      "activity_id": 24315367989
     }
   ],
   "wellness_monthly": [
@@ -7592,15 +7672,27 @@
     },
     {
       "date": "2026-09-10",
-      "readiness_score": 77,
+      "readiness_score": 6,
       "sleep_score": 76,
-      "level": "HIGH",
+      "level": "POOR",
       "hrv": 80,
       "hrv_weekly_avg": 84,
-      "acute_load": 214,
+      "acute_load": 684,
       "chronic_load": 456.0,
       "acwr": 0.47,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-09-11",
+      "readiness_score": 10,
+      "sleep_score": 85,
+      "level": "POOR",
+      "hrv": 75,
+      "hrv_weekly_avg": 83,
+      "acute_load": 572,
+      "chronic_load": 460.1,
+      "acwr": 1.24,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -8497,10 +8589,18 @@
     {
       "date": "2026-09-10",
       "resting_hr": 49,
-      "stress_avg": 12,
-      "body_battery_charged": 66,
-      "body_battery_drained": 5,
-      "steps": 238
+      "stress_avg": 36,
+      "body_battery_charged": 71,
+      "body_battery_drained": 84,
+      "steps": 16153
+    },
+    {
+      "date": "2026-09-11",
+      "resting_hr": 53,
+      "stress_avg": 13,
+      "body_battery_charged": 64,
+      "body_battery_drained": 3,
+      "steps": 226
     }
   ]
 }
