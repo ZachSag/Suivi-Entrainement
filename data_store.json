@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-11",
+    "lastAutoSync": "2026-09-12",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -7693,6 +7693,18 @@
       "chronic_load": 460.1,
       "acwr": 1.24,
       "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-12",
+      "readiness_score": 52,
+      "sleep_score": 95,
+      "level": "MODERATE",
+      "hrv": 89,
+      "hrv_weekly_avg": 85,
+      "acute_load": 471,
+      "chronic_load": 460.5,
+      "acwr": 1.02,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -8597,10 +8609,18 @@
     {
       "date": "2026-09-11",
       "resting_hr": 53,
-      "stress_avg": 13,
-      "body_battery_charged": 64,
-      "body_battery_drained": 3,
-      "steps": 226
+      "stress_avg": 34,
+      "body_battery_charged": 78,
+      "body_battery_drained": 62,
+      "steps": 5800
+    },
+    {
+      "date": "2026-09-12",
+      "resting_hr": 49,
+      "stress_avg": 16,
+      "body_battery_charged": 73,
+      "body_battery_drained": 24,
+      "steps": 636
     }
   ]
 }
