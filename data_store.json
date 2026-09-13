@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-12",
+    "lastAutoSync": "2026-09-13",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5362,6 +5362,22 @@
       "rpe": null,
       "body_battery_diff": -3,
       "activity_id": 24315367989
+    },
+    {
+      "date": "2026-09-12",
+      "name": "Saguenay Ultrafond",
+      "type": "ultra_run",
+      "distance_km": 5.05,
+      "duration_min": 36.7,
+      "elevation_m": 109.0,
+      "avg_hr": 146,
+      "max_hr": 169,
+      "aerobic_te": 2.5,
+      "anaerobic_te": 0.0,
+      "training_load": 52.80036926269531,
+      "rpe": null,
+      "body_battery_diff": -6,
+      "activity_id": 24338225654
     }
   ],
   "wellness_monthly": [
@@ -7696,14 +7712,26 @@
     },
     {
       "date": "2026-09-12",
-      "readiness_score": 52,
+      "readiness_score": 63,
       "sleep_score": 95,
       "level": "MODERATE",
       "hrv": 89,
       "hrv_weekly_avg": 85,
-      "acute_load": 471,
+      "acute_load": 538,
       "chronic_load": 460.5,
       "acwr": 1.02,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-13",
+      "readiness_score": 83,
+      "sleep_score": 91,
+      "level": "HIGH",
+      "hrv": 91,
+      "hrv_weekly_avg": 86,
+      "acute_load": 452,
+      "chronic_load": 460.2,
+      "acwr": 0.98,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -8617,10 +8645,18 @@
     {
       "date": "2026-09-12",
       "resting_hr": 49,
-      "stress_avg": 16,
-      "body_battery_charged": 73,
-      "body_battery_drained": 24,
-      "steps": 636
+      "stress_avg": 35,
+      "body_battery_charged": 83,
+      "body_battery_drained": 85,
+      "steps": 10352
+    },
+    {
+      "date": "2026-09-13",
+      "resting_hr": 50,
+      "stress_avg": 17,
+      "body_battery_charged": 76,
+      "body_battery_drained": 23,
+      "steps": 722
     }
   ]
 }
