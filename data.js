@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-19",
+    "lastAutoSync": "2026-09-20",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5535,6 +5535,22 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": null,
       "activity_id": 24412901904
+    },
+    {
+      "date": "2026-09-20",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 2.91,
+      "duration_min": 16.4,
+      "elevation_m": 26.0,
+      "avg_hr": 146,
+      "max_hr": 163,
+      "aerobic_te": 2.299999952316284,
+      "anaerobic_te": 0.0,
+      "training_load": 40.34344482421875,
+      "rpe": null,
+      "body_battery_diff": -4,
+      "activity_id": 24432890447
     }
   ],
   "wellness_monthly": [
@@ -7962,6 +7978,18 @@ const trainingData = {
       "chronic_load": 480.9,
       "acwr": 1.3,
       "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-20",
+      "readiness_score": 67,
+      "sleep_score": 75,
+      "level": "MODERATE",
+      "hrv": 80,
+      "hrv_weekly_avg": 82,
+      "acute_load": 540,
+      "chronic_load": 483.0,
+      "acwr": 1.12,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -8930,10 +8958,18 @@ const trainingData = {
     {
       "date": "2026-09-19",
       "resting_hr": 52,
-      "stress_avg": 9,
+      "stress_avg": 34,
       "body_battery_charged": 80,
-      "body_battery_drained": 2,
-      "steps": 54
+      "body_battery_drained": 82,
+      "steps": 3440
+    },
+    {
+      "date": "2026-09-20",
+      "resting_hr": 53,
+      "stress_avg": 21,
+      "body_battery_charged": 68,
+      "body_battery_drained": 23,
+      "steps": 4210
     }
   ]
 };
