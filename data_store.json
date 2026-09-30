@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-09-29",
+    "lastAutoSync": "2026-09-30",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5746,6 +5746,22 @@
       "rpe": null,
       "body_battery_diff": -3,
       "activity_id": 24534726983
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 1.24,
+      "duration_min": 9.1,
+      "elevation_m": 4.0,
+      "avg_hr": 116,
+      "max_hr": 131,
+      "aerobic_te": 0.5,
+      "anaerobic_te": 0.0,
+      "training_load": 7.3492279052734375,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24548228505
     }
   ],
   "wellness_monthly": [
@@ -8284,14 +8300,26 @@
     },
     {
       "date": "2026-09-29",
-      "readiness_score": 75,
+      "readiness_score": 85,
       "sleep_score": 96,
       "level": "HIGH",
       "hrv": 79,
       "hrv_weekly_avg": 82,
-      "acute_load": 533,
+      "acute_load": 542,
       "chronic_load": 500.2,
       "acwr": 1.07,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-09-30",
+      "readiness_score": 91,
+      "sleep_score": 94,
+      "level": "HIGH",
+      "hrv": 82,
+      "hrv_weekly_avg": 81,
+      "acute_load": 427,
+      "chronic_load": 497.6,
+      "acwr": 0.86,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -9341,10 +9369,18 @@
     {
       "date": "2026-09-29",
       "resting_hr": 53,
-      "stress_avg": 27,
-      "body_battery_charged": 54,
-      "body_battery_drained": 31,
-      "steps": 4073
+      "stress_avg": 33,
+      "body_battery_charged": 75,
+      "body_battery_drained": 70,
+      "steps": 12260
+    },
+    {
+      "date": "2026-09-30",
+      "resting_hr": 49,
+      "stress_avg": 24,
+      "body_battery_charged": 61,
+      "body_battery_drained": 37,
+      "steps": 2658
     }
   ]
 }
