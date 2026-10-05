@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-04",
+    "lastAutoSync": "2026-10-05",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5839,6 +5839,54 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -6,
       "activity_id": 24595711896
+    },
+    {
+      "date": "2026-10-04",
+      "name": "Saguenay Cyclisme",
+      "type": "Vélo",
+      "distance_km": 19.96,
+      "duration_min": 49.9,
+      "elevation_m": 159.0,
+      "avg_hr": 144,
+      "max_hr": 166,
+      "aerobic_te": 2.700000047683716,
+      "anaerobic_te": 1.100000023841858,
+      "training_load": 79.643310546875,
+      "rpe": null,
+      "body_battery_diff": -7,
+      "activity_id": 24608224416
+    },
+    {
+      "date": "2026-10-04",
+      "name": "Nat. piscine",
+      "type": "Natation",
+      "distance_km": 1.65,
+      "duration_min": 36.4,
+      "elevation_m": 0,
+      "avg_hr": 144,
+      "max_hr": 176,
+      "aerobic_te": 3.0999999046325684,
+      "anaerobic_te": 2.0999999046325684,
+      "training_load": 117.43695068359375,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24608224367
+    },
+    {
+      "date": "2026-10-04",
+      "name": "Saguenay Cyclisme",
+      "type": "Vélo",
+      "distance_km": 17.39,
+      "duration_min": 36.5,
+      "elevation_m": 70.0,
+      "avg_hr": 141,
+      "max_hr": 168,
+      "aerobic_te": 2.700000047683716,
+      "anaerobic_te": 0.5,
+      "training_load": 68.69050598144531,
+      "rpe": null,
+      "body_battery_diff": -5,
+      "activity_id": 24607310669
     }
   ],
   "wellness_monthly": [
@@ -8437,15 +8485,27 @@ const trainingData = {
     },
     {
       "date": "2026-10-04",
-      "readiness_score": 100,
+      "readiness_score": 57,
       "sleep_score": 86,
-      "level": "PRIME",
+      "level": "MODERATE",
       "hrv": 87,
       "hrv_weekly_avg": 87,
-      "acute_load": 264,
+      "acute_load": 603,
       "chronic_load": 472.1,
       "acwr": 0.56,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-10-05",
+      "readiness_score": 55,
+      "sleep_score": 82,
+      "level": "MODERATE",
+      "hrv": 73,
+      "hrv_weekly_avg": 84,
+      "acute_load": 509,
+      "chronic_load": 473.4,
+      "acwr": 1.08,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -9534,10 +9594,18 @@ const trainingData = {
     {
       "date": "2026-10-04",
       "resting_hr": 50,
-      "stress_avg": 22,
-      "body_battery_charged": 70,
-      "body_battery_drained": 35,
-      "steps": 1351
+      "stress_avg": 35,
+      "body_battery_charged": 79,
+      "body_battery_drained": 88,
+      "steps": 5089
+    },
+    {
+      "date": "2026-10-05",
+      "resting_hr": 53,
+      "stress_avg": 31,
+      "body_battery_charged": 46,
+      "body_battery_drained": 18,
+      "steps": 1516
     }
   ]
 };
