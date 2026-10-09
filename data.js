@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-08",
+    "lastAutoSync": "2026-10-09",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -5967,6 +5967,54 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 24645002562
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 0.81,
+      "duration_min": 4.3,
+      "elevation_m": 0,
+      "avg_hr": 147,
+      "max_hr": 161,
+      "aerobic_te": 1.399999976158142,
+      "anaerobic_te": 0.0,
+      "training_load": 17.96490478515625,
+      "rpe": null,
+      "body_battery_diff": -1,
+      "activity_id": 24657168050
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 4.91,
+      "duration_min": 19.8,
+      "elevation_m": 18.0,
+      "avg_hr": 162,
+      "max_hr": 191,
+      "aerobic_te": 3.0,
+      "anaerobic_te": 2.0,
+      "training_load": 110.96287536621094,
+      "rpe": null,
+      "body_battery_diff": -4,
+      "activity_id": 24657051422
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 3.82,
+      "duration_min": 19.8,
+      "elevation_m": 20.0,
+      "avg_hr": 153,
+      "max_hr": 182,
+      "aerobic_te": 2.5999999046325684,
+      "anaerobic_te": 0.0,
+      "training_load": 57.51850891113281,
+      "rpe": null,
+      "body_battery_diff": -3,
+      "activity_id": 24656693468
     }
   ],
   "wellness_monthly": [
@@ -8613,14 +8661,26 @@ const trainingData = {
     },
     {
       "date": "2026-10-08",
-      "readiness_score": 80,
+      "readiness_score": 60,
       "sleep_score": 79,
-      "level": "HIGH",
+      "level": "MODERATE",
       "hrv": 86,
       "hrv_weekly_avg": 85,
-      "acute_load": 508,
+      "acute_load": 745,
       "chronic_load": 485.9,
       "acwr": 1.05,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-10-09",
+      "readiness_score": 67,
+      "sleep_score": 90,
+      "level": "MODERATE",
+      "hrv": 74,
+      "hrv_weekly_avg": 83,
+      "acute_load": 635,
+      "chronic_load": 491.2,
+      "acwr": 1.29,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -9742,10 +9802,18 @@ const trainingData = {
     {
       "date": "2026-10-08",
       "resting_hr": 52,
-      "stress_avg": 33,
-      "body_battery_charged": 64,
-      "body_battery_drained": 39,
-      "steps": 2814
+      "stress_avg": 39,
+      "body_battery_charged": 84,
+      "body_battery_drained": 76,
+      "steps": 15752
+    },
+    {
+      "date": "2026-10-09",
+      "resting_hr": 55,
+      "stress_avg": 35,
+      "body_battery_charged": 50,
+      "body_battery_drained": 36,
+      "steps": 2337
     }
   ]
 };
