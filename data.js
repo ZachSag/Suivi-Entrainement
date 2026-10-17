@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-16",
+    "lastAutoSync": "2026-10-17",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6223,6 +6223,38 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -3,
       "activity_id": 24739000548
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Nat. piscine",
+      "type": "Natation",
+      "distance_km": 1.57,
+      "duration_min": 33.2,
+      "elevation_m": 0,
+      "avg_hr": 139,
+      "max_hr": 178,
+      "aerobic_te": 3.0,
+      "anaerobic_te": 2.0,
+      "training_load": 106.925048828125,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24749918277
+    },
+    {
+      "date": "2026-10-17",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 4.02,
+      "duration_min": 21.5,
+      "elevation_m": 11.0,
+      "avg_hr": 150,
+      "max_hr": 157,
+      "aerobic_te": 2.5,
+      "anaerobic_te": 0.0,
+      "training_load": 52.35981750488281,
+      "rpe": null,
+      "body_battery_diff": -5,
+      "activity_id": 24757063797
     }
   ],
   "wellness_monthly": [
@@ -8965,14 +8997,26 @@ const trainingData = {
     },
     {
       "date": "2026-10-16",
-      "readiness_score": 64,
+      "readiness_score": 57,
       "sleep_score": 90,
       "level": "MODERATE",
       "hrv": 77,
       "hrv_weekly_avg": 78,
-      "acute_load": 555,
+      "acute_load": 691,
       "chronic_load": 513.9,
       "acwr": 1.08,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-10-17",
+      "readiness_score": 49,
+      "sleep_score": 81,
+      "level": "LOW",
+      "hrv": 78,
+      "hrv_weekly_avg": 79,
+      "acute_load": 633,
+      "chronic_load": 518.2,
+      "acwr": 1.22,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -10158,10 +10202,18 @@ const trainingData = {
     {
       "date": "2026-10-16",
       "resting_hr": 56,
-      "stress_avg": 13,
-      "body_battery_charged": 52,
-      "body_battery_drained": 3,
-      "steps": 229
+      "stress_avg": 38,
+      "body_battery_charged": 54,
+      "body_battery_drained": 77,
+      "steps": 5418
+    },
+    {
+      "date": "2026-10-17",
+      "resting_hr": 55,
+      "stress_avg": 21,
+      "body_battery_charged": 64,
+      "body_battery_drained": 18,
+      "steps": 5117
     }
   ]
 };
