@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-18",
+    "lastAutoSync": "2026-10-19",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6258,6 +6258,22 @@
       "rpe": null,
       "body_battery_diff": -8,
       "activity_id": 24767933308
+    },
+    {
+      "date": "2026-10-18",
+      "name": "Nat. piscine",
+      "type": "Natation",
+      "distance_km": 1.7,
+      "duration_min": 36.4,
+      "elevation_m": 0,
+      "avg_hr": 145,
+      "max_hr": 175,
+      "aerobic_te": 3.200000047683716,
+      "anaerobic_te": 2.0999999046325684,
+      "training_load": 131.9168243408203,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24772755269
     }
   ],
   "wellness_monthly": [
@@ -9024,14 +9040,26 @@
     },
     {
       "date": "2026-10-18",
-      "readiness_score": 53,
+      "readiness_score": 50,
       "sleep_score": 78,
       "level": "MODERATE",
       "hrv": 69,
       "hrv_weekly_avg": 79,
-      "acute_load": 578,
+      "acute_load": 746,
       "chronic_load": 520.3,
       "acwr": 1.11,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-10-19",
+      "readiness_score": 51,
+      "sleep_score": 80,
+      "level": "MODERATE",
+      "hrv": 69,
+      "hrv_weekly_avg": 75,
+      "acute_load": 619,
+      "chronic_load": 523.8,
+      "acwr": 1.18,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -10233,10 +10261,18 @@
     {
       "date": "2026-10-18",
       "resting_hr": 57,
-      "stress_avg": 22,
-      "body_battery_charged": 52,
-      "body_battery_drained": 19,
-      "steps": 7387
+      "stress_avg": 35,
+      "body_battery_charged": 67,
+      "body_battery_drained": 47,
+      "steps": 9195
+    },
+    {
+      "date": "2026-10-19",
+      "resting_hr": 55,
+      "stress_avg": 38,
+      "body_battery_charged": 43,
+      "body_battery_drained": 29,
+      "steps": 2402
     }
   ]
 }
