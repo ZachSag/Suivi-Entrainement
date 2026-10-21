@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-20",
+    "lastAutoSync": "2026-10-21",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6322,6 +6322,22 @@
       "rpe": null,
       "body_battery_diff": -1,
       "activity_id": 24783929223
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 1.4,
+      "duration_min": 11.3,
+      "elevation_m": 10.0,
+      "avg_hr": 117,
+      "max_hr": 130,
+      "aerobic_te": 0.6000000238418579,
+      "anaerobic_te": 0.0,
+      "training_load": 7.7561798095703125,
+      "rpe": null,
+      "body_battery_diff": -1,
+      "activity_id": 24797653213
     }
   ],
   "wellness_monthly": [
@@ -9112,14 +9128,26 @@
     },
     {
       "date": "2026-10-20",
-      "readiness_score": 48,
+      "readiness_score": 57,
       "sleep_score": 87,
-      "level": "LOW",
+      "level": "MODERATE",
       "hrv": 74,
       "hrv_weekly_avg": 75,
-      "acute_load": 703,
+      "acute_load": 713,
       "chronic_load": 530.2,
       "acwr": 1.33,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-10-21",
+      "readiness_score": 60,
+      "sleep_score": 87,
+      "level": "MODERATE",
+      "hrv": 70,
+      "hrv_weekly_avg": 73,
+      "acute_load": 572,
+      "chronic_load": 531.7,
+      "acwr": 1.08,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -10337,10 +10365,18 @@
     {
       "date": "2026-10-20",
       "resting_hr": 56,
-      "stress_avg": 24,
-      "body_battery_charged": 51,
-      "body_battery_drained": 13,
-      "steps": 911
+      "stress_avg": 41,
+      "body_battery_charged": 66,
+      "body_battery_drained": 63,
+      "steps": 8467
+    },
+    {
+      "date": "2026-10-21",
+      "resting_hr": 57,
+      "stress_avg": 32,
+      "body_battery_charged": 48,
+      "body_battery_drained": 29,
+      "steps": 4367
     }
   ]
 }
