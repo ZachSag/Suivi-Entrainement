@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-25",
+    "lastAutoSync": "2026-10-26",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6383,6 +6383,38 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 24819444247
+    },
+    {
+      "date": "2026-10-25",
+      "name": "Zwift - Two Bridges Loop in Watopia",
+      "type": "virtual_ride",
+      "distance_km": 15.24,
+      "duration_min": 30.3,
+      "elevation_m": 139.0,
+      "avg_hr": 114,
+      "max_hr": 136,
+      "aerobic_te": 2.0,
+      "anaerobic_te": 0.0,
+      "training_load": 26.3104248046875,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24851665148
+    },
+    {
+      "date": "2026-10-26",
+      "name": "Nat. piscine",
+      "type": "Natation",
+      "distance_km": 1.7,
+      "duration_min": 31.9,
+      "elevation_m": 0,
+      "avg_hr": 124,
+      "max_hr": 154,
+      "aerobic_te": 2.0999999046325684,
+      "anaerobic_te": 0.800000011920929,
+      "training_load": 41.64979553222656,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24858964295
     }
   ],
   "wellness_monthly": [
@@ -9233,15 +9265,27 @@ const trainingData = {
     },
     {
       "date": "2026-10-25",
-      "readiness_score": null,
-      "sleep_score": null,
-      "level": null,
-      "hrv": null,
-      "hrv_weekly_avg": null,
-      "acute_load": null,
-      "chronic_load": null,
-      "acwr": null,
-      "acwr_status": null
+      "readiness_score": 41,
+      "sleep_score": 79,
+      "level": "LOW",
+      "hrv": 77,
+      "hrv_weekly_avg": 72,
+      "acute_load": 306,
+      "chronic_load": 515.2,
+      "acwr": 0.59,
+      "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-10-26",
+      "readiness_score": 66,
+      "sleep_score": 96,
+      "level": "MODERATE",
+      "hrv": 82,
+      "hrv_weekly_avg": 74,
+      "acute_load": 276,
+      "chronic_load": 506.7,
+      "acwr": 0.54,
+      "acwr_status": "LOW"
     }
   ],
   "fitness_age_recent": [
@@ -10489,19 +10533,27 @@ const trainingData = {
     },
     {
       "date": "2026-10-24",
-      "resting_hr": 58,
-      "stress_avg": 39,
+      "resting_hr": 55,
+      "stress_avg": 42,
       "body_battery_charged": 32,
-      "body_battery_drained": 31,
-      "steps": 11096
+      "body_battery_drained": 35,
+      "steps": 17538
     },
     {
       "date": "2026-10-25",
-      "resting_hr": null,
-      "stress_avg": null,
-      "body_battery_charged": null,
-      "body_battery_drained": null,
-      "steps": null
+      "resting_hr": 53,
+      "stress_avg": 37,
+      "body_battery_charged": 85,
+      "body_battery_drained": 63,
+      "steps": 10431
+    },
+    {
+      "date": "2026-10-26",
+      "resting_hr": 54,
+      "stress_avg": 19,
+      "body_battery_charged": 73,
+      "body_battery_drained": 41,
+      "steps": 3172
     }
   ]
 };
