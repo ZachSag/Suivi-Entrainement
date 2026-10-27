@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-26",
+    "lastAutoSync": "2026-10-27",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6415,6 +6415,70 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": null,
       "activity_id": 24858964295
+    },
+    {
+      "date": "2026-10-26",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 0.81,
+      "duration_min": 4.8,
+      "elevation_m": 0,
+      "avg_hr": 137,
+      "max_hr": 145,
+      "aerobic_te": 0.699999988079071,
+      "anaerobic_te": 0.0,
+      "training_load": 9.800552368164062,
+      "rpe": null,
+      "body_battery_diff": 0,
+      "activity_id": 24862986470
+    },
+    {
+      "date": "2026-10-26",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 4.99,
+      "duration_min": 20.2,
+      "elevation_m": 43.0,
+      "avg_hr": 167,
+      "max_hr": 199,
+      "aerobic_te": 3.299999952316284,
+      "anaerobic_te": 3.200000047683716,
+      "training_load": 208.1207275390625,
+      "rpe": null,
+      "body_battery_diff": -8,
+      "activity_id": 24862837770
+    },
+    {
+      "date": "2026-10-26",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 2.79,
+      "duration_min": 16.4,
+      "elevation_m": 17.0,
+      "avg_hr": 138,
+      "max_hr": 156,
+      "aerobic_te": 2.0,
+      "anaerobic_te": 0.0,
+      "training_load": 28.863082885742188,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24862837103
+    },
+    {
+      "date": "2026-10-26",
+      "name": "Zwift - Your First Workout",
+      "type": "virtual_ride",
+      "distance_km": 10.49,
+      "duration_min": 30.1,
+      "elevation_m": 116.0,
+      "avg_hr": 122,
+      "max_hr": 138,
+      "aerobic_te": 1.2000000476837158,
+      "anaerobic_te": 0.0,
+      "training_load": 15.532363891601562,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24861329562
     }
   ],
   "wellness_monthly": [
@@ -9277,15 +9341,27 @@ const trainingData = {
     },
     {
       "date": "2026-10-26",
-      "readiness_score": 66,
+      "readiness_score": 9,
       "sleep_score": 96,
-      "level": "MODERATE",
+      "level": "POOR",
       "hrv": 82,
       "hrv_weekly_avg": 74,
-      "acute_load": 276,
+      "acute_load": 610,
       "chronic_load": 506.7,
       "acwr": 0.54,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-10-27",
+      "readiness_score": 32,
+      "sleep_score": 86,
+      "level": "LOW",
+      "hrv": 69,
+      "hrv_weekly_avg": 73,
+      "acute_load": 501,
+      "chronic_load": 506.5,
+      "acwr": 0.99,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -10550,10 +10626,18 @@ const trainingData = {
     {
       "date": "2026-10-26",
       "resting_hr": 54,
-      "stress_avg": 19,
-      "body_battery_charged": 73,
-      "body_battery_drained": 41,
-      "steps": 3172
+      "stress_avg": 31,
+      "body_battery_charged": 90,
+      "body_battery_drained": 82,
+      "steps": 15817
+    },
+    {
+      "date": "2026-10-27",
+      "resting_hr": 55,
+      "stress_avg": 30,
+      "body_battery_charged": 42,
+      "body_battery_drained": 21,
+      "steps": 2092
     }
   ]
 };
