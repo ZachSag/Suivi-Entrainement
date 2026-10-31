@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-30",
+    "lastAutoSync": "2026-10-31",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6559,6 +6559,38 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -2,
       "activity_id": 24898935967
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Zwift - 2x30 FTP Intervals",
+      "type": "virtual_ride",
+      "distance_km": 44.51,
+      "duration_min": 100.4,
+      "elevation_m": 432.0,
+      "avg_hr": 125,
+      "max_hr": 145,
+      "aerobic_te": 2.700000047683716,
+      "anaerobic_te": 0.0,
+      "training_load": 64.37922668457031,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24909253186
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 2.54,
+      "duration_min": 14.7,
+      "elevation_m": 24.0,
+      "avg_hr": 149,
+      "max_hr": 171,
+      "aerobic_te": 2.0999999046325684,
+      "anaerobic_te": 0.0,
+      "training_load": 33.59727478027344,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24908303559
     }
   ],
   "wellness_monthly": [
@@ -9469,14 +9501,26 @@ const trainingData = {
     },
     {
       "date": "2026-10-30",
-      "readiness_score": 54,
+      "readiness_score": 52,
       "sleep_score": 84,
       "level": "MODERATE",
       "hrv": 69,
       "hrv_weekly_avg": 72,
-      "acute_load": 460,
+      "acute_load": 503,
       "chronic_load": 498.3,
       "acwr": 0.92,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-10-31",
+      "readiness_score": 33,
+      "sleep_score": 62,
+      "level": "LOW",
+      "hrv": 56,
+      "hrv_weekly_avg": 72,
+      "acute_load": 496,
+      "chronic_load": 498.2,
+      "acwr": 1.0,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -10774,10 +10818,18 @@ const trainingData = {
     {
       "date": "2026-10-30",
       "resting_hr": 56,
-      "stress_avg": 23,
+      "stress_avg": 49,
       "body_battery_charged": 53,
-      "body_battery_drained": 17,
-      "steps": 760
+      "body_battery_drained": 77,
+      "steps": 7274
+    },
+    {
+      "date": "2026-10-31",
+      "resting_hr": 57,
+      "stress_avg": 35,
+      "body_battery_charged": 35,
+      "body_battery_drained": 15,
+      "steps": 5256
     }
   ]
 };
