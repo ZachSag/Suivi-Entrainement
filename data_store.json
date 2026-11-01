@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-10-31",
+    "lastAutoSync": "2026-11-01",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6578,6 +6578,22 @@
       "rpe": null,
       "body_battery_diff": -2,
       "activity_id": 24908303559
+    },
+    {
+      "date": "2026-10-31",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 2.95,
+      "duration_min": 16.4,
+      "elevation_m": 20.0,
+      "avg_hr": 153,
+      "max_hr": 187,
+      "aerobic_te": 2.4000000953674316,
+      "anaerobic_te": 0.0,
+      "training_load": 48.96173095703125,
+      "rpe": null,
+      "body_battery_diff": -2,
+      "activity_id": 24921528132
     }
   ],
   "wellness_monthly": [
@@ -9500,14 +9516,26 @@
     },
     {
       "date": "2026-10-31",
-      "readiness_score": 33,
+      "readiness_score": 25,
       "sleep_score": 62,
       "level": "LOW",
       "hrv": 56,
       "hrv_weekly_avg": 72,
-      "acute_load": 496,
+      "acute_load": 558,
       "chronic_load": 498.2,
       "acwr": 1.0,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-11-01",
+      "readiness_score": 61,
+      "sleep_score": 92,
+      "level": "MODERATE",
+      "hrv": 80,
+      "hrv_weekly_avg": 72,
+      "acute_load": 469,
+      "chronic_load": 497.2,
+      "acwr": 0.94,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -10813,10 +10841,18 @@
     {
       "date": "2026-10-31",
       "resting_hr": 57,
-      "stress_avg": 35,
-      "body_battery_charged": 35,
-      "body_battery_drained": 15,
-      "steps": 5256
+      "stress_avg": 38,
+      "body_battery_charged": 44,
+      "body_battery_drained": 35,
+      "steps": 13136
+    },
+    {
+      "date": "2026-11-01",
+      "resting_hr": 54,
+      "stress_avg": 9,
+      "body_battery_charged": 86,
+      "body_battery_drained": 0,
+      "steps": 89
     }
   ]
 }
