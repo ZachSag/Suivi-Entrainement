@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-11-01",
+    "lastAutoSync": "2026-11-02",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6607,6 +6607,38 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -2,
       "activity_id": 24921528132
+    },
+    {
+      "date": "2026-11-01",
+      "name": "Nat. piscine",
+      "type": "Natation",
+      "distance_km": 1.48,
+      "duration_min": 30.2,
+      "elevation_m": 0,
+      "avg_hr": 128,
+      "max_hr": 161,
+      "aerobic_te": 2.200000047683716,
+      "anaerobic_te": 0.800000011920929,
+      "training_load": 50.45423889160156,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24933764691
+    },
+    {
+      "date": "2026-11-01",
+      "name": "Zwift - Elevate and Escalate",
+      "type": "virtual_ride",
+      "distance_km": 12.41,
+      "duration_min": 35.4,
+      "elevation_m": 224.0,
+      "avg_hr": 128,
+      "max_hr": 143,
+      "aerobic_te": 1.7000000476837158,
+      "anaerobic_te": 0.0,
+      "training_load": 21.760498046875,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24932956299
     }
   ],
   "wellness_monthly": [
@@ -9541,13 +9573,25 @@ const trainingData = {
     },
     {
       "date": "2026-11-01",
-      "readiness_score": 61,
+      "readiness_score": 50,
       "sleep_score": 92,
       "level": "MODERATE",
       "hrv": 80,
       "hrv_weekly_avg": 72,
-      "acute_load": 469,
+      "acute_load": 561,
       "chronic_load": 497.2,
+      "acwr": 0.94,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-11-02",
+      "readiness_score": 63,
+      "sleep_score": 92,
+      "level": "MODERATE",
+      "hrv": 78,
+      "hrv_weekly_avg": 71,
+      "acute_load": 468,
+      "chronic_load": 496.2,
       "acwr": 0.94,
       "acwr_status": "OPTIMAL"
     }
@@ -10862,10 +10906,18 @@ const trainingData = {
     {
       "date": "2026-11-01",
       "resting_hr": 54,
-      "stress_avg": 9,
-      "body_battery_charged": 86,
-      "body_battery_drained": 0,
-      "steps": 89
+      "stress_avg": 33,
+      "body_battery_charged": 102,
+      "body_battery_drained": 83,
+      "steps": 5584
+    },
+    {
+      "date": "2026-11-02",
+      "resting_hr": 54,
+      "stress_avg": 40,
+      "body_battery_charged": 54,
+      "body_battery_drained": 56,
+      "steps": 4908
     }
   ]
 };
