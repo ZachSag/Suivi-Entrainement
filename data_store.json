@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-11-05",
+    "lastAutoSync": "2026-11-06",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6706,6 +6706,22 @@
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 24969330301
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Zwift - Easy Miles Reset",
+      "type": "virtual_ride",
+      "distance_km": 33.71,
+      "duration_min": 90.1,
+      "elevation_m": 136.0,
+      "avg_hr": 102,
+      "max_hr": 121,
+      "aerobic_te": 1.5,
+      "anaerobic_te": 0.0,
+      "training_load": 20.045135498046875,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 24981066842
     }
   ],
   "wellness_monthly": [
@@ -9688,14 +9704,26 @@
     },
     {
       "date": "2026-11-05",
-      "readiness_score": 64,
+      "readiness_score": 62,
       "sleep_score": 74,
       "level": "MODERATE",
       "hrv": 66,
       "hrv_weekly_avg": 70,
-      "acute_load": 337,
+      "acute_load": 363,
       "chronic_load": 486.8,
       "acwr": 0.69,
+      "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-11-06",
+      "readiness_score": 77,
+      "sleep_score": 96,
+      "level": "HIGH",
+      "hrv": 71,
+      "hrv_weekly_avg": 70,
+      "acute_load": 291,
+      "chronic_load": 479.8,
+      "acwr": 0.61,
       "acwr_status": "LOW"
     }
   ],
@@ -11041,10 +11069,18 @@
     {
       "date": "2026-11-05",
       "resting_hr": 58,
-      "stress_avg": 23,
-      "body_battery_charged": 47,
-      "body_battery_drained": 12,
-      "steps": 962
+      "stress_avg": 39,
+      "body_battery_charged": 83,
+      "body_battery_drained": 67,
+      "steps": 9476
+    },
+    {
+      "date": "2026-11-06",
+      "resting_hr": 55,
+      "stress_avg": 27,
+      "body_battery_charged": 51,
+      "body_battery_drained": 37,
+      "steps": 3247
     }
   ]
 }
