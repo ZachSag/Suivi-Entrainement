@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-11-08",
+    "lastAutoSync": "2026-11-09",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6818,6 +6818,38 @@
       "rpe": null,
       "body_battery_diff": -4,
       "activity_id": 25011703807
+    },
+    {
+      "date": "2026-11-08",
+      "name": "Nat. piscine",
+      "type": "Natation",
+      "distance_km": 1.62,
+      "duration_min": 32.5,
+      "elevation_m": 0,
+      "avg_hr": 141,
+      "max_hr": 172,
+      "aerobic_te": 3.0,
+      "anaerobic_te": 1.2999999523162842,
+      "training_load": 90.9423828125,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 25013960693
+    },
+    {
+      "date": "2026-11-08",
+      "name": "Saguenay Course à pied",
+      "type": "Course à pied",
+      "distance_km": 3.0,
+      "duration_min": 17.2,
+      "elevation_m": 3.0,
+      "avg_hr": 147,
+      "max_hr": 157,
+      "aerobic_te": 2.200000047683716,
+      "anaerobic_te": 0.0,
+      "training_load": 34.770294189453125,
+      "rpe": null,
+      "body_battery_diff": -3,
+      "activity_id": 25012930840
     }
   ],
   "wellness_monthly": [
@@ -9836,15 +9868,27 @@
     },
     {
       "date": "2026-11-08",
-      "readiness_score": 80,
+      "readiness_score": 64,
       "sleep_score": 88,
-      "level": "HIGH",
+      "level": "MODERATE",
       "hrv": 71,
       "hrv_weekly_avg": 72,
-      "acute_load": 332,
+      "acute_load": 492,
       "chronic_load": 468.5,
       "acwr": 0.71,
       "acwr_status": "LOW"
+    },
+    {
+      "date": "2026-11-09",
+      "readiness_score": 53,
+      "sleep_score": 80,
+      "level": "MODERATE",
+      "hrv": 54,
+      "hrv_weekly_avg": 68,
+      "acute_load": 407,
+      "chronic_load": 466.3,
+      "acwr": 0.87,
+      "acwr_status": "OPTIMAL"
     }
   ],
   "fitness_age_recent": [
@@ -11213,10 +11257,18 @@
     {
       "date": "2026-11-08",
       "resting_hr": 57,
-      "stress_avg": 12,
-      "body_battery_charged": 54,
-      "body_battery_drained": 0,
-      "steps": 75
+      "stress_avg": 36,
+      "body_battery_charged": 75,
+      "body_battery_drained": 78,
+      "steps": 15360
+    },
+    {
+      "date": "2026-11-09",
+      "resting_hr": 58,
+      "stress_avg": 35,
+      "body_battery_charged": 36,
+      "body_battery_drained": 24,
+      "steps": 3226
     }
   ]
 }
