@@ -15,7 +15,7 @@ const trainingData = {
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-11-10",
+    "lastAutoSync": "2026-11-11",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -6911,6 +6911,38 @@ const trainingData = {
       "rpe": null,
       "body_battery_diff": -3,
       "activity_id": 25025441419
+    },
+    {
+      "date": "2026-11-10",
+      "name": "Musculation",
+      "type": "Entraînement aux poids",
+      "distance_km": 0.0,
+      "duration_min": 74.6,
+      "elevation_m": 0,
+      "avg_hr": 113,
+      "max_hr": 165,
+      "aerobic_te": 1.2999999523162842,
+      "anaerobic_te": 0.6000000238418579,
+      "training_load": 23.820480346679688,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 25038060196
+    },
+    {
+      "date": "2026-11-10",
+      "name": "Zwift - Anaerobic Hammer Session",
+      "type": "virtual_ride",
+      "distance_km": 15.65,
+      "duration_min": 45.0,
+      "elevation_m": 128.0,
+      "avg_hr": 115,
+      "max_hr": 147,
+      "aerobic_te": 1.899999976158142,
+      "anaerobic_te": 0.0,
+      "training_load": 24.833206176757812,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 25037015297
     }
   ],
   "wellness_monthly": [
@@ -9953,14 +9985,26 @@ const trainingData = {
     },
     {
       "date": "2026-11-10",
-      "readiness_score": 65,
+      "readiness_score": 69,
       "sleep_score": 100,
       "level": "MODERATE",
       "hrv": 71,
       "hrv_weekly_avg": 69,
-      "acute_load": 509,
+      "acute_load": 571,
       "chronic_load": 467.8,
       "acwr": 1.09,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-11-11",
+      "readiness_score": 77,
+      "sleep_score": 91,
+      "level": "HIGH",
+      "hrv": 68,
+      "hrv_weekly_avg": 68,
+      "acute_load": 479,
+      "chronic_load": 468.2,
+      "acwr": 1.02,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -11346,10 +11390,18 @@ const trainingData = {
     {
       "date": "2026-11-10",
       "resting_hr": 53,
-      "stress_avg": 18,
-      "body_battery_charged": 59,
-      "body_battery_drained": 19,
-      "steps": 1191
+      "stress_avg": 36,
+      "body_battery_charged": 81,
+      "body_battery_drained": 83,
+      "steps": 11593
+    },
+    {
+      "date": "2026-11-11",
+      "resting_hr": 55,
+      "stress_avg": 29,
+      "body_battery_charged": 54,
+      "body_battery_drained": 42,
+      "steps": 3894
     }
   ]
 };
