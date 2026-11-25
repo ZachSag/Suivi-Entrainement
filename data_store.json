@@ -2,7 +2,7 @@
   "meta": {
     "athlete": "Zachary Desbiens",
     "lastUpdated": "2026-08-03",
-    "lastAutoSync": "2026-11-24",
+    "lastAutoSync": "2026-11-25",
     "note": "Source de vérité JSON. data.js est généré à partir de ce fichier par scripts/build_data_js.py — ne pas éditer data.js directement."
   },
   "strava_history": [
@@ -7234,6 +7234,38 @@
       "rpe": null,
       "body_battery_diff": 0,
       "activity_id": 25178609903
+    },
+    {
+      "date": "2026-11-24",
+      "name": "Musculation",
+      "type": "Entraînement aux poids",
+      "distance_km": 0.0,
+      "duration_min": 36.7,
+      "elevation_m": 0,
+      "avg_hr": 124,
+      "max_hr": 163,
+      "aerobic_te": 1.899999976158142,
+      "anaerobic_te": 0.5,
+      "training_load": 31.559036254882812,
+      "rpe": null,
+      "body_battery_diff": -4,
+      "activity_id": 25190249658
+    },
+    {
+      "date": "2026-11-24",
+      "name": "Zwift - FTP Ramp Test [Lite]",
+      "type": "virtual_ride",
+      "distance_km": 19.26,
+      "duration_min": 45.4,
+      "elevation_m": 80.0,
+      "avg_hr": 122,
+      "max_hr": 171,
+      "aerobic_te": 2.4000000953674316,
+      "anaerobic_te": 0.0,
+      "training_load": 46.98194885253906,
+      "rpe": null,
+      "body_battery_diff": null,
+      "activity_id": 25189698203
     }
   ],
   "wellness_monthly": [
@@ -10444,14 +10476,26 @@
     },
     {
       "date": "2026-11-24",
-      "readiness_score": 56,
+      "readiness_score": 66,
       "sleep_score": 88,
       "level": "MODERATE",
       "hrv": 69,
       "hrv_weekly_avg": 69,
-      "acute_load": 565,
+      "acute_load": 665,
       "chronic_load": 487.8,
       "acwr": 1.16,
+      "acwr_status": "OPTIMAL"
+    },
+    {
+      "date": "2026-11-25",
+      "readiness_score": 78,
+      "sleep_score": 97,
+      "level": "HIGH",
+      "hrv": 77,
+      "hrv_weekly_avg": 70,
+      "acute_load": 540,
+      "chronic_load": 489.7,
+      "acwr": 1.1,
       "acwr_status": "OPTIMAL"
     }
   ],
@@ -11949,10 +11993,18 @@
     {
       "date": "2026-11-24",
       "resting_hr": 54,
-      "stress_avg": 28,
-      "body_battery_charged": 54,
-      "body_battery_drained": 44,
-      "steps": 5602
+      "stress_avg": 30,
+      "body_battery_charged": 84,
+      "body_battery_drained": 66,
+      "steps": 7382
+    },
+    {
+      "date": "2026-11-25",
+      "resting_hr": 53,
+      "stress_avg": 24,
+      "body_battery_charged": 51,
+      "body_battery_drained": 40,
+      "steps": 2052
     }
   ]
 }
